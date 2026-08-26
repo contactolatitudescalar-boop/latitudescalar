@@ -1,1 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quién es la persona detrás de la máquina — Latitud Escalar</title>
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: rgba(22, 30, 49, 0.75);
+      --accent-color: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.35);
+      --purple-accent: #a855f7;
+      --text-color: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-color);
+      line-height: 1.8;
+      padding: 60px 20px;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px 0 40px 0;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      line-height: 1.3;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff 0%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 45px;
+      margin-bottom: 40px;
+      box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      margin-bottom: 20px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: var(--accent-color);
+    }
+
+    .mission-box {
+      background: rgba(15, 23, 42, 0.6);
+      border-left: 4px solid var(--accent-color);
+      padding: 25px;
+      border-radius: 0 12px 12px 0;
+      margin: 30px 0;
+    }
+
+    .mission-box h3 {
+      color: var(--accent-color);
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    .mission-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mission-list li {
+      position: relative;
+      padding-left: 20px;
+      color: #cbd5e1;
+    }
+
+    .mission-list li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+    }
+
+    .back-btn-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .btn-back {
+      display: inline-block;
+      background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    }
+
+    .btn-back:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 30px 12px; }
+      h1 { font-size: 2rem; }
+      .card { padding: 25px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>¿Quién es la persona detrás de la máquina?</h1>
+    </header>
+
+    <section class="card">
+      <p>
+        Mi nombre es <strong>Laura</strong> y soy facilitadora en tecnología escalar. Mi camino con la energía escalar comenzó hace varios años, cuando enfrentaba problemas crónicos de ansiedad, sueño y agotamiento que ningún enfoque convencional lograba resolver.
+      </p>
+
+      <p>
+        Descubrí la <strong>Máquina de Alta Frecuencia</strong> durante una investigación personal sobre terapias bioenergéticas y lo que comenzó como una curiosidad científica se convirtió en una transformación personal cuando, después de mis primeras sesiones, noté cambios profundos en mi calidad de sueño, mis niveles de energía y mi bienestar general.
+      </p>
+
+      <p>
+        Lo que más me impactó fue descubrir que esta tecnología podía aplicarse de forma remota —eliminando barreras de distancia y haciendo que el bienestar energético fuera accesible para cualquier persona, sin importar dónde se encuentre.
+      </p>
+
+      <div class="mission-box">
+        <h3>Decidí democratizar esta tecnología ofreciendo 7 días de sesiones gratuitas porque creo firmemente que:</h3>
+        <ul class="mission-list">
+          <li>La salud energética no debería ser un privilegio.</li>
+          <li>Las personas merecen experimentar por sí mismas antes de comprometerse.</li>
+          <li>La evidencia personal es más poderosa que cualquier promesa.</li>
+        </ul>
+      </div>
+
+      <p style="text-align: center; font-weight: 600; color: #ffffff; margin-top: 25px;">
+        Mi misión es hacer que esta tecnología de vanguardia sea accesible, comprensible y transparente para todos.
+      </p>
+    </section>
+
+    <div class="back-btn-container">
+      <a href="index.html" class="btn-back">← Volver al inicio y activar mis 7 días</a>
+    </div>
+  </div>
+
+</body>
+</html>
