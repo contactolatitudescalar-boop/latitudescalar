@@ -30,7 +30,7 @@
       background-attachment: fixed;
       color: var(--text-color);
       line-height: 1.8;
-      padding: 40px 20px 60px 20px;
+      padding: 20px 20px 60px 20px;
     }
 
     .container {
@@ -38,29 +38,49 @@
       margin: 0 auto;
     }
 
-    /* MENÚ SUPERIOR INTERNO */
-    .top-nav {
+    /* MENÚ SUPERIOR IDÉNTICO AL INDEX */
+    header.top-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 40px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 15px 0 35px 0;
     }
 
-    .top-nav a {
+    header.top-header a.logo {
       color: var(--text-color);
+      font-weight: 700;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      letter-spacing: -0.5px;
     }
 
-    .back-home {
-      color: var(--accent-color) !important;
-      font-size: 0.9rem !important;
+    header.top-header nav {
+      display: flex;
+      gap: 10px;
     }
 
-    header {
+    header.top-header nav a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+
+    .nav-tech {
+      color: var(--accent-color);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .nav-operator {
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header.page-header {
       text-align: center;
       margin-bottom: 40px;
     }
@@ -162,22 +182,26 @@
     }
 
     @media (max-width: 600px) {
-      body { padding: 20px 12px; }
+      body { padding: 15px 12px 40px 12px; }
       h1 { font-size: 1.8rem; }
       .card { padding: 25px 20px; }
+      header.top-header nav a { padding: 6px 10px; font-size: 0.8rem; }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <!-- MENÚ SUPERIOR INTERNO -->
-    <div class="top-nav">
-      <a href="index.html">Latitud Escalar</a>
-      <a href="index.html" class="back-home">← Volver al inicio</a>
-    </div>
+    <!-- MENÚ SUPERIOR -->
+    <header class="top-header">
+      <a href="index.html" class="logo">Latitud Escalar</a>
+      <nav>
+        <a href="como-funciona.html" class="nav-tech">¿Cómo Funciona?</a>
+        <a href="sobre-mi.html" class="nav-operator">La Operadora</a>
+      </nav>
+    </header>
 
-    <header>
+    <header class="page-header">
       <h1>Explicación Simplificada de la Tecnología</h1>
       <p class="subtitle">Para mentes curiosas y escépticas: la base física y científica detrás del proceso</p>
     </header>
@@ -232,8 +256,9 @@
       </ul>
     </section>
 
+    <!-- BOTÓN INFERIOR UNIFICADO -->
     <div class="back-btn-container">
-      <a href="index.html" class="btn-back">Quiero probar mis 7 días gratis</a>
+      <a href="index.html" class="btn-back">← Volver al inicio</a>
     </div>
   </div>
 
