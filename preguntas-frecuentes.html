@@ -1,1 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preguntas Frecuentes — Latitud Escalar</title>
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: rgba(22, 30, 49, 0.75);
+      --accent-color: #38bdf8;
+      --text-color: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-color);
+      line-height: 1.7;
+      padding: 20px 20px 60px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* MENÚ SUPERIOR MINIMALISTA */
+    header.top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0 30px 0;
+    }
+
+    header.top-header a.logo {
+      color: var(--text-color);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.05rem;
+      letter-spacing: -0.5px;
+    }
+
+    header.top-header nav {
+      display: flex;
+      gap: 8px;
+    }
+
+    header.top-header nav a {
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 16px;
+      transition: all 0.2s;
+    }
+
+    .nav-faq {
+      color: var(--accent-color);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    .nav-normal {
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    header.page-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff 0%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+    }
+
+    /* ESTILO DE ACORDEÓN */
+    .faq-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    details {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 18px 22px;
+      transition: border-color 0.2s ease;
+    }
+
+    details[open] {
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    summary {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      font-size: 1.3rem;
+      color: var(--accent-color);
+      font-weight: 400;
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-content {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    .faq-content p {
+      margin-bottom: 10px;
+    }
+
+    .back-btn-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .btn-back {
+      display: inline-block;
+      background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 12px 10px 40px 10px; }
+      h1 { font-size: 1.6rem; }
+      header.top-header nav a { padding: 5px 8px; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- MENÚ SUPERIOR -->
+    <header class="top-header">
+      <a href="./index.html" class="logo">Latitud Escalar</a>
+      <nav>
+        <a href="./como-funciona.html" class="nav-normal">¿Cómo Funciona?</a>
+        <a href="./sobre-mi.html" class="nav-normal">La Operadora</a>
+        <a href="./preguntas-frecuentes.html" class="nav-faq">FAQ</a>
+      </nav>
+    </header>
+
+    <header class="page-header">
+      <h1>Preguntas Frecuentes</h1>
+      <p class="subtitle">Respuestas directas para mentes escépticas y curiosas</p>
+    </header>
+
+    <!-- LISTA DE ACORDEONES FAQ -->
+    <div class="faq-container">
+
+      <details>
+        <summary>¿Esto es una terapia alternativa, reiki o algo espiritual?</summary>
+        <div class="faq-content">
+          <p>No. No es fe, no es meditación, no es espiritualidad. Es energía física en estado neutro.</p>
+          <p>La máquina de Alta Frecuencia genera una perturbación física que obliga a tu propio sistema a buscar el equilibrio y ordenar el caos de manera mecánica.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Qué pasa si por error escucho un podcast de autoayuda o voy al psicólogo durante los 7 días?</summary>
+        <div class="faq-content">
+          <p>La regla de no mezclar no es por capricho, es por física. Si mezclas estímulos, no sabrás qué ordenó tu caos (si la máquina, el libro o la terapia) y la energía se dispersará.</p>
+          <p>Te pedimos solo 7 días de silencio. Si no podés cumplirlo, te sugerimos activar la prueba en otro momento.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Puedo anotar a un familiar, a mi pareja o a un amigo?</summary>
+        <div class="faq-content">
+          <p>La energía escalar trabaja de forma óptima bajo la ley del libre albedrío y la aceptación. Para la prueba de 7 días gratuitos, el registro debe ser personal, ya que la persona debe comprometerse conscientemente a cumplir la regla del "silencio energético" para que el mecanismo no tenga interferencias.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Voy a sentir alguna molestia física?</summary>
+        <div class="faq-content">
+          <p>La energía escalar es una energía sutil y fría. La gran mayoría de las personas no siente ninguna molestia física; al contrario, suelen reportar un alivio inmediato en el insomnio o una sensación de "peso menos" en el pecho.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Esto reemplaza mi tratamiento médico?</summary>
+        <div class="faq-content">
+          <p>Absolutamente no. Latitud Escalar es un soporte de ordenamiento energético, no una cura ni un reemplazo para la medicina convencional o el tratamiento psicológico. Si estás bajo tratamiento, este mecanismo actúa como un sostén energético complementario para tu cuerpo.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Qué pasa cuando terminan los 7 días de prueba?</summary>
+        <div class="faq-content">
+          <p>Al finalizar el séptimo día, el flujo gratuito se detiene. Si sentís que tu caos se empezó a ordenar y querés profundizar el proceso, vas a recibir una invitación en tu correo para extender el ordenamiento a 21 días.</p>
+          <p>Si decidís no continuar, no pasa nada. No hay llamadas de ventas ni presiones. La puerta queda abierta.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>¿Tengo que hacer algo durante la sesión?</summary>
+        <div class="faq-content">
+          <p>Absolutamente nada. Las sesiones son completamente pasivas:</p>
+          <p>• Continúa con tus actividades normales.<br>• Puedes estar trabajando, durmiendo, comiendo o haciendo ejercicio.<br>• Tu ubicación es irrelevante.<br>• No necesitas estar consciente ni enfocado.</p>
+        </div>
+      </details>
+
+    </div>
+
+    <!-- BOTÓN INFERIOR -->
+    <div class="back-btn-container">
+      <a href="./index.html" class="btn-back">← Volver al inicio</a>
+    </div>
+  </div>
+
+</body>
+</html>
