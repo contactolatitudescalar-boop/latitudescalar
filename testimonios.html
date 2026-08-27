@@ -1,1 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonios — Oasis Mental</title>
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: rgba(22, 30, 49, 0.75);
+      --accent-color: #38bdf8;
+      --text-color: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-color);
+      line-height: 1.8;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* MENÚ SUPERIOR */
+    header.nav-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0 30px 0;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      color: var(--text-color);
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.05rem;
+      letter-spacing: -0.5px;
+    }
+
+    nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 5px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.2s;
+    }
+
+    nav a.active {
+      color: var(--accent-color);
+      border-color: rgba(56, 189, 248, 0.4);
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    /* ENCABEZADO DE SECCIÓN */
+    .section-header {
+      text-align: center;
+      padding: 30px 0 40px 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff 0%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* CONTENEDOR DE TESTIMONIOS (IMÁGENES) */
+    .testimonials-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 20px;
+      width: 100%;
+      max-width: 550px; /* Ancho ideal para lucir las tarjetas elegantes */
+      box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .testimonial-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* CAJA DE LLAMADO A LA ACCIÓN INFERIOR */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(168, 85, 247, 0.08) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .cta-box h3 {
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+      color: #0f172a;
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-decoration: none;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+      transition: transform 0.2s;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.03);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- MENÚ SUPERIOR -->
+    <header class="nav-header">
+      <a href="./index.html" class="brand-logo">Latitud Escalar</a>
+      <nav>
+        <a href="./como-funciona.html">¿Cómo Funciona?</a>
+        <a href="./sobre-mi.html">La Operadora</a>
+        <a href="./testimonios.html" class="active">Testimonios</a>
+        <a href="./preguntas-frecuentes.html">FAQ</a>
+      </nav>
+    </header>
+
+    <!-- ENCABEZADO -->
+    <section class="section-header">
+      <h1>Historias reales</h1>
+      <p class="subtitle">Así es como la perturbación energética actúa en diferentes tipos de caos. Sin esfuerzo, sin terapia, solo resultados.</p>
+    </section>
+
+    <!-- GALERÍA DE TESTIMONIOS (8 IMÁGENES) -->
+    <div class="testimonials-grid">
+      
+      <div class="testimonial-card">
+        <img src="testimonio1.png" alt="Testimonio Oasis Mental 1">
+      </div>
+
+      <div class="testimonial-card">
+        <img src="testimonio2.png" alt="Testimonio Oasis Mental 2">
+      </div>
+
+      <div class="testimonial-card">
+        <img src="testimonio3.png" alt="Testimonio Oasis Mental 3">
+      </div>
+
+      <div class="testimonial-card">
+        <img src="testimonio4.png" alt="Testimonio Oasis Mental 4">
+      </div>
+
+      <div class="testimonial-card">
+        <img src="testimonio5.png" alt="Testimonio Oasis Mental 5">
+      </div>
+
+      <div class="testimonial-card">
+        <img src="testimonio6.png" alt="Testimonio Oasis Mental 6">
+      </div>
+
+      <div class="testimonial-card">
+        <img src="testimonio7.png" alt="Testimonio Oasis Mental 7">
+      </div>
+
+      <div class="testimonial-card">
+        <img src="testimonio8.png" alt="Testimonio Oasis Mental 8">
+      </div>
+
+    </div>
+
+    <!-- BLOQUE FINAL DE LLAMADO A LA ACCIÓN -->
+    <div class="cta-box">
+      <h3>¿Listo para ordenar tu propio caos?</h3>
+      <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto;">No necesitas creer ciegamente en nada. Comprueba por ti mismo cómo trabaja la energía escalar durante 7 días totalmente gratis.</p>
+      <a href="./index.html#registro" class="cta-btn">Activa tus 7 días gratis ⚡</a>
+    </div>
+
+    <footer>
+      <p>© 2026 Latitud Escalar. Todos los derechos reservados.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
