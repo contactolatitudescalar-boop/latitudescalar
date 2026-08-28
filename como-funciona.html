@@ -30,7 +30,7 @@
       background-attachment: fixed;
       color: var(--text-color);
       line-height: 1.8;
-      padding: 20px 20px 60px 20px;
+      padding: 20px 15px 60px 15px;
     }
 
     .container {
@@ -38,52 +38,59 @@
       margin: 0 auto;
     }
 
-    /* MENÚ SUPERIOR CORREGIDO Y ALINEADO A LA DERECHA */
+    /* MENÚ SUPERIOR ADAPTADO Y LIMPIO */
     .top-nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 0 35px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      margin-bottom: 30px;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 35px;
+      gap: 15px;
     }
 
     .brand-logo {
       color: #ffffff;
       font-weight: 700;
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       letter-spacing: -0.3px;
       white-space: nowrap;
     }
 
     .brand-logo:hover {
-      color: #38bdf8;
+      color: var(--accent-color);
     }
 
     .nav-links {
       display: flex;
-      gap: 12px;
+      gap: 8px;
       align-items: center;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      max-width: 100%;
+      scrollbar-width: none; /* Ocultar barra en Firefox */
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none; /* Ocultar barra en Chrome/Safari */
     }
 
     .nav-links a {
-      color: #94a3b8;
+      color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 500;
       background: rgba(255, 255, 255, 0.03);
-      padding: 6px 12px;
+      padding: 6px 10px;
       border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: all 0.2s ease;
       white-space: nowrap;
+      transition: all 0.2s ease;
     }
 
-    .nav-links a:hover {
-      color: #38bdf8;
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent-color);
       border-color: rgba(56, 189, 248, 0.3);
       background: rgba(56, 189, 248, 0.05);
     }
@@ -189,19 +196,9 @@
       box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
     }
 
-    @media (max-width: 768px) {
-      body { padding: 15px 12px 40px 12px; }
-      h1 { font-size: 1.8rem; }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.7rem; }
       .card { padding: 25px 20px; }
-      .top-nav-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-        text-align: center;
-      }
-      .nav-links {
-        justify-content: center;
-      }
     }
   </style>
 </head>
@@ -209,13 +206,13 @@
 
   <div class="container">
 
-    <!-- MENÚ SUPERIOR CORREGIDO -->
+    <!-- MENÚ SUPERIOR EN UNA SOLA LÍNEA DESLIZABLE -->
     <header class="top-nav-container">
       <a href="./index.html" class="brand-logo">
         Latitud Escalar
       </a>
       <nav class="nav-links">
-        <a href="./como-funciona.html">¿Cómo Funciona?</a>
+        <a href="./como-funciona.html" class="active">¿Cómo Funciona?</a>
         <a href="./servicios.html">Servicios</a>
         <a href="./sobre-mi.html">La Operadora</a>
         <a href="./testimonios.html">Testimonios</a>
