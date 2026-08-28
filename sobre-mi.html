@@ -11,6 +11,7 @@
       --accent-color: #38bdf8;
       --accent-glow: rgba(56, 189, 248, 0.35);
       --purple-accent: #a855f7;
+      --orange-accent: #fb923c;
       --text-color: #f1f5f9;
       --text-muted: #94a3b8;
     }
@@ -38,46 +39,42 @@
       margin: 0 auto;
     }
 
-    /* MENÚ SUPERIOR UNIFICADO Y ALINEADO */
-    header.top-header {
+    /* MENÚ SUPERIOR MINIMALISTA */
+    header.top-nav-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 0 35px 0;
+      padding: 15px 0 25px 0;
     }
 
-    header.top-header a.logo {
+    header.top-nav-header a.logo {
       color: var(--text-color);
       font-weight: 700;
       text-decoration: none;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       letter-spacing: -0.5px;
     }
 
-    header.top-header nav {
+    header.top-nav-header nav {
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
 
-    header.top-header nav a {
+    header.top-nav-header nav a {
+      color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       font-weight: 500;
-      padding: 8px 14px;
-      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 6px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       transition: all 0.2s;
     }
 
-    .nav-tech {
-      color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-operator {
+    header.top-nav-header nav a:hover {
       color: var(--accent-color);
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-color: rgba(56, 189, 248, 0.3);
     }
 
     header.page-header {
@@ -141,6 +138,27 @@
       color: #ffffff;
     }
 
+    .quote-box {
+      margin-top: 25px;
+      padding: 20px 25px;
+      border-left: 4px solid var(--orange-accent);
+      background: rgba(251, 146, 60, 0.05);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .quote-box p {
+      color: #e2e8f0;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .quote-author {
+      font-size: 0.95rem;
+      color: var(--orange-accent);
+      font-weight: 600;
+      text-align: right;
+    }
+
     .back-btn-container {
       text-align: center;
       margin-top: 40px;
@@ -168,7 +186,7 @@
       body { padding: 15px 12px 40px 12px; }
       h1 { font-size: 1.8rem; }
       .card { padding: 25px 20px; }
-      header.top-header nav a { padding: 6px 10px; font-size: 0.8rem; }
+      header.top-nav-header nav a { padding: 6px 10px; font-size: 0.8rem; }
     }
   </style>
 </head>
@@ -176,34 +194,44 @@
 
   <div class="container">
     
-    <!-- MENÚ SUPERIOR MINIMALISTA -->
-  <header style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 0 25px 0;">
-    <a href="./index.html" style="color: var(--text-color); font-weight: 700; text-decoration: none; font-size: 1.05rem; letter-spacing: -0.5px;">
-      Latitud Escalar
-    </a>
-    <nav style="display: flex; gap: 8px;">
-      <a href="./como-funciona.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; background: rgba(255, 255, 255, 0.04); padding: 6px 12px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s;">
-        ¿Cómo Funciona?
+    <!-- MENÚ SUPERIOR -->
+    <header class="top-nav-header">
+      <a href="./index.html" class="logo">
+        Latitud Escalar
       </a>
-      <a href="./sobre-mi.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; background: rgba(255, 255, 255, 0.04); padding: 6px 12px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s;">
-        La Operadora
-      </a>
-      <a href="./preguntas-frecuentes.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.82rem; font-weight: 500; background: rgba(255, 255, 255, 0.04); padding: 6px 12px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s;">
-        FAQ
-      </a>
-    </nav>
-  </header>
+      <nav>
+        <a href="./como-funciona.html">¿Cómo Funciona?</a>
+        <a href="./sobre-mi.html">La Operadora</a>
+        <a href="./preguntas-frecuentes.html">FAQ</a>
+      </nav>
+    </header>
 
+    <!-- CABECERA DE LA PÁGINA -->
     <header class="page-header">
       <h1>¿Quién es la persona detrás de la máquina?</h1>
       <p class="subtitle">Compromiso, presencia y guía en cada proceso de sintonía</p>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL -->
+    <!-- CONTENIDO PRINCIPAL: BIOGRAFÍA -->
     <section class="card">
       <div class="profile-image-container">
         <img src="laura-maquina.jpg" alt="La Operadora con la máquina">
       </div>
+      
+      <h2>Trayectoria y evolución</h2>
+      <p>
+        Soy <strong>Laura Fernández</strong>, Licenciada en Recursos Humanos y especialista en bienestar sistémico. Hace más de 15 años que acompaño procesos de cambio, toma de decisiones y gestión de energía en personas y equipos.
+      </p>
+      <p>
+        Mi camino empezó en el ámbito educativo y empresarial: orientación vocacional, desarrollo de equipos, diseño de experiencias de aprendizaje. Después se amplió hacia lo sistémico y lo energético: formación en reprogramación subconsciente, terapia integrativa, medicina tradicional, sistema Huna, doula de fin de vida y profesorado de Tai Chi y Qi Gong.
+      </p>
+      <p>
+        <strong>No es un salto. Es una evolución.</strong> Cada paso me fue mostrando que el cambio real no se fuerza: se sostiene. Que la energía no se impone: se facilita. Y que la tecnología, por más potente que sea, es solo un instrumento si no hay una mirada humana que la contenga. Los cierres de ciclo (y apertura de nuevas experiencias para no seguir repitiendo) en nuestra vida ocurren naturalmente si lo permitimos; sino, necesitamos acompañamiento[cite: 2].
+      </p>
+    </section>
+
+    <!-- SECCIÓN: ACOMPAÑAMIENTO CONSCIENTE -->
+    <section class="card">
       <h2>Un espacio de acompañamiento consciente</h2>
       <p>
         Detrás de cada sesión hay una mirada humana, rigurosa y profundamente respetuosa de los procesos individuales. Mi rol como operadora no es intervenir ni forzar resultados, sino sostener un espacio calibrado donde el campo y la persona puedan interactuar de forma óptima.
@@ -211,12 +239,18 @@
       <p>
         A lo largo de mi recorrido, he comprobado que la tecnología escalar funciona como un puente excelente, pero es la disposición interna del consultante —junto con un acompañamiento claro y presente— lo que permite que la experiencia se traduzca en orden, bienestar y claridad real.
       </p>
+
+      <div class="quote-box">
+        <p>“No vengo a decirte qué hacer. Vengo a sostener un espacio para que tu sistema se reorganice solo.”</p>
+        <div class="quote-author">— Laura Fernández</div>
+      </div>
     </section>
 
     <!-- BOTÓN INFERIOR -->
     <div class="back-btn-container">
       <a href="index.html" class="btn-back">← Volver al inicio</a>
     </div>
+
   </div>
 
 </body>
