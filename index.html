@@ -285,7 +285,6 @@
       .warning-box { padding: 25px 15px; }
     }
 
-    /* Ocultar botón flotante de escritorio en móviles, ya que tienen el de abajo */
     @media (max-width: 767px) {
       .floating-desktop-cta {
         display: none;
@@ -408,10 +407,10 @@
       </div>
     </section>
 
-    <!-- ENLACE RÁPIDO A TESTIMONIOS -->
+    <!-- ENLACE RÁPIDO A TESTIMONIOS (MODIFICADO CON BORDE NARANJA Y LETRA BLANCA) -->
     <div style="text-align: center; margin-bottom: 50px;">
-      <a href="./testimonios.html" style="display: inline-block; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); color: var(--accent-color); padding: 14px 28px; border-radius: 14px; text-decoration: none; font-weight: 600; font-size: 1.05rem; transition: background 0.2s;">
-        ✨ ¿Querés ver historias reales? Conocé los testimonios
+      <a href="./testimonios.html" style="display: inline-block; background: rgba(255, 122, 0, 0.08); border: 2px solid #ff7a00; color: #ffffff; padding: 14px 28px; border-radius: 14px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: background 0.2s; box-shadow: 0 4px 15px rgba(255, 122, 0, 0.2);">
+        ✨ ¿Querés ver historias reales? <span style="color: #ffffff; text-decoration: underline;">Conocé los testimonios</span>
       </a>
     </div>
 
@@ -473,14 +472,19 @@
       <p style="margin-top: 16px; font-weight: 600; color: #fef08a;">7 días de silencio. Después, volvés a todo lo demás.</p>
     </div>
 
-    <!-- SECCIÓN: INFORMACIÓN QUE NECESITO PARA COMENZAR LA PRUEBA -->
-    <section class="card" id="registro" style="border-color: rgba(56, 189, 248, 0.4);">
-      <h2 style="color: var(--accent-color); font-size: 1.6rem; text-align: center; margin-bottom: 15px;">Información que necesito para comenzar tu prueba</h2>
+    <!-- SECCIÓN: INFORMACIÓN QUE NECESITO PARA COMENZAR LA PRUEBA (FORMULARIO DESTACADO CON BORDE NARANJA) -->
+    <section class="card" id="registro" style="border: 2px solid #ff7a00; box-shadow: 0 10px 35px rgba(255, 122, 0, 0.15); background: linear-gradient(135deg, rgba(22, 30, 49, 0.9) 0%, rgba(30, 20, 10, 0.4) 100%);">
+      
+      <!-- Título "Activá tus 7 días" grande y con degradé -->
+      <h2 style="font-size: 2.1rem; text-align: center; margin-bottom: 15px; font-weight: 900; background: linear-gradient(135deg, #ffffff 0%, #ff9900 50%, #ff5500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; letter-spacing: 0.5px;">
+        Activá tus 7 días gratis
+      </h2>
+
       <p style="color: #e2e8f0; font-size: 1.05rem; text-align: center; margin-bottom: 30px; line-height: 1.6;">
         Para establecer la conexión energética personalizada y dirigir las sesiones de forma remota hacia ti, necesito los siguientes datos:
       </p>
 
-      <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 35px; background: rgba(15, 23, 42, 0.5); padding: 25px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05);">
+      <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 35px; background: rgba(15, 23, 42, 0.7); padding: 25px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);">
         <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Nombre completo:</strong> Actúa como el identificador primario para focalizar la sesión.</p>
         <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Fecha de nacimiento:</strong> Se utiliza para crear la firma informacional específica que establece la conexión energética.</p>
         <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Número de teléfono:</strong> Funciona como un identificador específico adicional dentro de la firma energética, similar al nombre y la fecha de nacimiento. Ayuda a singularizar tu conexión para que la energía se dirija exclusivamente a ti.</p>
@@ -493,46 +497,45 @@
         <p style="font-size: 0.95rem; color: #cbd5e1;"><strong>Compromiso de privacidad:</strong> Toda esta información se trata con absoluta confidencialidad y se utiliza únicamente para la prestación de este servicio.</p>
       </div>
 
-      <h3 style="color: var(--accent-color); font-size: 1.3rem; text-align: center; margin-bottom: 8px;">Activá tus 7 días</h3>
-      <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px;">Ingresá tus datos completos en el formulario para activar las sesiones gratuitas</p>
+      <p style="text-align: center; color: #ffaa33; font-size: 1.05rem; font-weight: 700; margin-bottom: 25px;">Ingresá tus datos completos en el formulario para activar las sesiones gratuitas</p>
 
       <div id="form-container" style="width: 100%; max-width: 480px; margin: 0 auto;">
         <form id="oasis-brevo-form" action="https://f19835dd.sibforms.com/serve/MUIFAI0VyoUeA5Vpb62nVPoqyF_dYsSIdZsz6xcFSu0hZQbk8ZSaYdq45fjZnHwMm9jrOK1-ZQ_8Xi2kOElLXAUOzEodO9RqbpxYEF-Q2lS2ctdaga9Sx8g6QFuO4pMA4TiijvQzoLbAEQH2GKz8vcrZOiQcpzUopJ0qYC9J63wnqC2J0R0nLsntgDRRWJ2V-um-WrUF-OSNc99FWQ==" method="POST" data-type="subscription" style="display: flex; flex-direction: column; gap: 1rem; width: 100%;">
 
           <!-- Campo Nombre -->
           <div style="display: flex; flex-direction: column; text-align: left;">
-            <label for="NOMBRE" style="font-size: 0.85rem; color: #a1a1aa; margin-bottom: 0.3rem; font-weight: 500;">Nombre completo *</label>
-            <input type="text" id="NOMBRE" name="NOMBRE" placeholder="Tu nombre" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
+            <label for="NOMBRE" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Nombre completo *</label>
+            <input type="text" id="NOMBRE" name="NOMBRE" placeholder="Tu nombre" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
           </div>
 
           <!-- Campo Fecha de Nacimiento -->
           <div style="display: flex; flex-direction: column; text-align: left;">
-            <label for="FECHA_NACIMIENTO" style="font-size: 0.85rem; color: #a1a1aa; margin-bottom: 0.3rem; font-weight: 500;">Fecha de nacimiento (DD-MM-AAAA) *</label>
-            <input type="text" id="FECHA_NACIMIENTO" name="FECHA_NACIMIENTO" data-type="date" pattern="^([0-2][0-9]|(3)[0-1])(-)(((0)[0-9])|((1)[0-2]))(-)\d{4}$" placeholder="DD-MM-AAAA" title="Formato requerido: dd-mm-yyyy" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
+            <label for="FECHA_NACIMIENTO" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Fecha de nacimiento (DD-MM-AAAA) *</label>
+            <input type="text" id="FECHA_NACIMIENTO" name="FECHA_NACIMIENTO" data-type="date" pattern="^([0-2][0-9]|(3)[0-1])(-)(((0)[0-9])|((1)[0-2]))(-)\d{4}$" placeholder="DD-MM-AAAA" title="Formato requerido: dd-mm-yyyy" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
           </div>
 
-          <!-- Campo Teléfono (Requerido para la firma energética) -->
+          <!-- Campo Teléfono -->
           <div style="display: flex; flex-direction: column; text-align: left;">
-            <label for="TELEFONO" style="font-size: 0.85rem; color: #a1a1aa; margin-bottom: 0.3rem; font-weight: 500;">Número de teléfono *</label>
-            <input type="tel" id="TELEFONO" name="TELEFONO" placeholder="Ej: +549..." required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
+            <label for="TELEFONO" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Número de teléfono *</label>
+            <input type="tel" id="TELEFONO" name="TELEFONO" placeholder="Ej: +549..." required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
           </div>
 
           <!-- Campo Residencia -->
           <div style="display: flex; flex-direction: column; text-align: left;">
-            <label for="RESIDENCIA" style="font-size: 0.85rem; color: #a1a1aa; margin-bottom: 0.3rem; font-weight: 500;">Lugar de residencia (Ciudad, País) *</label>
-            <input type="text" id="RESIDENCIA" name="RESIDENCIA" placeholder="Ej: Santiago, Chile" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
+            <label for="RESIDENCIA" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Lugar de residencia (Ciudad, País) *</label>
+            <input type="text" id="RESIDENCIA" name="RESIDENCIA" placeholder="Ej: Santiago, Chile" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
           </div>
 
           <!-- Campo Correo Electrónico -->
           <div style="display: flex; flex-direction: column; text-align: left;">
-            <label for="EMAIL" style="font-size: 0.85rem; color: #a1a1aa; margin-bottom: 0.3rem; font-weight: 500;">Correo electrónico *</label>
-            <input type="email" id="EMAIL" name="EMAIL" placeholder="tu@email.com" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
+            <label for="EMAIL" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Correo electrónico *</label>
+            <input type="email" id="EMAIL" name="EMAIL" placeholder="tu@email.com" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
           </div>
 
           <!-- Campo Caos Exacto -->
           <div style="display: flex; flex-direction: column; text-align: left;">
-            <label for="CAOS" style="font-size: 0.85rem; color: #a1a1aa; margin-bottom: 0.3rem; font-weight: 500;">¿Cuál es tu principal desafío / caos hoy? *</label>
-            <select id="CAOS" name="CAOS" required style="width: 100%; padding: 0.75rem 1rem; background-color: #12131c; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #ffffff; font-size: 0.95rem; outline: none;">
+            <label for="CAOS" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">¿Cuál es tu principal desafío / caos hoy? *</label>
+            <select id="CAOS" name="CAOS" required style="width: 100%; padding: 0.75rem 1rem; background-color: #12131c; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 0.95rem; outline: none;">
               <option value="" disabled selected>Seleccioná una opción...</option>
               <option value="Insomnio">Insomnio</option>
               <option value="Duelo">Duelo</option>
@@ -552,7 +555,7 @@
           <input type="hidden" name="locale" value="es">
 
           <!-- Botón Enviar -->
-          <button type="submit" id="btn-submit" style="margin-top: 0.5rem; width: 100%; padding: 0.85rem 1.5rem; background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); color: #ffffff; font-weight: 600; font-size: 1rem; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s;">
+          <button type="submit" id="btn-submit" style="margin-top: 0.5rem; width: 100%; padding: 0.9rem 1.5rem; background: linear-gradient(135deg, #ff7a00 0%, #ff5500 100%); color: #ffffff; font-weight: 700; font-size: 1.1rem; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; box-shadow: 0 4px 15px rgba(255, 122, 0, 0.4);">
             Activar mis 7 Días Gratis ⚡
           </button>
         </form>
@@ -639,7 +642,6 @@
 
 <!-- ================= BOTONES FLOTANTES Y ASISTENTE IA ================= -->
 <style>
-  /* CONTENEDOR FLOTANTE INFERIOR (Derecha: WhatsApp/IG/Bot | Izquierda: 7 días gratis en Celular) */
   .floating-container {
     position: fixed;
     bottom: 20px;
@@ -649,18 +651,16 @@
     justify-content: space-between;
     align-items: center;
     z-index: 9999;
-    pointer-events: none; /* Permite hacer clic solo en los elementos hijos */
+    pointer-events: none;
   }
 
-  /* Grupo derecho (Círculos de WhatsApp, IG, Bot) */
   .floating-socials {
     display: flex;
     gap: 10px;
     pointer-events: auto;
-    margin-left: auto; /* Empuja los círculos hacia la derecha en celular */
+    margin-left: auto;
   }
 
-  /* Botón flotante de los 7 días gratis (Solo visible en celular abajo a la izquierda) */
   .floating-mobile-cta {
     pointer-events: auto;
     background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
@@ -784,24 +784,21 @@
     cursor: pointer;
   }
 
-  /* En computadores de escritorio ocultamos el botón flotante izquierdo, porque ya estará arriba en el menú */
   @media (min-width: 768px) {
     .floating-mobile-cta {
       display: none;
     }
     .floating-container {
-      justify-content: flex-end; /* Mantiene solo los círculos a la derecha en PC */
+      justify-content: flex-end;
     }
   }
 </style>
 
 <div class="floating-container">
-  <!-- Botón flotante izquierdo exclusivo para celulares -->
   <a href="#registro" class="floating-mobile-cta">
     ⚡ 7 días gratis
   </a>
 
-  <!-- Círculos sociales a la derecha (WhatsApp, Instagram, Bot) -->
   <div class="floating-socials">
     <a href="https://wa.me/5493548567106?text=Hola%20tengo%20una%20consulta%20sobre%20Oasis%20Mental." target="_blank" class="float-btn btn-whatsapp" title="Escribir por WhatsApp">
       <svg viewBox="0 0 32 32">
@@ -840,7 +837,6 @@
 
 <script>
   const GEMINI_API_KEY = " "; 
-
   const SYSTEM_PROMPT = `Eres el Asistente Virtual empático, cálido y claro de Oasis Mental...`;
 
   function toggleChat() {
