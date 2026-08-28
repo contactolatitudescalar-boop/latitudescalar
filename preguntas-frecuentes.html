@@ -9,6 +9,8 @@
       --bg-color: #0b0f19;
       --card-bg: rgba(22, 30, 49, 0.75);
       --accent-color: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.35);
+      --purple-accent: #a855f7;
       --text-color: #f1f5f9;
       --text-muted: #94a3b8;
     }
@@ -28,7 +30,7 @@
       background-attachment: fixed;
       color: var(--text-color);
       line-height: 1.7;
-      padding: 20px 20px 60px 20px;
+      padding: 20px 15px 60px 15px;
     }
 
     .container {
@@ -36,46 +38,61 @@
       margin: 0 auto;
     }
 
-    /* MENÚ SUPERIOR MINIMALISTA */
-    header.top-header {
+    /* MENÚ SUPERIOR EN UNA SOLA LÍNEA DESLIZABLE */
+    .top-nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 0 30px 0;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 35px;
+      gap: 15px;
     }
 
-    header.top-header a.logo {
-      color: var(--text-color);
+    .brand-logo {
+      color: #ffffff;
       font-weight: 700;
       text-decoration: none;
       font-size: 1.05rem;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.3px;
+      white-space: nowrap;
     }
 
-    header.top-header nav {
+    .brand-logo:hover {
+      color: var(--accent-color);
+    }
+
+    .nav-links {
       display: flex;
       gap: 8px;
+      align-items: center;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      max-width: 100%;
+      scrollbar-width: none;
     }
 
-    header.top-header nav a {
-      text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 16px;
-      transition: all 0.2s;
+    .nav-links::-webkit-scrollbar {
+      display: none;
     }
 
-    .nav-faq {
-      color: var(--accent-color);
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-    }
-
-    .nav-normal {
+    .nav-links a {
       color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent-color);
+      border-color: rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.05);
     }
 
     header.page-header {
@@ -174,23 +191,23 @@
       box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
     }
 
-    @media (max-width: 600px) {
-      body { padding: 12px 10px 40px 10px; }
+    @media (max-width: 480px) {
       h1 { font-size: 1.6rem; }
-      header.top-header nav a { padding: 5px 8px; font-size: 0.75rem; }
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <!-- MENÚ SUPERIOR -->
-    <header class="top-header">
-      <a href="./index.html" class="logo">Latitud Escalar</a>
-      <nav>
-        <a href="./como-funciona.html" class="nav-normal">¿Cómo Funciona?</a>
-        <a href="./sobre-mi.html" class="nav-normal">La Operadora</a>
-        <a href="./preguntas-frecuentes.html" class="nav-faq">FAQ</a>
+    <!-- MENÚ SUPERIOR UNIFICADO -->
+    <header class="top-nav-container">
+      <a href="./index.html" class="brand-logo">Latitud Escalar</a>
+      <nav class="nav-links">
+        <a href="./como-funciona.html">¿Cómo Funciona?</a>
+        <a href="./servicios.html">Servicios</a>
+        <a href="./sobre-mi.html">La Operadora</a>
+        <a href="./testimonios.html">Testimonios</a>
+        <a href="./preguntas-frecuentes.html" class="active">FAQ</a>
       </nav>
     </header>
 
