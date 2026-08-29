@@ -40,6 +40,63 @@
       margin: 0 auto;
     }
 
+    /* MENÚ SUPERIOR */
+    .top-nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 35px;
+      gap: 15px;
+    }
+
+    .brand-logo {
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.05rem;
+      letter-spacing: -0.3px;
+      white-space: nowrap;
+    }
+
+    .brand-logo:hover {
+      color: var(--accent-color);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      max-width: 100%;
+      scrollbar-width: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--accent-color);
+      border-color: rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.05);
+    }
+
     /* BADGE Y ENCABEZADO */
     .badge {
       display: inline-flex;
@@ -301,24 +358,17 @@
 
   <div class="container">
 
-    <!-- MENÚ SUPERIOR MINIMALISTA -->
-    <header style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 0 25px 0; flex-wrap: wrap; gap: 10px;">
-      <a href="./index.html" style="color: var(--text-color); font-weight: 700; text-decoration: none; font-size: 1.05rem; letter-spacing: -0.5px;">
+    <!-- MENÚ SUPERIOR EN UNA SOLA LÍNEA DESLIZABLE -->
+    <header class="top-nav-container">
+      <a href="./index.html" class="brand-logo">
         Latitud Escalar
       </a>
-      <nav style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center;">
-        <a href="./como-funciona.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; background: rgba(255, 255, 255, 0.04); padding: 5px 10px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s;">
-          ¿Cómo Funciona?
-        </a>
-        <a href="./sobre-mi.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; background: rgba(255, 255, 255, 0.04); padding: 5px 10px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s;">
-          La Operadora
-        </a>
-        <a href="./testimonios.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; background: rgba(255, 255, 255, 0.04); padding: 5px 10px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s;">
-          Testimonios
-        </a>
-        <a href="./preguntas-frecuentes.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; background: rgba(255, 255, 255, 0.04); padding: 5px 10px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s;">
-          FAQ
-        </a>
+      <nav class="nav-links">
+        <a href="./como-funciona.html">¿Cómo Funciona?</a>
+        <a href="./servicios.html">Servicios</a>
+        <a href="./sobre-mi.html">La Operadora</a>
+        <a href="./testimonios.html">Testimonios</a>
+        <a href="./preguntas-frecuentes.html">FAQ</a>
       </nav>
     </header>
 
