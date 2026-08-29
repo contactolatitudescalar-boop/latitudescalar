@@ -40,62 +40,6 @@
       margin: 0 auto;
     }
 
-    /* BARRA DE NAVEGACIÓN SUPERIOR RESPONSIVA */
-    .top-nav-container {
-      max-width: 800px; 
-      margin: 0 auto; 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      padding: 15px 0 25px 0; 
-      gap: 15px;
-    }
-
-    .brand-logo {
-      color: var(--text-color); 
-      font-weight: 700; 
-      text-decoration: none; 
-      font-size: 1.05rem; 
-      letter-spacing: -0.5px;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex; 
-      gap: 6px; 
-      align-items: center;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      max-width: 100%;
-      padding-bottom: 4px;
-    }
-
-    .nav-links::-webkit-scrollbar {
-      height: 3px;
-    }
-    .nav-links::-webkit-scrollbar-thumb {
-      background: rgba(56, 189, 248, 0.3);
-      border-radius: 3px;
-    }
-
-    .nav-links a {
-      color: var(--text-muted); 
-      text-decoration: none; 
-      font-size: 0.78rem; 
-      font-weight: 500; 
-      background: rgba(255, 255, 255, 0.04); 
-      padding: 5px 9px; 
-      border-radius: 14px; 
-      border: 1px solid rgba(255, 255, 255, 0.08); 
-      transition: all 0.2s;
-      white-space: nowrap;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent-color);
-      border-color: rgba(56, 189, 248, 0.3);
-    }
-
     /* BADGE Y ENCABEZADO */
     .badge {
       display: inline-flex;
@@ -126,6 +70,11 @@
       0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7); }
       70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(56, 189, 248, 0); }
       100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 0 50px 0;
     }
 
     h1 {
@@ -334,17 +283,6 @@
       .card { padding: 25px 15px; margin-bottom: 35px; }
       .hero-question-box, .info-block { padding: 20px; }
       .warning-box { padding: 25px 15px; }
-      
-      /* En pantallas muy chicas amoldamos la cabecera para que vayan en bloque ordenado si es necesario o scrolleable */
-      .top-nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-      .nav-links {
-        width: 100%;
-        justify-content: flex-start;
-      }
     }
 
     @media (max-width: 767px) {
@@ -363,22 +301,22 @@
 
   <div class="container">
 
-    <!-- MENÚ SUPERIOR MINIMALISTA Y ADAPTADO -->
-    <header class="top-nav-container">
-      <a href="./index.html" class="brand-logo">
+    <!-- MENÚ SUPERIOR MINIMALISTA -->
+    <header style="max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 0 25px 0; flex-wrap: wrap; gap: 10px;">
+      <a href="./index.html" style="color: var(--text-color); font-weight: 700; text-decoration: none; font-size: 1.05rem; letter-spacing: -0.5px;">
         Latitud Escalar
       </a>
-      <nav class="nav-links">
-        <a href="./como-funciona.html">
+      <nav style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center;">
+        <a href="./como-funciona.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; background: rgba(255, 255, 255, 0.04); padding: 5px 10px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s;">
           ¿Cómo Funciona?
         </a>
-        <a href="./sobre-mi.html">
+        <a href="./sobre-mi.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; background: rgba(255, 255, 255, 0.04); padding: 5px 10px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s;">
           La Operadora
         </a>
-        <a href="./testimonios.html">
+        <a href="./testimonios.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; background: rgba(255, 255, 255, 0.04); padding: 5px 10px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s;">
           Testimonios
         </a>
-        <a href="./preguntas-frecuentes.html">
+        <a href="./preguntas-frecuentes.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; background: rgba(255, 255, 255, 0.04); padding: 5px 10px; border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s;">
           FAQ
         </a>
       </nav>
@@ -469,7 +407,7 @@
       </div>
     </section>
 
-    <!-- ENLACE RÁPIDO A TESTIMONIOS -->
+    <!-- ENLACE RÁPIDO A TESTIMONIOS (MODIFICADO CON BORDE NARANJA Y LETRA BLANCA) -->
     <div style="text-align: center; margin-bottom: 50px;">
       <a href="./testimonios.html" style="display: inline-block; background: rgba(255, 122, 0, 0.08); border: 2px solid #ff7a00; color: #ffffff; padding: 14px 28px; border-radius: 14px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: background 0.2s; box-shadow: 0 4px 15px rgba(255, 122, 0, 0.2);">
         ✨ ¿Querés ver historias reales? <span style="color: #ffffff; text-decoration: underline;">Conocé los testimonios</span>
@@ -488,7 +426,7 @@
         </div>
         <div class="caos-card">
           <strong>2. Duelo</strong>
-          <p>El pecho te pesa. Perdiste a jemand o algo. Y no se va.</p>
+          <p>El pecho te pesa. Perdiste a alguien o algo. Y no se va.</p>
         </div>
         <div class="caos-card">
           <strong>3. Divorcio</strong>
@@ -534,9 +472,10 @@
       <p style="margin-top: 16px; font-weight: 600; color: #fef08a;">7 días de silencio. Después, volvés a todo lo demás.</p>
     </div>
 
-    <!-- SECCIÓN: INFORMACIÓN QUE NECESITO PARA COMENZAR LA PRUEBA -->
+    <!-- SECCIÓN: INFORMACIÓN QUE NECESITO PARA COMENZAR LA PRUEBA (FORMULARIO DESTACADO CON BORDE NARANJA) -->
     <section class="card" id="registro" style="border: 2px solid #ff7a00; box-shadow: 0 10px 35px rgba(255, 122, 0, 0.15); background: linear-gradient(135deg, rgba(22, 30, 49, 0.9) 0%, rgba(30, 20, 10, 0.4) 100%);">
       
+      <!-- Título "Activá tus 7 días" grande y con degradé -->
       <h2 style="font-size: 2.1rem; text-align: center; margin-bottom: 15px; font-weight: 900; background: linear-gradient(135deg, #ffffff 0%, #ff9900 50%, #ff5500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; letter-spacing: 0.5px;">
         Activá tus 7 días gratis
       </h2>
@@ -548,39 +487,52 @@
       <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 35px; background: rgba(15, 23, 42, 0.7); padding: 25px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);">
         <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Nombre completo:</strong> Actúa como el identificador primario para focalizar la sesión.</p>
         <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Fecha de nacimiento:</strong> Se utiliza para crear la firma informacional específica que establece la conexión energética.</p>
-        <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Número de teléfono:</strong> Funciona como un identificador específico adicional dentro de la firma energética. Ayuda a singularizar tu conexión.</p>
+        <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Número de teléfono:</strong> Funciona como un identificador específico adicional dentro de la firma energética, similar al nombre y la fecha de nacimiento. Ayuda a singularizar tu conexión para que la energía se dirija exclusivamente a ti.</p>
         <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Ciudad y país:</strong> Proporcionan el contexto de ubicación que refuerza el anclaje de la sesión.</p>
-        <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Correo electrónico:</strong> Es el único medio por el que te contactaré. Revisa tu carpeta de Spam si no lo ves.</p>
+        <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Correo electrónico:</strong> Es el único medio por el que te contactaré. Ahí recibirás tu confirmación de bienvenida, los seguimientos del día 3 y 7, y cualquier otra comunicación. Si no recibes nada revisa tu carpeta de CORREO NO DESEADO O SPAM. Si no llegas recibir ningún mail tampoco en estas carpetas escríbeme a contacto.latitudescalar@gmail.com</p>
       </div>
+
+      <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid var(--warning-border); padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+        <p style="font-size: 0.95rem; color: #fef08a; margin-bottom: 10px;"><strong>Importante:</strong> No te llamaré por teléfono en ningún momento. El número solo forma parte de tu "firma" de conexión energética y no se utiliza para llamadas ni mensajes de texto. Toda la comunicación se realiza exclusivamente a través del correo electrónico que me proporciones.</p>
+        <p style="font-size: 0.95rem; color: #cbd5e1;"><strong>Compromiso de privacidad:</strong> Toda esta información se trata con absoluta confidencialidad y se utiliza únicamente para la prestación de este servicio.</p>
+      </div>
+
+      <p style="text-align: center; color: #ffaa33; font-size: 1.05rem; font-weight: 700; margin-bottom: 25px;">Ingresá tus datos completos en el formulario para activar las sesiones gratuitas</p>
 
       <div id="form-container" style="width: 100%; max-width: 480px; margin: 0 auto;">
         <form id="oasis-brevo-form" action="https://f19835dd.sibforms.com/serve/MUIFAI0VyoUeA5Vpb62nVPoqyF_dYsSIdZsz6xcFSu0hZQbk8ZSaYdq45fjZnHwMm9jrOK1-ZQ_8Xi2kOElLXAUOzEodO9RqbpxYEF-Q2lS2ctdaga9Sx8g6QFuO4pMA4TiijvQzoLbAEQH2GKz8vcrZOiQcpzUopJ0qYC9J63wnqC2J0R0nLsntgDRRWJ2V-um-WrUF-OSNc99FWQ==" method="POST" data-type="subscription" style="display: flex; flex-direction: column; gap: 1rem; width: 100%;">
 
+          <!-- Campo Nombre -->
           <div style="display: flex; flex-direction: column; text-align: left;">
             <label for="NOMBRE" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Nombre completo *</label>
             <input type="text" id="NOMBRE" name="NOMBRE" placeholder="Tu nombre" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
           </div>
 
+          <!-- Campo Fecha de Nacimiento -->
           <div style="display: flex; flex-direction: column; text-align: left;">
             <label for="FECHA_NACIMIENTO" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Fecha de nacimiento (DD-MM-AAAA) *</label>
-            <input type="text" id="FECHA_NACIMIENTO" name="FECHA_NACIMIENTO" data-type="date" pattern="^([0-2][0-9]|(3)[0-1])(-)(((0)[0-9])|((1)[0-2]))(-)\d{4}$" placeholder="DD-MM-AAAA" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
+            <input type="text" id="FECHA_NACIMIENTO" name="FECHA_NACIMIENTO" data-type="date" pattern="^([0-2][0-9]|(3)[0-1])(-)(((0)[0-9])|((1)[0-2]))(-)\d{4}$" placeholder="DD-MM-AAAA" title="Formato requerido: dd-mm-yyyy" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
           </div>
 
+          <!-- Campo Teléfono -->
           <div style="display: flex; flex-direction: column; text-align: left;">
             <label for="TELEFONO" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Número de teléfono *</label>
             <input type="tel" id="TELEFONO" name="TELEFONO" placeholder="Ej: +549..." required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
           </div>
 
+          <!-- Campo Residencia -->
           <div style="display: flex; flex-direction: column; text-align: left;">
             <label for="RESIDENCIA" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Lugar de residencia (Ciudad, País) *</label>
             <input type="text" id="RESIDENCIA" name="RESIDENCIA" placeholder="Ej: Santiago, Chile" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
           </div>
 
+          <!-- Campo Correo Electrónico -->
           <div style="display: flex; flex-direction: column; text-align: left;">
             <label for="EMAIL" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Correo electrónico *</label>
             <input type="email" id="EMAIL" name="EMAIL" placeholder="tu@email.com" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
           </div>
 
+          <!-- Campo Caos Exacto -->
           <div style="display: flex; flex-direction: column; text-align: left;">
             <label for="CAOS" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">¿Cuál es tu principal desafío / caos hoy? *</label>
             <select id="CAOS" name="CAOS" required style="width: 100%; padding: 0.75rem 1rem; background-color: #12131c; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 0.95rem; outline: none;">
@@ -598,14 +550,17 @@
             </select>
           </div>
 
+          <!-- Campos ocultos de Brevo -->
           <input type="text" name="email_address_check" value="" style="display:none;">
           <input type="hidden" name="locale" value="es">
 
+          <!-- Botón Enviar -->
           <button type="submit" id="btn-submit" style="margin-top: 0.5rem; width: 100%; padding: 0.9rem 1.5rem; background: linear-gradient(135deg, #ff7a00 0%, #ff5500 100%); color: #ffffff; font-weight: 700; font-size: 1.1rem; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; box-shadow: 0 4px 15px rgba(255, 122, 0, 0.4);">
             Activar mis 7 Días Gratis ⚡
           </button>
         </form>
 
+        <!-- Mensaje de Éxito Visual -->
         <div id="success-msg" style="display: none; padding: 2rem 1.5rem; background-color: #ffffff; border: 2px solid #22c55e; border-radius: 12px; text-align: center; margin-top: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
           <h3 style="color: #15803d; margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 700;">¡Registro Exitoso! ✨</h3>
           <p style="color: #1f2937; font-size: 0.95rem; line-height: 1.5; margin: 0;">Tus datos fueron recibidos correctamente. Revisa tu casilla de correo para confirmar el inicio de tus 7 días.</p>
@@ -637,23 +592,310 @@
         });
       </script>
 
-      <p class="legal">Sesiones remotas con energía escalar. Este es un espacio de ordenamiento energético, no reemplaza tratamiento médico ni psicológico.</p>
+      <p class="legal">Sesiones remotas con energía escalar. Este es un espacio de ordenamiento energético, no reemplaza tratamiento médico ni psicológico. Es un mecanismo, no una cura.</p>
     </section>
 
     <!-- QUÉ PASA DESPUÉS -->
     <section class="card" style="text-align: center;">
       <h3 style="color: var(--accent-color); font-size: 1.35rem; margin-bottom: 15px; text-transform: uppercase;">¿Qué pasa después de los 7 días?</h3>
+      
       <p style="margin-bottom: 20px;">
-        Si sentís que el mecanismo funcionó y querés que el sistema siga ordenando tu caos, podés extender a <strong>21 días</strong> para profundizar el flujo de energía.
+        Si sentís que el mecanismo funcionó —aunque sea un poco— y querés que el sistema siga ordenando tu caos, podés extender a <strong>21 días</strong> para profundizar el flujo de energía.
       </p>
+      
       <p style="font-weight: bold; color: #f1f5f9; font-size: 1.1rem; margin-bottom: 10px;">
         El costo de los 21 días es de $44.000 (pesos argentinos).
       </p>
+      
+      <p style="color: var(--text-muted);">
+        Vas a recibir la invitación después de los 7 días. Sin presión. Sin ventas. Solo una puerta abierta.
+      </p>
     </section>
 
-    <footer style="text-align: center; padding: 30px 0; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 40px;">
-      <p>© 2026 Latitud Escalar. Todos los derechos reservados.</p>
-    </footer>
+    <!-- SECCIÓN DE AVISO LEGAL E INVITACIÓN FINAL -->
+    <section class="card" style="margin-top: 40px; border-color: rgba(56, 189, 248, 0.2); background: rgba(15, 23, 42, 0.6);">
+      <h3 style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 15px;">Aviso Legal e Información Importante</h3>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.6;">
+        Esta guía tiene fines exclusivamente educativos e informativos. La terapia de energía escalar es una práctica complementaria de bienestar y <strong>no reemplaza</strong> la evaluación, diagnóstico o tratamiento médico profesional.
+      </p>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.6;">
+        Las respuestas individuales a la terapia de energía escalar varían significativamente. La información proporcionada no constituye consejo médico. Si tienes alguna condición médica, estás embarazada, o estás tomando medicamentos, consulta con tu profesional de la salud antes de comenzar cualquier práctica complementaria.
+      </p>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6;">
+        Los fundamentos físicos de la energía escalar son objeto de debate en la comunidad científica. Lo que ofrecemos es una oportunidad para que experimentes personalmente y evalúes tu propia respuesta.
+      </p>
+      
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 20px; text-align: center;">
+        <p style="font-size: 1.05rem; color: #ffffff; font-weight: 600; margin-bottom: 10px;">
+          La ciencia explica cómo podría funcionar; la práctica te revela si realmente resuena contigo.
+        </p>
+        <p style="font-size: 0.98rem; color: #cbd5e1; margin-bottom: 20px;">
+          Te invito a dar ese paso: pasa de la teoría a la práctica. No necesitas ser un experto en física ni creer ciegamente en nada. Solo necesitas observarte durante una semana y comprobar por ti mismo lo que tu cuerpo y tu mente tienen para decirte. La tecnología ya está lista...
+        </p>
+        <a href="#registro" class="cta-btn" style="display: inline-block; padding: 12px 24px; font-size: 1rem; text-decoration: none; background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%); color: #0f172a; font-weight: 800; border-radius: 12px;">¿Te animas a experimentarla?</a>
+      </div>
+    </section>
+
+    <p class="closing">Voy a morir y vos también. Más vale que empieces a encarnar la versión de vos que no necesita hacer nada para que el sistema ordene su caos.</p>
   </div>
+
+
+<!-- ================= BOTONES FLOTANTES Y ASISTENTE IA ================= -->
+<style>
+  .floating-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .floating-socials {
+    display: flex;
+    gap: 10px;
+    pointer-events: auto;
+    margin-left: auto;
+  }
+
+  .floating-mobile-cta {
+    pointer-events: auto;
+    background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+    color: #0f172a;
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 12px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .float-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease;
+  }
+  .float-btn:hover { transform: scale(1.08); }
+  .float-btn svg { width: 24px; height: 24px; fill: currentColor; }
+
+  .btn-whatsapp { background-color: #25d366; }
+  .btn-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
+  .btn-gemini { background: linear-gradient(135deg, #1e1b4b, #4f46e5); border: 1px solid rgba(255,255,255,0.2); }
+
+  .chat-widget {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 340px;
+    max-width: calc(100vw - 40px);
+    height: 440px;
+    background: #0f172a;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    z-index: 10000;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: inherit;
+  }
+
+  .chat-header {
+    background: #1e1b4b;
+    color: #fff;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .chat-header h4 { margin: 0; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  .chat-header span { font-size: 11px; color: #a5b4fc; }
+  .chat-close { background: none; border: none; color: #cbd5e1; font-size: 18px; cursor: pointer; }
+
+  .chat-messages {
+    flex: 1;
+    padding: 14px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  .chat-msg {
+    max-width: 82%;
+    padding: 8px 12px;
+    border-radius: 12px;
+    line-height: 1.4;
+  }
+  .msg-bot {
+    background: #1e293b;
+    color: #e2e8f0;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+  }
+  .msg-user {
+    background: #4f46e5;
+    color: #ffffff;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+  }
+
+  .chat-input-area {
+    display: flex;
+    padding: 10px;
+    background: #0b0f19;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .chat-input-area input {
+    flex: 1;
+    background: #1e293b;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+  }
+  .chat-input-area button {
+    background: #4f46e5;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    margin-left: 6px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  @media (min-width: 768px) {
+    .floating-mobile-cta {
+      display: none;
+    }
+    .floating-container {
+      justify-content: flex-end;
+    }
+  }
+</style>
+
+<div class="floating-container">
+  <a href="#registro" class="floating-mobile-cta">
+    ⚡ 7 días gratis
+  </a>
+
+  <div class="floating-socials">
+    <a href="https://wa.me/5493548567106?text=Hola%20tengo%20una%20consulta%20sobre%20Oasis%20Mental." target="_blank" class="float-btn btn-whatsapp" title="Escribir por WhatsApp">
+      <svg viewBox="0 0 32 32">
+        <path d="M16 2a13.9 13.9 0 0 0-12 21L2 30l7.2-1.9A13.9 13.9 0 1 0 16 2zm0 25.5a11.6 11.6 0 0 1-5.9-1.6l-.4-.3-4.4 1.1 1.2-4.3-.3-.4a11.6 11.6 0 1 1 9.8 5.5zm6.4-8.7c-.4-.2-2.1-1-2.4-1.2s-.6-.2-.8.2-.9 1.2-1.1 1.4-.4.2-.7 0a9.2 9.2 0 0 1-2.7-1.7 10.2 10.2 0 0 1-1.9-2.3c-.2-.4 0-.6.2-.8l.5-.6.4-.5c.1-.2.1-.4 0-.5s-.8-2-1.1-2.7c-.3-.7-.6-.6-.8-.6h-.7a1.4 1.4 0 0 0-1 .5 4.3 4.3 0 0 0-1.3 3.2 7.5 7.5 0 0 0 1.6 4 17.2 17.2 0 0 0 6.6 5.8c2.4 1 2.9.8 3.4.8a3 3 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.7-.4z"/>
+      </svg>
+    </a>
+
+    <a href="https://instagram.com/latitudescalar" target="_blank" class="float-btn btn-instagram" title="Seguir en Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+
+    <button class="float-btn btn-gemini" onclick="toggleChat()" title="Preguntar al Asistente IA">
+      <svg viewBox="0 0 24 24"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="chat-widget" id="chatWidget">
+  <div class="chat-header">
+    <div>
+      <h4>✨ Asistente Oasis</h4>
+      <span>Preguntas sobre energía escalar</span>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">&times;</button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-msg msg-bot">
+      ¡Hola! Soy el asistente virtual de Oasis Mental. ¿Tenés alguna duda sobre cómo funcionan los 7 días de prueba o la energía escalar?
+    </div>
+  </div>
+  <div class="chat-input-area">
+    <input type="text" id="chatInput" placeholder="Escribe tu consulta aquí..." onkeypress="handleKey(event)" />
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
+</div>
+
+<script>
+  const GEMINI_API_KEY = " "; 
+  const SYSTEM_PROMPT = `Eres el Asistente Virtual empático, cálido y claro de Oasis Mental...`;
+
+  function toggleChat() {
+    const chat = document.getElementById('chatWidget');
+    chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex';
+  }
+
+  function handleKey(e) {
+    if (e.key === 'Enter') sendMessage();
+  }
+
+  async function sendMessage() {
+    const input = document.getElementById('chatInput');
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    const messagesContainer = document.getElementById('chatMessages');
+    const userDiv = document.createElement('div');
+    userDiv.className = 'chat-msg msg-user';
+    userDiv.innerText = msg;
+    messagesContainer.appendChild(userDiv);
+    input.value = '';
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    const botDiv = document.createElement('div');
+    botDiv.className = 'chat-msg msg-bot';
+    botDiv.innerText = 'Escribiendo...';
+    messagesContainer.appendChild(botDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    const payload = {
+      system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+      contents: [{ role: "user", parts: [{ text: msg }] }],
+      generationConfig: { temperature: 0.6, maxOutputTokens: 800 }
+    };
+
+    try {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const data = await response.json();
+      if (data.candidates && data.candidates[0].content.parts[0].text) {
+        botDiv.innerText = data.candidates[0].content.parts[0].text;
+      } else {
+        botDiv.innerText = "Disculpa, no pude procesar la respuesta. Puedes escribirnos a WhatsApp.";
+      }
+    } catch (err) {
+      botDiv.innerText = "Error de conexión.";
+    }
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+</script>
+
+<!-- FOOTER -->
+<footer style="text-align: center; padding: 30px 0; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 40px;">
+  <p>© 2026 Latitud Escalar. Todos los derechos reservados.</p>
+</footer>
+
 </body>
 </html>
