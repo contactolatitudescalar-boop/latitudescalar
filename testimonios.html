@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Testimonios — Oasis Mental</title>
+  <title>Testimonios — Latitud Escalar</title>
   <style>
     :root {
       --bg-color: #0b0f19;
@@ -28,7 +28,7 @@
       background-attachment: fixed;
       color: var(--text-color);
       line-height: 1.8;
-      padding: 40px 20px;
+      padding: 20px 15px 60px 15px;
     }
 
     .container {
@@ -36,65 +36,80 @@
       margin: 0 auto;
     }
 
-    /* MENÚ SUPERIOR */
-    header.nav-header {
+    /* MENÚ SUPERIOR EN UNA SOLA LÍNEA DESLIZABLE */
+    .top-nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 0 30px 0;
-      flex-wrap: wrap;
-      gap: 10px;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: 35px;
+      gap: 15px;
     }
 
     .brand-logo {
-      color: var(--text-color);
+      color: #ffffff;
       font-weight: 700;
       text-decoration: none;
       font-size: 1.05rem;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.3px;
+      white-space: nowrap;
     }
 
-    nav {
+    .brand-logo:hover {
+      color: var(--accent-color);
+    }
+
+    .nav-links {
       display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      max-width: 100%;
+      scrollbar-width: none;
     }
 
-    nav a {
+    .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
       font-size: 0.8rem;
       font-weight: 500;
-      background: rgba(255, 255, 255, 0.04);
-      padding: 5px 10px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.2s;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      white-space: nowrap;
+      transition: all 0.2s ease;
     }
 
-    nav a.active {
+    .nav-links a:hover, .nav-links a.active {
       color: var(--accent-color);
-      border-color: rgba(56, 189, 248, 0.4);
-      background: rgba(56, 189, 248, 0.1);
+      border-color: rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.05);
     }
 
     /* ENCABEZADO DE SECCIÓN */
     .section-header {
       text-align: center;
-      padding: 30px 0 40px 0;
+      padding: 20px 0 35px 0;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: 800;
       background: linear-gradient(135deg, #ffffff 0%, #38bdf8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     .subtitle {
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       color: var(--text-muted);
       max-width: 600px;
       margin: 0 auto;
@@ -104,9 +119,9 @@
     .testimonials-grid {
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 30px;
       align-items: center;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
 
     .testimonial-card {
@@ -116,7 +131,7 @@
       border-radius: 20px;
       padding: 20px;
       width: 100%;
-      max-width: 550px; /* Ancho ideal para lucir las tarjetas elegantes */
+      max-width: 550px;
       box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.5);
       transition: transform 0.3s ease, border-color 0.3s ease;
     }
@@ -137,16 +152,16 @@
       background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(168, 85, 247, 0.08) 100%);
       border: 1px solid rgba(56, 189, 248, 0.3);
       border-radius: 20px;
-      padding: 40px 30px;
+      padding: 35px 25px;
       text-align: center;
-      margin-top: 40px;
-      margin-bottom: 40px;
+      margin-top: 30px;
+      margin-bottom: 30px;
     }
 
     .cta-box h3 {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: #ffffff;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .cta-btn {
@@ -158,7 +173,7 @@
       font-weight: 800;
       font-size: 1.05rem;
       text-decoration: none;
-      border-radius: 14px;
+      border-radius: 12px;
       box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
       transition: transform 0.2s;
     }
@@ -169,11 +184,11 @@
 
     footer {
       text-align: center;
-      padding: 30px 0;
+      padding: 25px 0;
       color: var(--text-muted);
       font-size: 0.8rem;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
-      margin-top: 40px;
+      margin-top: 30px;
     }
   </style>
 </head>
@@ -181,11 +196,12 @@
 
   <div class="container">
 
-    <!-- MENÚ SUPERIOR -->
-    <header class="nav-header">
+    <!-- MENÚ SUPERIOR UNIFICADO -->
+    <header class="top-nav-container">
       <a href="./index.html" class="brand-logo">Latitud Escalar</a>
-      <nav>
+      <nav class="nav-links">
         <a href="./como-funciona.html">¿Cómo Funciona?</a>
+        <a href="./servicios.html">Servicios</a>
         <a href="./sobre-mi.html">La Operadora</a>
         <a href="./testimonios.html" class="active">Testimonios</a>
         <a href="./preguntas-frecuentes.html">FAQ</a>
@@ -198,39 +214,47 @@
       <p class="subtitle">Así es como la perturbación energética actúa en diferentes tipos de caos. Sin esfuerzo, sin terapia, solo resultados.</p>
     </section>
 
-    <!-- GALERÍA DE TESTIMONIOS (8 IMÁGENES) -->
+    <!-- GALERÍA DE TESTIMONIOS (10 IMÁGENES JPG) -->
     <div class="testimonials-grid">
       
       <div class="testimonial-card">
-        <img src="testimonio1.png" alt="Testimonio Oasis Mental 1">
+        <img src="testimonio1.jpg" alt="Testimonio Latitud Escalar 1" loading="lazy">
       </div>
 
       <div class="testimonial-card">
-        <img src="testimonio2.png" alt="Testimonio Oasis Mental 2">
+        <img src="testimonio2.jpg" alt="Testimonio Latitud Escalar 2" loading="lazy">
       </div>
 
       <div class="testimonial-card">
-        <img src="testimonio3.png" alt="Testimonio Oasis Mental 3">
+        <img src="testimonio3.jpg" alt="Testimonio Latitud Escalar 3" loading="lazy">
       </div>
 
       <div class="testimonial-card">
-        <img src="testimonio4.png" alt="Testimonio Oasis Mental 4">
+        <img src="testimonio4.jpg" alt="Testimonio Latitud Escalar 4" loading="lazy">
       </div>
 
       <div class="testimonial-card">
-        <img src="testimonio5.png" alt="Testimonio Oasis Mental 5">
+        <img src="testimonio5.jpg" alt="Testimonio Latitud Escalar 5" loading="lazy">
       </div>
 
       <div class="testimonial-card">
-        <img src="testimonio6.png" alt="Testimonio Oasis Mental 6">
+        <img src="testimonio6.jpg" alt="Testimonio Latitud Escalar 6" loading="lazy">
       </div>
 
       <div class="testimonial-card">
-        <img src="testimonio7.png" alt="Testimonio Oasis Mental 7">
+        <img src="testimonio7.jpg" alt="Testimonio Latitud Escalar 7" loading="lazy">
       </div>
 
       <div class="testimonial-card">
-        <img src="testimonio8.png" alt="Testimonio Oasis Mental 8">
+        <img src="testimonio8.jpg" alt="Testimonio Latitud Escalar 8" loading="lazy">
+      </div>
+
+      <div class="testimonial-card">
+        <img src="testimonio9.jpg" alt="Testimonio Latitud Escalar 9" loading="lazy">
+      </div>
+
+      <div class="testimonial-card">
+        <img src="testimonio10.jpg" alt="Testimonio Latitud Escalar 10" loading="lazy">
       </div>
 
     </div>
