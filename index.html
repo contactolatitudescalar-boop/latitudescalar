@@ -3,949 +3,1148 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oasis Mental — Mecánica Universal</title>
+  <meta name="description" content="Oasis Mental: 7 días gratuitos de sesiones remotas de energía escalar.">
+  <title>Oasis Mental — Latitud Escalar</title>
+
   <style>
     :root {
-      --bg-color: #0b0f19;
-      --card-bg: rgba(22, 30, 49, 0.75);
-      --accent-color: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.35);
-      --purple-accent: #a855f7;
-      --text-color: #f1f5f9;
-      --text-muted: #94a3b8;
-      --warning-bg: rgba(69, 26, 3, 0.4);
-      --warning-border: #f59e0b;
+      --bg: #0b0f19;
+      --surface: rgba(22, 30, 49, 0.80);
+      --sky: #38bdf8;
+      --orange: #ff7a00;
+      --text: #f1f5f9;
+      --muted: #b7c4d5;
+      --line: rgba(255,255,255,.10);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
-      background-color: var(--bg-color);
-      background-image: 
-        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
-      background-attachment: fixed;
-      color: var(--text-color);
-      line-height: 1.8;
-      padding: 60px 20px;
+      margin: 0;
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at 50% 0, rgba(56,189,248,.14), transparent 32rem),
+        radial-gradient(circle at 85% 72%, rgba(168,85,247,.10), transparent 30rem),
+        var(--bg);
     }
 
     .container {
-      max-width: 780px;
-      margin: 0 auto;
+      width: min(100% - 32px, 850px);
+      margin: auto;
     }
 
-    /* MENÚ SUPERIOR */
     .top-nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      margin-bottom: 35px;
       gap: 15px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
     }
 
     .brand-logo {
-      color: #ffffff;
-      font-weight: 700;
+      color: white;
+      font-weight: 800;
       text-decoration: none;
-      font-size: 1.05rem;
-      letter-spacing: -0.3px;
       white-space: nowrap;
-    }
-
-    .brand-logo:hover {
-      color: var(--accent-color);
     }
 
     .nav-links {
       display: flex;
       gap: 8px;
-      align-items: center;
+      max-width: 100%;
       overflow-x: auto;
       padding-bottom: 4px;
-      max-width: 100%;
       scrollbar-width: none;
     }
 
-    .nav-links::-webkit-scrollbar {
-      display: none;
-    }
+    .nav-links::-webkit-scrollbar { display: none; }
 
     .nav-links a {
-      color: var(--text-muted);
+      color: var(--muted);
       text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 500;
-      background: rgba(255, 255, 255, 0.03);
+      white-space: nowrap;
+      font-size: .8rem;
       padding: 6px 10px;
       border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      white-space: nowrap;
-      transition: all 0.2s ease;
+      border: 1px solid rgba(255,255,255,.07);
+      background: rgba(255,255,255,.03);
     }
 
-    .nav-links a:hover, .nav-links a.active {
-      color: var(--accent-color);
-      border-color: rgba(56, 189, 248, 0.3);
-      background: rgba(56, 189, 248, 0.05);
+    .nav-links a:hover {
+      color: var(--sky);
+      border-color: rgba(56,189,248,.4);
     }
 
-    /* BADGE Y ENCABEZADO */
+    .hero {
+      text-align: center;
+      padding: 70px 0 42px;
+    }
+
     .badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      color: var(--accent-color);
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
+      color: var(--sky);
+      background: rgba(56,189,248,.10);
+      border: 1px solid rgba(56,189,248,.32);
+      padding: 7px 13px;
+      border-radius: 99px;
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .06em;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 30px;
     }
 
-    .pulse {
-      width: 8px;
-      height: 8px;
-      background-color: var(--accent-color);
+    .badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--sky);
       border-radius: 50%;
-      box-shadow: 0 0 10px var(--accent-color);
-      animation: pulse-animation 2s infinite;
+      box-shadow: 0 0 12px var(--sky);
     }
 
-    @keyframes pulse-animation {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(56, 189, 248, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
-    }
-
-    header {
-      text-align: center;
-      padding: 40px 0 50px 0;
-    }
+    h1, h2, h3, h4, p { margin-top: 0; }
 
     h1 {
-      font-size: 2.6rem;
-      line-height: 1.3;
-      font-weight: 800;
-      background: linear-gradient(135deg, #ffffff 0%, #38bdf8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 25px;
+      max-width: 790px;
+      margin: 18px auto;
+      font-size: clamp(2.35rem, 7vw, 4.5rem);
+      line-height: 1.06;
+      letter-spacing: -.055em;
     }
 
-    .subtitle {
-      font-size: 1.25rem;
-      color: #cbd5e1;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-
-    /* TARJETAS CON ESPACIADO AMPLIO */
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 45px;
-      margin-bottom: 50px;
-      box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .card:hover {
-      border-color: rgba(56, 189, 248, 0.3);
-    }
-
-    /* HIGHLIGHT BOX PARA LA PREGUNTA PRINCIPAL */
-    .hero-question-box {
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(168, 85, 247, 0.08) 100%);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 16px;
-      padding: 30px;
-      margin-bottom: 40px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero-question-box p {
-      font-size: 1.15rem;
-      margin-bottom: 15px;
-      color: #f8fafc;
-    }
-
-    .hero-question-box p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* BLOQUES DE PREGUNTAS Y EXPLICACIÓN DE ENERGÍA ESCALAR */
-    .info-block {
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      border-radius: 14px;
-      padding: 25px 30px;
-      margin: 30px 0;
-    }
-
-    .info-block h3 {
-      color: var(--accent-color);
-      font-size: 1.3rem;
+    h2 {
+      font-size: clamp(1.65rem, 4vw, 2.3rem);
+      line-height: 1.2;
       margin-bottom: 12px;
+    }
+
+    .gradient {
+      background: linear-gradient(130deg, #fff 38%, var(--sky));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      max-width: 690px;
+      margin: 0 auto 28px;
+      color: #d8e2ee;
+      font-size: clamp(1.05rem, 2.6vw, 1.23rem);
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 21px;
+      border-radius: 11px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .2s;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .primary {
+      color: #1b1208;
+      background: linear-gradient(135deg, #ffb12b, var(--orange));
+      box-shadow: 0 7px 22px rgba(255,122,0,.3);
+    }
+
+    .secondary {
+      color: var(--sky);
+      border: 1px solid rgba(56,189,248,.42);
+      background: rgba(56,189,248,.10);
+    }
+
+    .trust {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-top: 25px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .trust span::before {
+      content: "✓";
+      color: var(--sky);
+      font-weight: 900;
+      margin-right: 7px;
+    }
+
+    section { padding: 28px 0; }
+
+    .card {
+      padding: clamp(24px, 5vw, 42px);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: 0 14px 42px rgba(0,0,0,.23);
+    }
+
+    .section-label {
+      color: var(--sky);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .muted { color: var(--muted); }
+
+    .question {
+      text-align: center;
+      padding: clamp(24px, 5vw, 35px);
+      border: 1px solid rgba(56,189,248,.3);
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(56,189,248,.12), rgba(168,85,247,.07));
+    }
+
+    .question strong {
+      color: #ffb45a;
+      font-size: 1.2rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .item {
+      padding: 20px;
+      background: rgba(8,15,28,.45);
+      border: 1px solid var(--line);
+      border-radius: 13px;
+    }
+
+    .number {
+      display: block;
+      color: var(--sky);
+      font-size: .8rem;
+      font-weight: 850;
+      margin-bottom: 7px;
+    }
+
+    .item p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .machine {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .machine-photo {
+      min-height: 340px;
+      background:
+        linear-gradient(90deg, rgba(11,15,25,.05), rgba(11,15,25,.30)),
+        url("./laura-maquina.jpg") center / cover;
+    }
+
+    .machine-copy {
+      align-self: center;
+      padding: clamp(25px, 5vw, 43px);
+    }
+
+    .quote {
+      margin: 24px 0 0;
+      padding-left: 18px;
+      color: #dce8f5;
+      border-left: 3px solid var(--sky);
+    }
+
+    .topics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 11px;
+      margin-top: 22px;
+    }
+
+    .topic {
+      padding: 15px;
+      color: #dce6f2;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 11px;
+    }
+
+    .topic strong { color: var(--sky); }
+
+    .focus-note,
+    .notice {
+      margin-top: 24px;
+      padding: 18px;
+      border-radius: 11px;
+      color: #ead9b1;
+      background: rgba(245,158,11,.12);
+      border-left: 4px solid #f5b342;
+    }
+
+    .registration {
+      border-color: rgba(255,122,0,.56);
+      background: linear-gradient(135deg, rgba(255,122,0,.14), rgba(22,30,49,.92) 50%);
+    }
+
+    .data-explanation {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0;
+      padding: 22px;
+      background: rgba(15,23,42,.66);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .data-explanation p {
+      margin: 0;
+      color: #d1dce9;
+      font-size: .95rem;
+    }
+
+    .data-explanation strong { color: var(--sky); }
+
+    form {
+      display: grid;
+      gap: 14px;
+      max-width: 520px;
+      margin: 25px auto 0;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #eef3f9;
+      font-size: .88rem;
+      font-weight: 750;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 13px;
+      color: white;
+      font: inherit;
+      background: #101928;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 9px;
+    }
+
+    input:focus, select:focus {
+      outline: 2px solid var(--sky);
+      outline-offset: 2px;
+    }
+
+    .minor-message {
+      display: none;
+      padding: 16px;
+      color: #f5e7bd;
+      text-align: center;
+      background: rgba(245,158,11,.13);
+      border: 1px solid rgba(245,179,66,.55);
+      border-radius: 11px;
+    }
+
+    .minor-message a {
+      color: white;
+      font-weight: 800;
+    }
+
+    .privacy,
+    .legal {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .privacy {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .floating-container {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 30;
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .info-block p {
-      font-size: 1.05rem;
-      color: #e2e8f0;
-      margin-bottom: 10px;
-    }
-
-    .info-block p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* GRID DE BENEFICIOS */
-    .features-grid {
-      display: grid;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .feature-item {
-      background: rgba(15, 23, 42, 0.6);
-      border-radius: 12px;
-      padding: 22px 25px;
-      border-left: 4px solid var(--accent-color);
-    }
-
-    .feature-item h4 {
-      color: var(--accent-color);
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-    }
-
-    .feature-item p {
-      color: var(--text-muted);
-      font-size: 1rem;
-    }
-
-    /* LISTA DE LOS 10 CAOS */
-    .caos-list {
-      display: grid;
-      gap: 18px;
-      margin-top: 30px;
-    }
-
-    .caos-card {
-      background: rgba(15, 23, 42, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      padding: 20px 24px;
-      border-radius: 12px;
-    }
-
-    .caos-card strong {
-      color: var(--accent-color);
-      display: block;
-      margin-bottom: 6px;
-      font-size: 1.1rem;
-    }
-
-    .caos-card p {
-      color: #cbd5e1;
-      font-size: 0.98rem;
-    }
-
-    /* CUADRO ADVERTENCIA */
-    .warning-box {
-      background: var(--warning-bg);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      border-left: 5px solid var(--warning-border);
-      padding: 35px;
-      border-radius: 16px;
-      margin-bottom: 50px;
-    }
-
-    .warning-box h3 {
-      color: var(--warning-border);
-      margin-bottom: 16px;
-      font-size: 1.25rem;
-    }
-
-    .warning-box p {
-      margin-bottom: 12px;
-      font-size: 1.05rem;
-    }
-
-    .warning-box p:last-child {
-      margin-bottom: 0;
-    }
-
-    .legal {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      text-align: center;
-      margin-top: 25px;
-      line-height: 1.6;
-    }
-
-    .closing {
-      text-align: center;
-      font-style: italic;
-      margin: 60px 0 30px 0;
-      color: #cbd5e1;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      padding: 0 20px;
-    }
-
-    /* ================= BOTÓN FLOTANTE ESCRITORIO ================= */
-    .floating-desktop-cta {
-      position: fixed;
-      top: 25px;
-      right: 25px;
-      background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
-      color: #0f172a !important;
-      font-weight: 800 !important;
-      padding: 10px 22px !important;
-      border-radius: 14px;
-      border: none !important;
-      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
+    .float-cta {
+      display: none;
+      padding: 12px 17px;
+      color: #112132;
+      font-size: .85rem;
+      font-weight: 850;
       text-decoration: none;
-      font-size: 0.95rem;
-      z-index: 10000;
+      background: linear-gradient(135deg, var(--sky), #0284c7);
+      border-radius: 50px;
     }
 
-    .floating-desktop-cta:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 25px rgba(56, 189, 248, 0.6);
+    .float-btn {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      color: white;
+      border: 0;
+      border-radius: 50%;
+      box-shadow: 0 4px 14px rgba(0,0,0,.35);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .whatsapp { background: #25d366; }
+    .instagram { background: linear-gradient(135deg, #fd5949, #d6249f, #285aeb); }
+    .chat-trigger { background: linear-gradient(135deg, #1e1b4b, #4f46e5); }
+
+    .chat-widget {
+      display: none;
+      position: fixed;
+      right: 20px;
+      bottom: 82px;
+      z-index: 35;
+      flex-direction: column;
+      width: min(340px, calc(100vw - 40px));
+      height: 440px;
+      overflow: hidden;
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.5);
+    }
+
+    .chat-header {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: #1e1b4b;
+    }
+
+    .chat-header h4 { margin: 0; }
+    .chat-header span { color: #c5c8ff; font-size: .75rem; }
+
+    .chat-close {
+      color: white;
+      font-size: 21px;
+      background: none;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .chat-messages {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      gap: 10px;
+      padding: 14px;
+      overflow: auto;
+      font-size: .84rem;
+    }
+
+    .chat-msg {
+      max-width: 84%;
+      padding: 9px 12px;
+      line-height: 1.45;
+      border-radius: 12px;
+    }
+
+    .msg-bot {
+      align-self: flex-start;
+      color: #e2e8f0;
+      background: #1e293b;
+    }
+
+    .msg-user {
+      align-self: flex-end;
+      background: #4f46e5;
+    }
+
+    .chat-input-area {
+      display: flex;
+      gap: 7px;
+      padding: 10px;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+
+    .chat-input-area input {
+      padding: 8px 10px;
+      font-size: .84rem;
+    }
+
+    .chat-input-area button {
+      padding: 8px 12px;
+      color: white;
+      background: #4f46e5;
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 29px 0 45px;
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: .84rem;
+      text-align: center;
+      border-top: 1px solid var(--line);
     }
 
     @media (max-width: 650px) {
-      body { padding: 30px 10px; }
-      h1 { font-size: 2rem; }
-      .subtitle { font-size: 1.05rem; }
-      .card { padding: 25px 15px; margin-bottom: 35px; }
-      .hero-question-box, .info-block { padding: 20px; }
-      .warning-box { padding: 25px 15px; }
-    }
+      .top-nav-container {
+        align-items: flex-start;
+        flex-direction: column;
+      }
 
-    @media (max-width: 767px) {
-      .floating-desktop-cta {
-        display: none;
+      .nav-links { width: 100%; }
+      .hero { padding: 47px 0 25px; }
+      .grid, .topics, .machine { grid-template-columns: 1fr; }
+      .machine-photo { min-height: 270px; }
+      .float-cta { display: block; }
+
+      .floating-container {
+        right: 15px;
+        left: 15px;
+        justify-content: space-between;
       }
     }
   </style>
 </head>
+
 <body>
-
-  <!-- BOTÓN FLOTANTE SUPERIOR DERECHO (Solo para Desktop) -->
-  <a href="#registro" class="floating-desktop-cta">
-    ⚡ 7 días gratis
-  </a>
-
   <div class="container">
-
-    <!-- MENÚ SUPERIOR EN UNA SOLA LÍNEA DESLIZABLE -->
     <header class="top-nav-container">
-      <a href="./index.html" class="brand-logo">
-        Latitud Escalar
-      </a>
-      <nav class="nav-links">
-        <a href="./como-funciona.html">¿Cómo Funciona?</a>
+      <a class="brand-logo" href="./index.html">Latitud Escalar</a>
+
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="./como-funciona.html">¿Cómo funciona?</a>
         <a href="./servicios.html">Servicios</a>
-        <a href="./sobre-mi.html">La Operadora</a>
+        <a href="./sobre-mi.html">La operadora</a>
         <a href="./testimonios.html">Testimonios</a>
         <a href="./preguntas-frecuentes.html">FAQ</a>
       </nav>
     </header>
 
-   <header style="text-align: center; padding: 20px 0 40px 0;">
-      <div class="badge"><span class="pulse"></span> Mecánica Universal</div>
-      
-      <h1 style="font-size: 3.2rem; line-height: 1.15; font-weight: 900; background: linear-gradient(135deg, #ffffff 30%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 15px; text-transform: uppercase;">
-        El caos no se ordena con presión
-      </h1>
-      <p style="color: #38bdf8; font-size: 1.5rem; font-weight: 700; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;">
-        Se ordena con una perturbación
-      </p>
+    <main>
+      <section class="hero">
+        <span class="badge">Mecánica universal</span>
 
-      <p class="subtitle">
-        <strong>Oasis Mental:</strong> 7 días gratis de energía escalar para ordenar tu caos sin que hagas nada. Sin terapia. Sin coaching. Sin esfuerzo.
-      </p>
-    </header>
+        <h1>
+          El caos no se ordena con presión.<br>
+          <span class="gradient">Se ordena con un movimiento.</span>
+        </h1>
 
-    <!-- PREGUNTA INICIAL DESTACADA -->
-    <div class="hero-question-box" style="text-align: center;">
-      <p style="color: #fb923c; font-size: 1.25rem; font-weight: 700; line-height: 1.5; margin-bottom: 20px;">
-        ¿Cuántas veces intentaste resolver un quilombo metiéndole más esfuerzo, más presión, más información, más terapia, más cursos, más métodos?
-      </p>
-      
-      <p style="color: #94a3b8; font-style: italic; font-size: 1.1rem; margin-bottom: 20px;">
-        Y el quilombo siguió ahí.
-      </p>
-      
-      <p style="font-size: 1.05rem; color: #e2e8f0; line-height: 1.7;">
-        Porque el caos no se ordena con presión. Se ordena con una perturbación. Algo que rompa el equilibrio y le diga al sistema: <em>Acá hay un desorden. Vení a ordenarlo.</em>
-      </p>
-    </div>
-
-    <!-- MANIFIESTO Y EXPLICACIÓN TÉCNICA -->
-    <section class="card">
-      <div class="info-block">
-        <h3>⚡ ¿Qué es la energía escalar?</h3>
-        <p>No es vibración. No es amor. No es luz.</p>
-        <p>Es energía física. La misma que mueve una estrella. Estamos inmersos in ella, pero no la percibimos porque está en estado neutro. Como una batería que no se usa.</p>
-      </div>
-
-      <div class="info-block">
-        <h3>⚙️ ¿Cómo funciona el mecanismo?</h3>
-        <p>Oasis Mental genera una perturbación en esa energía. Rompe el equilibrio de tu caos (el tema que elegiste) para que la energía empiece a fluir hacia vos.</p>
-        <p>El sistema no tolera el desorden. Cuando detecta la perturbación, la energía fluye hacia el caos para equilibrarlo.</p>
-      </div>
-    </section>
-
-    <!-- CAJA DESTACADA DE LLAMADO A LA ACCIÓN -->
-    <div style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.12) 0%, rgba(15, 23, 42, 0.8) 100%); border: 2px solid var(--accent-color); border-radius: 20px; padding: 35px 25px; text-align: center; margin-bottom: 50px; box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);">
-      <p style="color: #38bdf8; font-weight: 800; font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 15px;">
-        No es magia. No es fe. No es esfuerzo. Es mecánica.
-      </p>
-
-      <div style="background: rgba(56, 189, 248, 0.15); border-radius: 12px; padding: 15px; margin: 15px 0; border: 1px dashed rgba(56, 189, 248, 0.4);">
-        <p style="font-size: 1.3rem; font-weight: 800; color: #ffffff; line-height: 1.4;">
-          <span style="color: #38bdf8; text-decoration: underline;">7 DÍAS GRATIS</span> PARA PROBARLO.
+        <p class="lead">
+          <strong>Oasis Mental:</strong> 7 días gratuitos de energía escalar para ordenar tu caos sin que hagas nada. Sin terapia. Sin coaching. Sin esfuerzo.
         </p>
-        <p style="font-size: 1.05rem; color: #cbd5e1; font-weight: 600; margin-top: 5px;">
-          Sin hacer nada. Sin hablar con nadie. Sin exponerte.
-        </p>
-      </div>
 
-      <p style="color: #f1f5f9; font-size: 1.1rem; font-weight: 600; margin-top: 15px; letter-spacing: 0.5px;">
-        Elegí tu caos. Activá el mecanismo.
-      </p>
-    </div>
+        <div class="actions">
+          <a class="button primary" href="#registro">Activar mis 7 días gratis</a>
+          <a class="button secondary" href="./como-funciona.html">Entender cómo funciona</a>
+        </div>
 
-    <!-- QUÉ INCLUYEN LOS 7 DÍAS GRATUITOS -->
-    <section class="card">
-      <h2 style="color: var(--accent-color); font-size: 1.5rem; margin-bottom: 15px;">Qué incluyen los 7 días gratuitos</h2>
-      
-      <div class="features-grid">
-        <div class="feature-item">
-          <h4>Sesiones diarias remotas</h4>
-          <p>Energía escalar trabajando sobre tu caos sin que hagas nada.</p>
+        <div class="trust">
+          <span>Sesiones remotas</span>
+          <span>Sin llamadas</span>
+          <span>Sin compromiso al finalizar</span>
         </div>
-        <div class="feature-item">
-          <h4>Sin interacción humana</h4>
-          <p>No tenés que hablar con nadie, no tenés que exponerte, no tenés que contar tu historia.</p>
-        </div>
-        <div class="feature-item">
-          <h4>Sin esfuerzo</h4>
-          <p>El equipo hace todo. El sistema hace el resto. Vos solo recibís el resultado.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ENLACE RÁPIDO A TESTIMONIOS (MODIFICADO CON BORDE NARANJA Y LETRA BLANCA) -->
-    <div style="text-align: center; margin-bottom: 50px;">
-      <a href="./testimonios.html" style="display: inline-block; background: rgba(255, 122, 0, 0.08); border: 2px solid #ff7a00; color: #ffffff; padding: 14px 28px; border-radius: 14px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: background 0.2s; box-shadow: 0 4px 15px rgba(255, 122, 0, 0.2);">
-        ✨ ¿Querés ver historias reales? <span style="color: #ffffff; text-decoration: underline;">Conocé los testimonios</span>
-      </a>
-    </div>
+      <section>
+        <div class="question">
+          <p>
+            <strong>¿Cuántas veces intentaste resolver un problema metiéndole más esfuerzo, más presión, más información, más terapia, más cursos, más métodos?</strong>
+          </p>
 
-    <!-- LOS 10 CAOS QUE PODÉS ORDENAR -->
-    <section class="card">
-      <h2 style="color: var(--accent-color); font-size: 1.5rem; margin-bottom: 10px;">Los 10 caos que podés ordenar</h2>
-      <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 10px;">Identificá lo que duele:</p>
+          <p style="color:var(--muted);font-style:italic;">Y el problema siguió ahí.</p>
 
-      <div class="caos-list">
-        <div class="caos-card">
-          <strong>1. Insomnio</strong>
-          <p>Son las 3 AM y el techo te mira fijo. La cabeza no se apaga.</p>
+          <p>
+            Porque el caos no se ordena con presión. Se ordena con un movimiento: algo que rompa el equilibrio y abra la posibilidad de reordenarse.
+          </p>
         </div>
-        <div class="caos-card">
-          <strong>2. Duelo</strong>
-          <p>El pecho te pesa. Perdiste a alguien o algo. Y no se va.</p>
-        </div>
-        <div class="caos-card">
-          <strong>3. Divorcio</strong>
-          <p>La idea de familia que construiste se hizo mierda. Y encima te culpás.</p>
-        </div>
-        <div class="caos-card">
-          <strong>4. Mudanza</strong>
-          <p>Todo cambió de lugar. Y vos quedaste en el medio.</p>
-        </div>
-        <div class="caos-card">
-          <strong>5. Post-enfermedad</strong>
-          <p>El cuerpo sanó. La cabeza no. El miedo a que vuelva no te deja vivir.</p>
-        </div>
-        <div class="caos-card">
-          <strong>6. Acompañamiento en enfermedad</strong>
-          <p>Estás en medio de un tratamiento. Y es un quilombo. Sostén energético sin reemplazar tu medicina.</p>
-        </div>
-        <div class="caos-card">
-          <strong>7. Cuidar a otro</strong>
-          <p>Vivís para otros y te olvidaste de vos. La energía se te va y no te queda nada.</p>
-        </div>
-        <div class="caos-card">
-          <strong>8. Cambio laboral</strong>
-          <p>Querés saltar, pero el miedo te clava los pies. La energía está estancada.</p>
-        </div>
-        <div class="caos-card">
-          <strong>9. Vínculos ásperos</strong>
-          <p>La familia te desordena. Una llamada te desestabiliza por días.</p>
-        </div>
-        <div class="caos-card">
-          <strong>10. Prosperidad económica</strong>
-          <p>La plata no termina de llegar. O llega pero no se queda.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- AVISO DE NO MEZCLAR -->
-    <div class="warning-box">
-      <h3>⚠️ Una condición para que el mecanismo funcione:</h3>
-      <p>Durante los 7 días, <strong>no mezcles Oasis Mental con otras terapias, podcasts, libros o métodos</strong>.</p>
-      <p style="margin-top: 12px;">¿Por qué? La energía es como el agua: si le das muchos caminos, se dispersa. Si le das uno, fluye.</p>
-      <p style="margin-top: 12px;">No es una sugerencia. Es la condición para que el sistema trabaje sin interferencias.</p>
-      <p style="margin-top: 16px; font-weight: 600; color: #fef08a;">7 días de silencio. Después, volvés a todo lo demás.</p>
-    </div>
+      <section>
+        <div class="card">
+          <p class="section-label">Qué es la energía escalar</p>
+          <h2>Un movimiento para volver a mover lo que se quedó estancado.</h2>
 
-    <!-- SECCIÓN: INFORMACIÓN QUE NECESITO PARA COMENZAR LA PRUEBA (FORMULARIO DESTACADO CON BORDE NARANJA) -->
-    <section class="card" id="registro" style="border: 2px solid #ff7a00; box-shadow: 0 10px 35px rgba(255, 122, 0, 0.15); background: linear-gradient(135deg, rgba(22, 30, 49, 0.9) 0%, rgba(30, 20, 10, 0.4) 100%);">
-      
-      <!-- Título "Activá tus 7 días" grande y con degradé -->
-      <h2 style="font-size: 2.1rem; text-align: center; margin-bottom: 15px; font-weight: 900; background: linear-gradient(135deg, #ffffff 0%, #ff9900 50%, #ff5500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; letter-spacing: 0.5px;">
-        Activá tus 7 días gratis
-      </h2>
+          <p class="muted">
+            Oasis Mental genera ese movimiento en el campo energético del tema que elegiste, para abrir un proceso de reordenamiento.
+          </p>
 
-      <p style="color: #e2e8f0; font-size: 1.05rem; text-align: center; margin-bottom: 30px; line-height: 1.6;">
-        Para establecer la conexión energética personalizada y dirigir las sesiones de forma remota hacia ti, necesito los siguientes datos:
-      </p>
+          <div class="grid">
+            <div class="item">
+              <span class="number">01</span>
+              <h3>Elegís tu foco</h3>
+              <p>Indicás qué situación querés trabajar durante esta prueba.</p>
+            </div>
 
-      <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 35px; background: rgba(15, 23, 42, 0.7); padding: 25px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.08);">
-        <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Nombre completo:</strong> Actúa como el identificador primario para focalizar la sesión.</p>
-        <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Fecha de nacimiento:</strong> Se utiliza para crear la firma informacional específica que establece la conexión energética.</p>
-        <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Número de teléfono:</strong> Funciona como un identificador específico adicional dentro de la firma energética, similar al nombre y la fecha de nacimiento. Ayuda a singularizar tu conexión para que la energía se dirija exclusivamente a ti.</p>
-        <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Ciudad y país:</strong> Proporcionan el contexto de ubicación que refuerza el anclaje de la sesión.</p>
-        <p style="font-size: 0.98rem; color: #cbd5e1;"><strong style="color: var(--accent-color);">Correo electrónico:</strong> Es el único medio por el que te contactaré. Ahí recibirás tu confirmación de bienvenida, los seguimientos del día 3 y 7, y cualquier otra comunicación. Si no recibes nada revisa tu carpeta de CORREO NO DESEADO O SPAM. Si no llegas recibir ningún mail tampoco en estas carpetas escríbeme a contacto.latitudescalar@gmail.com</p>
-      </div>
+            <div class="item">
+              <span class="number">02</span>
+              <h3>Se dirige la sesión</h3>
+              <p>La máquina trabaja de manera remota sobre la firma energética vinculada a tus datos.</p>
+            </div>
 
-      <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid var(--warning-border); padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-        <p style="font-size: 0.95rem; color: #fef08a; margin-bottom: 10px;"><strong>Importante:</strong> No te llamaré por teléfono en ningún momento. El número solo forma parte de tu "firma" de conexión energética y no se utiliza para llamadas ni mensajes de texto. Toda la comunicación se realiza exclusivamente a través del correo electrónico que me proporciones.</p>
-        <p style="font-size: 0.95rem; color: #cbd5e1;"><strong>Compromiso de privacidad:</strong> Toda esta información se trata con absoluta confidencialidad y se utiliza únicamente para la prestación de este servicio.</p>
-      </div>
-
-      <p style="text-align: center; color: #ffaa33; font-size: 1.05rem; font-weight: 700; margin-bottom: 25px;">Ingresá tus datos completos en el formulario para activar las sesiones gratuitas</p>
-
-      <div id="form-container" style="width: 100%; max-width: 480px; margin: 0 auto;">
-        <form id="oasis-brevo-form" action="https://f19835dd.sibforms.com/serve/MUIFAI0VyoUeA5Vpb62nVPoqyF_dYsSIdZsz6xcFSu0hZQbk8ZSaYdq45fjZnHwMm9jrOK1-ZQ_8Xi2kOElLXAUOzEodO9RqbpxYEF-Q2lS2ctdaga9Sx8g6QFuO4pMA4TiijvQzoLbAEQH2GKz8vcrZOiQcpzUopJ0qYC9J63wnqC2J0R0nLsntgDRRWJ2V-um-WrUF-OSNc99FWQ==" method="POST" data-type="subscription" style="display: flex; flex-direction: column; gap: 1rem; width: 100%;">
-
-          <!-- Campo Nombre -->
-          <div style="display: flex; flex-direction: column; text-align: left;">
-            <label for="NOMBRE" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Nombre completo *</label>
-            <input type="text" id="NOMBRE" name="NOMBRE" placeholder="Tu nombre" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
+            <div class="item">
+              <span class="number">03</span>
+              <h3>Observás el proceso</h3>
+              <p>Durante siete días podés registrar qué cambia en tu descanso, energía y bienestar.</p>
+            </div>
           </div>
 
-          <!-- Campo Fecha de Nacimiento -->
-          <div style="display: flex; flex-direction: column; text-align: left;">
-            <label for="FECHA_NACIMIENTO" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Fecha de nacimiento (DD-MM-AAAA) *</label>
-            <input type="text" id="FECHA_NACIMIENTO" name="FECHA_NACIMIENTO" data-type="date" pattern="^([0-2][0-9]|(3)[0-1])(-)(((0)[0-9])|((1)[0-2]))(-)\d{4}$" placeholder="DD-MM-AAAA" title="Formato requerido: dd-mm-yyyy" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
-          </div>
-
-          <!-- Campo Teléfono -->
-          <div style="display: flex; flex-direction: column; text-align: left;">
-            <label for="TELEFONO" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Número de teléfono *</label>
-            <input type="tel" id="TELEFONO" name="TELEFONO" placeholder="Ej: +549..." required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
-          </div>
-
-          <!-- Campo Residencia -->
-          <div style="display: flex; flex-direction: column; text-align: left;">
-            <label for="RESIDENCIA" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Lugar de residencia (Ciudad, País) *</label>
-            <input type="text" id="RESIDENCIA" name="RESIDENCIA" placeholder="Ej: Santiago, Chile" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
-          </div>
-
-          <!-- Campo Correo Electrónico -->
-          <div style="display: flex; flex-direction: column; text-align: left;">
-            <label for="EMAIL" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">Correo electrónico *</label>
-            <input type="email" id="EMAIL" name="EMAIL" placeholder="tu@email.com" required style="width: 100%; padding: 0.75rem 1rem; background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 1rem; outline: none;">
-          </div>
-
-          <!-- Campo Caos Exacto -->
-          <div style="display: flex; flex-direction: column; text-align: left;">
-            <label for="CAOS" style="font-size: 0.85rem; color: #f3f4f6; margin-bottom: 0.3rem; font-weight: 600;">¿Cuál es tu principal desafío / caos hoy? *</label>
-            <select id="CAOS" name="CAOS" required style="width: 100%; padding: 0.75rem 1rem; background-color: #12131c; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #ffffff; font-size: 0.95rem; outline: none;">
-              <option value="" disabled selected>Seleccioná una opción...</option>
-              <option value="Insomnio">Insomnio</option>
-              <option value="Duelo">Duelo</option>
-              <option value="Divorcio">Divorcio</option>
-              <option value="Mudanza">Mudanza</option>
-              <option value="Post-enfermedad">Post-enfermedad</option>
-              <option value="Acompañamiento en enfermedad">Acompañamiento en enfermedad</option>
-              <option value="Cuidar a otro">Cuidar a otro</option>
-              <option value="Cambio laboral">Cambio laboral</option>
-              <option value="Vínculos ásperos">Vínculos ásperos</option>
-              <option value="Prosperidad económica">Prosperidad económica</option>
-            </select>
-          </div>
-
-          <!-- Campos ocultos de Brevo -->
-          <input type="text" name="email_address_check" value="" style="display:none;">
-          <input type="hidden" name="locale" value="es">
-
-          <!-- Botón Enviar -->
-          <button type="submit" id="btn-submit" style="margin-top: 0.5rem; width: 100%; padding: 0.9rem 1.5rem; background: linear-gradient(135deg, #ff7a00 0%, #ff5500 100%); color: #ffffff; font-weight: 700; font-size: 1.1rem; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s; box-shadow: 0 4px 15px rgba(255, 122, 0, 0.4);">
-            Activar mis 7 Días Gratis ⚡
-          </button>
-        </form>
-
-        <!-- Mensaje de Éxito Visual -->
-        <div id="success-msg" style="display: none; padding: 2rem 1.5rem; background-color: #ffffff; border: 2px solid #22c55e; border-radius: 12px; text-align: center; margin-top: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
-          <h3 style="color: #15803d; margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 700;">¡Registro Exitoso! ✨</h3>
-          <p style="color: #1f2937; font-size: 0.95rem; line-height: 1.5; margin: 0;">Tus datos fueron recibidos correctamente. Revisa tu casilla de correo para confirmar el inicio de tus 7 días.</p>
+          <p class="quote">
+            No es magia. No es fe. No es esfuerzo. Es el mecanismo con el que trabaja Oasis Mental.
+          </p>
         </div>
-      </div>
+      </section>
 
-      <script>
-        document.getElementById('oasis-brevo-form').addEventListener('submit', function(e) {
-          e.preventDefault();
-          const btn = document.getElementById('btn-submit');
-          btn.innerText = 'Enviando...';
-          btn.style.opacity = '0.7';
+      <section>
+        <div class="card machine">
+          <div class="machine-photo" role="img" aria-label="Laura trabajando con la máquina de energía escalar"></div>
 
-          const formData = new FormData(this);
+          <div class="machine-copy">
+            <p class="section-label">Sesiones remotas</p>
+            <h2>La sesión no requiere que estés conectada ni que hagas nada.</h2>
 
-          fetch(this.action, {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors'
-          })
-          .then(() => {
-            this.style.display = 'none';
-            document.getElementById('success-msg').style.display = 'block';
-          })
-          .catch(() => {
-            this.style.display = 'none';
-            document.getElementById('success-msg').style.display = 'block';
-          });
-        });
-      </script>
+            <p class="muted">
+              El equipo realiza las sesiones diarias de forma remota. Vos seguís con tu rutina y observás, sin presión, cómo transitás esos siete días.
+            </p>
 
-      <p class="legal">Sesiones remotas con energía escalar. Este es un espacio de ordenamiento energético, no reemplaza tratamiento médico ni psicológico. Es un mecanismo, no una cura.</p>
-    </section>
+            <p>Sin interacción humana. Sin exposición. Sin tener que contar tu historia.</p>
 
-    <!-- QUÉ PASA DESPUÉS -->
-    <section class="card" style="text-align: center;">
-      <h3 style="color: var(--accent-color); font-size: 1.35rem; margin-bottom: 15px; text-transform: uppercase;">¿Qué pasa después de los 7 días?</h3>
-      
-      <p style="margin-bottom: 20px;">
-        Si sentís que el mecanismo funcionó —aunque sea un poco— y querés que el sistema siga ordenando tu caos, podés extender a <strong>21 días</strong> para profundizar el flujo de energía.
-      </p>
-      
-      <p style="font-weight: bold; color: #f1f5f9; font-size: 1.1rem; margin-bottom: 10px;">
-        El costo de los 21 días es de $44.000 (pesos argentinos).
-      </p>
-      
-      <p style="color: var(--text-muted);">
-        Vas a recibir la invitación después de los 7 días. Sin presión. Sin ventas. Solo una puerta abierta.
-      </p>
-    </section>
+            <a class="button secondary" href="#registro">Quiero probarlo</a>
+          </div>
+        </div>
+      </section>
 
-    <!-- SECCIÓN DE AVISO LEGAL E INVITACIÓN FINAL -->
-    <section class="card" style="margin-top: 40px; border-color: rgba(56, 189, 248, 0.2); background: rgba(15, 23, 42, 0.6);">
-      <h3 style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 15px;">Aviso Legal e Información Importante</h3>
-      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.6;">
-        Esta guía tiene fines exclusivamente educativos e informativos. La terapia de energía escalar es una práctica complementaria de bienestar y <strong>no reemplaza</strong> la evaluación, diagnóstico o tratamiento médico profesional.
-      </p>
-      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.6;">
-        Las respuestas individuales a la terapia de energía escalar varían significativamente. La información proporcionada no constituye consejo médico. Si tienes alguna condición médica, estás embarazada, o estás tomando medicamentos, consulta con tu profesional de la salud antes de comenzar cualquier práctica complementaria.
-      </p>
-      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6;">
-        Los fundamentos físicos de la energía escalar son objeto de debate en la comunidad científica. Lo que ofrecemos es una oportunidad para que experimentes personalmente y evalúes tu propia respuesta.
-      </p>
-      
-      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 20px; text-align: center;">
-        <p style="font-size: 1.05rem; color: #ffffff; font-weight: 600; margin-bottom: 10px;">
-          La ciencia explica cómo podría funcionar; la práctica te revela si realmente resuena contigo.
-        </p>
-        <p style="font-size: 0.98rem; color: #cbd5e1; margin-bottom: 20px;">
-          Te invito a dar ese paso: pasa de la teoría a la práctica. No necesitas ser un experto en física ni creer ciegamente en nada. Solo necesitas observarte durante una semana y comprobar por ti mismo lo que tu cuerpo y tu mente tienen para decirte. La tecnología ya está lista...
-        </p>
-        <a href="#registro" class="cta-btn" style="display: inline-block; padding: 12px 24px; font-size: 1rem; text-decoration: none; background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%); color: #0f172a; font-weight: 800; border-radius: 12px;">¿Te animas a experimentarla?</a>
-      </div>
-    </section>
+      <section>
+        <div class="card">
+          <p class="section-label">La prueba gratuita</p>
+          <h2>¿Qué incluyen los 7 días?</h2>
 
-    <p class="closing">Voy a morir y vos también. Más vale que empieces a encarnar la versión de vos que no necesita hacer nada para que el sistema ordene su caos.</p>
+          <div class="grid">
+            <div class="item">
+              <span class="number">01</span>
+              <h3>Sesiones diarias remotas</h3>
+              <p>Energía escalar trabajando sobre tu caos sin que hagas nada.</p>
+            </div>
+
+            <div class="item">
+              <span class="number">02</span>
+              <h3>Sin interacción humana</h3>
+              <p>No tenés que hablar con nadie, exponerte ni contar tu historia.</p>
+            </div>
+
+            <div class="item">
+              <span class="number">03</span>
+              <h3>Seguimiento por correo</h3>
+              <p>Recibís comunicaciones de acompañamiento en los días 1, 3 y 7.</p>
+            </div>
+          </div>
+
+          <div class="actions" style="margin-top:26px;">
+            <a class="button secondary" href="./testimonios.html">✨ Ver historias y testimonios</a>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <p class="section-label">Los 10 caos que podés ordenar</p>
+          <h2>Identificá lo que hoy te duele.</h2>
+
+          <div class="topics">
+            <div class="topic"><strong>1. Insomnio.</strong> Son las 3 AM y el techo te mira fijo. La cabeza no se apaga.</div>
+            <div class="topic"><strong>2. Duelo.</strong> El pecho te pesa. Perdiste a alguien o algo. Y no se va.</div>
+            <div class="topic"><strong>3. Divorcio.</strong> La idea de familia que construiste se hizo mierda. Y encima te culpás.</div>
+            <div class="topic"><strong>4. Mudanza.</strong> Todo cambió de lugar. Y vos quedaste en el medio.</div>
+            <div class="topic"><strong>5. Post-enfermedad.</strong> El cuerpo sanó. La cabeza no. El miedo a que vuelva no te deja vivir.</div>
+            <div class="topic"><strong>6. Acompañamiento en enfermedad.</strong> Estás en medio de un tratamiento. Sostén energético sin reemplazar tu medicina.</div>
+            <div class="topic"><strong>7. Cuidar a otro.</strong> Vivís para otros y te olvidaste de vos. La energía se te va y no te queda nada.</div>
+            <div class="topic"><strong>8. Cambio laboral.</strong> Querés saltar, pero el miedo te clava los pies. La energía está estancada.</div>
+            <div class="topic"><strong>9. Vínculos desarmónicos.</strong> Cuando el vínculo te quita energía en vez de sumarte.</div>
+            <div class="topic"><strong>10. Prosperidad económica.</strong> El dinero o tus ingresos no terminan de llegar. O llegan, pero no se quedan.</div>
+          </div>
+
+          <div class="actions" style="margin-top:26px;">
+            <a class="button secondary" href="./testimonios.html">Conocé los testimonios</a>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <p class="section-label">Un espacio de foco</p>
+          <h2>Durante siete días, date la oportunidad de observar con claridad.</h2>
+
+          <p class="muted">
+            La sugerencia es no combinar estas sesiones con podcasts, libros de autoayuda u otros métodos durante la prueba. No es una regla: es un espacio de enfoque para que puedas identificar con mayor claridad qué te está haciendo bien.
+          </p>
+
+          <div class="focus-note">
+            Si no podés sostener ese foco ahora, no pasa nada. Podés activar la prueba en otro momento, cuando puedas dedicarte esos siete días.
+          </div>
+        </div>
+      </section>
+
+      <section id="registro">
+        <div class="card registration">
+          <p class="section-label" style="color:#ffb05a;">Inscripción</p>
+          <h2 style="text-align:center;">Activá tus 7 días gratis</h2>
+
+          <p class="muted" style="text-align:center;">
+            Para establecer la conexión energética personalizada y dirigir las sesiones de forma remota hacia ti, necesitamos los siguientes datos.
+          </p>
+
+          <div class="data-explanation">
+            <p><strong>Nombre completo:</strong> actúa como el identificador primario para focalizar la sesión.</p>
+            <p><strong>Fecha de nacimiento:</strong> se utiliza para crear la firma informacional específica que establece la conexión energética.</p>
+            <p><strong>Número de teléfono:</strong> funciona como un identificador específico adicional dentro de la firma energética.</p>
+            <p><strong>Ciudad y país:</strong> proporcionan el contexto de ubicación que refuerza el anclaje de la sesión.</p>
+            <p><strong>Correo electrónico:</strong> es el único medio por el que recibirás la bienvenida, los seguimientos de los días 3 y 7 y cualquier otra comunicación.</p>
+          </div>
+
+          <div id="minor-message" class="minor-message">
+            <strong>La inscripción gratuita es para personas mayores de 16 años.</strong><br>
+            Si querés inscribir a un menor, su padre, madre o tutor debe gestionarlo directamente con Laura.<br><br>
+            <a href="https://wa.me/5493548567106?text=Hola%2C%20quiero%20consultar%20por%20la%20inscripci%C3%B3n%20de%20un%20menor%20de%2016%20a%C3%B1os." target="_blank" rel="noopener">
+              Contactar a Laura por WhatsApp
+            </a>
+          </div>
+
+          <form
+            id="oasis-brevo-form"
+            action="https://f19835dd.sibforms.com/serve/MUIFAI0VyoUeA5Vpb62nVPoqyF_dYsSIdZsz6xcFSu0hZQbk8ZSaYdq45fjZnHwMm9jrOK1-ZQ_8Xi2kOElLXAUOzEodO9RqbpxYEF-Q2lS2ctdaga9Sx8g6QFuO4pMA4TiijvQzoLbAEQH2GKz8vcrZOiQcpzUopJ0qYC9J63wnqC2J0R0nLsntgDRRWJ2V-um-WrUF-OSNc99FWQ=="
+            method="POST"
+            data-type="subscription"
+          >
+            <div>
+              <label for="NOMBRE">Nombre completo *</label>
+              <input id="NOMBRE" name="NOMBRE" required placeholder="Tu nombre" autocomplete="name">
+            </div>
+
+            <div>
+              <label for="FECHA_NACIMIENTO">Fecha de nacimiento (DD-MM-AAAA) *</label>
+              <input
+                id="FECHA_NACIMIENTO"
+                name="FECHA_NACIMIENTO"
+                required
+                pattern="^([0-2][0-9]|(3)[0-1])-((0)[0-9]|(1)[0-2])-\d{4}$"
+                placeholder="DD-MM-AAAA"
+                title="Formato requerido: DD-MM-AAAA"
+                inputmode="numeric"
+              >
+            </div>
+
+            <div>
+              <label for="SMS">Número de teléfono con código de país *</label>
+              <input
+                id="SMS"
+                name="SMS"
+                type="tel"
+                required
+                pattern="^\+[1-9]\d{7,14}$"
+                placeholder="Ej: +5493548567106"
+                title="Usá +, código de país y número, sin espacios."
+              >
+            </div>
+
+            <div>
+              <label for="RESIDENCIA">Lugar de residencia (Ciudad, País) *</label>
+              <input id="RESIDENCIA" name="RESIDENCIA" required placeholder="Ej: Buenos Aires, Argentina">
+            </div>
+
+            <div>
+              <label for="EMAIL">Correo electrónico *</label>
+              <input id="EMAIL" name="EMAIL" type="email" required placeholder="tu@email.com" autocomplete="email">
+            </div>
+
+            <div>
+              <label for="CAOS">¿Cuál es tu principal desafío / caos hoy? *</label>
+              <select id="CAOS" name="CAOS" required>
+                <option value="" disabled selected>Seleccioná una opción...</option>
+                <option>Insomnio</option>
+                <option>Duelo</option>
+                <option>Divorcio</option>
+                <option>Mudanza</option>
+                <option>Post-enfermedad</option>
+                <option>Acompañamiento en enfermedad</option>
+                <option>Cuidar a otro</option>
+                <option>Cambio laboral</option>
+                <option>Vínculos desarmónicos</option>
+                <option>Prosperidad económica</option>
+              </select>
+            </div>
+
+            <input type="text" name="email_address_check" value="" style="display:none">
+            <input type="hidden" name="locale" value="es">
+
+            <button class="button primary" id="btn-submit" type="submit" style="cursor:pointer;font:inherit;border:0;">
+              Activar mis 7 días gratis ⚡
+            </button>
+          </form>
+
+          <p class="privacy">
+            <strong>Importante:</strong> no te llamaré por teléfono en ningún momento. El número solo forma parte de tu firma de conexión energética y no se utiliza para llamadas ni mensajes. Toda la comunicación se realiza exclusivamente por correo electrónico.
+          </p>
+
+          <p class="privacy">
+            <strong>Compromiso de privacidad:</strong> toda esta información se trata con absoluta confidencialidad y se utiliza únicamente para la prestación de este servicio.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="card" style="text-align:center;">
+          <p class="section-label">Después de la prueba</p>
+          <h2>¿Qué pasa después de los 7 días?</h2>
+
+          <p>
+            Si sentís que el mecanismo funcionó —aunque sea un poco— y querés que el sistema siga ordenando tu caos, podés extender a <strong>21 días</strong> para profundizar el flujo de energía.
+          </p>
+
+          <p style="font-size:1.12rem;font-weight:850;margin-bottom:8px;">
+            El costo de los 21 días es de 50 USD.
+          </p>
+
+          <p style="color:#ffbc63;font-weight:750;">
+            Si residís en Argentina, tenés un precio especial de $44.000 ARS (solo por transferencia bancaria).
+          </p>
+
+          <p class="muted">
+            Vas a recibir la invitación después de los 7 días. Sin presión. Sin ventas. Solo una puerta abierta.
+          </p>
+
+          <a class="button secondary" href="#registro">Empezar con mis 7 días</a>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <p class="section-label">Información importante</p>
+          <h2>Aviso legal</h2>
+
+          <p class="legal">
+            Esta guía tiene fines exclusivamente educativos e informativos. Las sesiones de energía escalar son una práctica complementaria de bienestar y no reemplazan la evaluación, diagnóstico o tratamiento médico profesional.
+          </p>
+
+          <p class="legal">
+            Las respuestas individuales pueden variar. Si tienes alguna condición médica, estás embarazada o tomas medicamentos, consulta con tu profesional de salud antes de comenzar cualquier práctica complementaria.
+          </p>
+
+          <p class="legal">
+            Los fundamentos físicos de la energía escalar son objeto de debate en la comunidad científica. Lo que ofrecemos es una oportunidad para que experimentes personalmente y evalúes tu propia respuesta.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>© 2026 Latitud Escalar. Todos los derechos reservados.</footer>
   </div>
 
+  <div class="floating-container">
+    <a class="float-cta" href="#registro">⚡ 7 días gratis</a>
 
-<!-- ================= BOTONES FLOTANTES Y ASISTENTE IA ================= -->
-<style>
-  .floating-container {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 9999;
-    pointer-events: none;
-  }
+    <a
+      class="float-btn whatsapp"
+      href="https://wa.me/5493548567106?text=Hola%20tengo%20una%20consulta%20sobre%20Oasis%20Mental."
+      target="_blank"
+      rel="noopener"
+      aria-label="Escribir por WhatsApp"
+    >✆</a>
 
-  .floating-socials {
-    display: flex;
-    gap: 10px;
-    pointer-events: auto;
-    margin-left: auto;
-  }
+    <a
+      class="float-btn instagram"
+      href="https://instagram.com/latitudescalar"
+      target="_blank"
+      rel="noopener"
+      aria-label="Seguir en Instagram"
+    >◎</a>
 
-  .floating-mobile-cta {
-    pointer-events: auto;
-    background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
-    color: #0f172a;
-    font-weight: 800;
-    font-size: 0.85rem;
-    padding: 12px 18px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
+    <button class="float-btn chat-trigger" type="button" onclick="toggleChat()" aria-label="Abrir asistente Oasis">✦</button>
+  </div>
 
-  .float-btn {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
-    transition: transform 0.2s ease;
-  }
-  .float-btn:hover { transform: scale(1.08); }
-  .float-btn svg { width: 24px; height: 24px; fill: currentColor; }
+  <div class="chat-widget" id="chatWidget">
+    <div class="chat-header">
+      <div>
+        <h4>✨ Asistente Oasis</h4>
+        <span>Preguntas sobre energía escalar</span>
+      </div>
 
-  .btn-whatsapp { background-color: #25d366; }
-  .btn-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%); }
-  .btn-gemini { background: linear-gradient(135deg, #1e1b4b, #4f46e5); border: 1px solid rgba(255,255,255,0.2); }
+      <button class="chat-close" type="button" onclick="toggleChat()" aria-label="Cerrar">×</button>
+    </div>
 
-  .chat-widget {
-    display: none;
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 340px;
-    max-width: calc(100vw - 40px);
-    height: 440px;
-    background: #0f172a;
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    z-index: 10000;
-    flex-direction: column;
-    overflow: hidden;
-    font-family: inherit;
-  }
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg msg-bot">
+        Hola, soy el Asistente Oasis. Estoy aquí para resolver tus dudas sobre cómo ordenar tu caos con energía escalar. ¿Qué te gustaría saber?
+      </div>
+    </div>
 
-  .chat-header {
-    background: #1e1b4b;
-    color: #fff;
-    padding: 12px 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-  .chat-header h4 { margin: 0; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
-  .chat-header span { font-size: 11px; color: #a5b4fc; }
-  .chat-close { background: none; border: none; color: #cbd5e1; font-size: 18px; cursor: pointer; }
+    <div class="chat-input-area">
+      <input id="chatInput" placeholder="Escribí tu consulta aquí..." onkeydown="handleKey(event)">
+      <button type="button" onclick="sendMessage()">Enviar</button>
+    </div>
+  </div>
 
-  .chat-messages {
-    flex: 1;
-    padding: 14px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 13px;
-  }
+  <script>
+    /*
+      No pongas una clave real de Gemini dentro de un sitio público.
+      Si después quieres activar el chatbot real, hay que conectarlo
+      mediante un servicio seguro.
+    */
+    const GEMINI_API_KEY = "";
 
-  .chat-msg {
-    max-width: 82%;
-    padding: 8px 12px;
-    border-radius: 12px;
-    line-height: 1.4;
-  }
-  .msg-bot {
-    background: #1e293b;
-    color: #e2e8f0;
-    align-self: flex-start;
-    border-bottom-left-radius: 2px;
-  }
-  .msg-user {
-    background: #4f46e5;
-    color: #ffffff;
-    align-self: flex-end;
-    border-bottom-right-radius: 2px;
-  }
 
-  .chat-input-area {
-    display: flex;
-    padding: 10px;
-    background: #0b0f19;
-    border-top: 1px solid rgba(255,255,255,0.1);
-  }
-  .chat-input-area input {
-    flex: 1;
-    background: #1e293b;
-    border: 1px solid rgba(255,255,255,0.1);
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 13px;
-    outline: none;
-  }
-  .chat-input-area button {
-    background: #4f46e5;
-    border: none;
-    color: white;
-    padding: 8px 12px;
-    margin-left: 6px;
-    border-radius: 8px;
-    cursor: pointer;
-  }
+    const CHATBOT_PROMPT = `
+Eres el Asistente Oasis de Oasis Mental.
 
-  @media (min-width: 768px) {
-    .floating-mobile-cta {
-      display: none;
+Tu tono es empático, cálido, claro y directo. Responde en español rioplatense, sin prometer resultados médicos ni reemplazar tratamientos profesionales.
+
+MENSAJE DE BIENVENIDA:
+“Hola, soy el Asistente Oasis.
+Estoy aquí para resolver tus dudas sobre cómo ordenar tu caos con energía escalar.
+¿Qué te gustaría saber?”
+
+INFORMACIÓN GENERAL:
+
+¿QUÉ ES LA ENERGÍA ESCALAR?
+La energía escalar es un campo de orden.
+No la ves, no la tocás, pero actúa sobre tu sistema energético a distancia.
+En Oasis Mental se trabaja con la idea de generar un movimiento en el campo energético para abrir un proceso de reordenamiento.
+No es vibración. No es amor. No es luz. Es el mecanismo con el que trabaja Oasis Mental.
+
+¿CÓMO FUNCIONA A DISTANCIA?
+El equipo genera una señal orientada hacia vos.
+Para que esa señal encuentre una dirección, necesita una firma energética: tu nombre, tu lugar de residencia, tu fecha de nacimiento y tu número de teléfono.
+Esos datos permiten orientar las sesiones hacia vos estés donde estés.
+El correo electrónico se utiliza únicamente para enviarte las comunicaciones.
+
+¿QUÉ DATOS NECESITAN PARA LA PRUEBA?
+Para la prueba gratuita se solicita:
+- Nombre completo.
+- Lugar de residencia: ciudad y país.
+- Fecha de nacimiento.
+- Número de teléfono con código de país.
+- Correo electrónico.
+- El caos o desafío principal que querés trabajar.
+
+El nombre, lugar de residencia, fecha de nacimiento y teléfono conforman la firma energética.
+El correo electrónico solo se usa para enviarte las comunicaciones, la bienvenida y los seguimientos.
+
+¿QUÉ INCLUYE LA PRUEBA GRATUITA?
+La prueba incluye:
+- 7 días de sesiones remotas diarias.
+- 3 correos de acompañamiento: días 1, 3 y 7.
+
+Es completamente gratuita.
+No necesita tarjeta de crédito.
+No tiene cargos automáticos.
+No existe obligación de continuar después de los 7 días.
+
+¿QUÉ TENGO QUE HACER DURANTE LOS 7 DÍAS?
+No tenés que hacer nada.
+La única sugerencia es mantener un espacio de foco durante esos siete días.
+Si podés, evitá combinar las sesiones con podcasts, libros de autoayuda u otros métodos, para poder observar con claridad qué te está haciendo bien.
+No es una regla ni una prohibición.
+
+¿POR QUÉ NO CONVIENE MEZCLAR CON OTRAS COSAS?
+Porque si mezclás muchas cosas al mismo tiempo, puede ser más difícil reconocer qué te ayudó.
+El objetivo de estos siete días es que puedas observar tu experiencia con mayor claridad.
+
+¿QUÉ PASA SI ESCUCHO UN PODCAST O VOY A UNA TERAPIA ALTERNATIVA DURANTE LOS 7 DÍAS?
+No pasa nada grave.
+La recomendación es mantener un espacio de foco para evaluar la experiencia con mayor claridad.
+Si no podés hacerlo ahora, podés activar la prueba en otro momento.
+
+¿QUÉ PASA DESPUÉS DE LOS 7 DÍAS?
+Si sentís que el mecanismo funcionó, aunque sea un poco, podés extender a 21 días para profundizar el proceso.
+
+El costo de los 21 días es de 50 USD.
+Si residís en Argentina, existe un precio especial de $44.000 ARS, solo por transferencia bancaria.
+
+La invitación llega por correo después de los 7 días.
+Sin presión. Sin ventas. Solo una puerta abierta.
+
+¿CÓMO SE PAGA?
+Para residentes en Argentina, el pago se realiza por transferencia bancaria.
+Si estás en el exterior, el medio de pago se coordina por correo cuando decidís extender el proceso.
+
+¿ESTO REEMPLAZA MI TRATAMIENTO MÉDICO?
+No.
+Oasis Mental es una propuesta complementaria de bienestar.
+No reemplaza la evaluación, diagnóstico o tratamiento médico, psicológico o profesional.
+
+¿VOY A SENTIR ALGO?
+Cada experiencia es personal.
+Algunas personas describen relajación, mejor descanso o mayor calma.
+No se prometen resultados y las respuestas individuales pueden variar.
+
+¿ES SEGURA?
+Las sesiones son remotas y no invasivas.
+De todos modos, Oasis Mental es una práctica complementaria y no reemplaza la atención de profesionales de salud.
+
+¿CÓMO SÉ SI ESTÁ FUNCIONANDO?
+Podés observar diariamente:
+- Calidad del sueño.
+- Nivel de energía.
+- Ansiedad o tensión.
+- Bienestar general.
+
+La idea es registrar tu propia experiencia durante esos siete días.
+
+¿PUEDO ANOTAR A UN FAMILIAR?
+No.
+El registro es personal, voluntario y consciente.
+Cada persona necesita su propio espacio de enfoque para poder observar su experiencia.
+
+¿SE PUEDEN ANOTAR MENORES DE EDAD?
+Las personas de 16 años o menos no pueden inscribirse directamente en el formulario gratuito.
+Si querés inscribir a un menor, el padre, madre o tutor debe escribir directamente a Laurita por WhatsApp al +54 3548 567106 para gestionar el procedimiento correspondiente.
+
+SI NO ENTIENDES LA CONSULTA:
+“Podés escribirme con otras palabras o contactar a Laurita directamente por WhatsApp al +54 3548 567106.”
+
+CIERRE:
+Termina cada respuesta con:
+“¿Te quedó clara la respuesta? Si necesitás saber algo más, estoy acá. Si querés empezar la prueba gratuita, completá el formulario en la página.”
+`;
+
+        function toggleChat() {
+      const chat = document.getElementById("chatWidget");
+      chat.style.display = chat.style.display === "flex" ? "none" : "flex";
     }
-    .floating-container {
-      justify-content: flex-end;
+
+    function handleKey(event) {
+      if (event.key === "Enter") sendMessage();
     }
-  }
-</style>
 
-<div class="floating-container">
-  <a href="#registro" class="floating-mobile-cta">
-    ⚡ 7 días gratis
-  </a>
+    async function sendMessage() {
+      const input = document.getElementById("chatInput");
+      const message = input.value.trim();
 
-  <div class="floating-socials">
-    <a href="https://wa.me/5493548567106?text=Hola%20tengo%20una%20consulta%20sobre%20Oasis%20Mental." target="_blank" class="float-btn btn-whatsapp" title="Escribir por WhatsApp">
-      <svg viewBox="0 0 32 32">
-        <path d="M16 2a13.9 13.9 0 0 0-12 21L2 30l7.2-1.9A13.9 13.9 0 1 0 16 2zm0 25.5a11.6 11.6 0 0 1-5.9-1.6l-.4-.3-4.4 1.1 1.2-4.3-.3-.4a11.6 11.6 0 1 1 9.8 5.5zm6.4-8.7c-.4-.2-2.1-1-2.4-1.2s-.6-.2-.8.2-.9 1.2-1.1 1.4-.4.2-.7 0a9.2 9.2 0 0 1-2.7-1.7 10.2 10.2 0 0 1-1.9-2.3c-.2-.4 0-.6.2-.8l.5-.6.4-.5c.1-.2.1-.4 0-.5s-.8-2-1.1-2.7c-.3-.7-.6-.6-.8-.6h-.7a1.4 1.4 0 0 0-1 .5 4.3 4.3 0 0 0-1.3 3.2 7.5 7.5 0 0 0 1.6 4 17.2 17.2 0 0 0 6.6 5.8c2.4 1 2.9.8 3.4.8a3 3 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.7-.4z"/>
-      </svg>
-    </a>
+      if (!message) return;
 
-    <a href="https://instagram.com/latitudescalar" target="_blank" class="float-btn btn-instagram" title="Seguir en Instagram">
-      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-    </a>
+      const list = document.getElementById("chatMessages");
 
-    <button class="float-btn btn-gemini" onclick="toggleChat()" title="Preguntar al Asistente IA">
-      <svg viewBox="0 0 24 24"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z"/></svg>
-    </button>
-  </div>
-</div>
+      const user = document.createElement("div");
+      user.className = "chat-msg msg-user";
+      user.innerText = message;
+      list.appendChild(user);
 
-<div class="chat-widget" id="chatWidget">
-  <div class="chat-header">
-    <div>
-      <h4>✨ Asistente Oasis</h4>
-      <span>Preguntas sobre energía escalar</span>
-    </div>
-    <button class="chat-close" onclick="toggleChat()">&times;</button>
-  </div>
-  <div class="chat-messages" id="chatMessages">
-    <div class="chat-msg msg-bot">
-      ¡Hola! Soy el asistente virtual de Oasis Mental. ¿Tenés alguna duda sobre cómo funcionan los 7 días de prueba o la energía escalar?
-    </div>
-  </div>
-  <div class="chat-input-area">
-    <input type="text" id="chatInput" placeholder="Escribe tu consulta aquí..." onkeypress="handleKey(event)" />
-    <button onclick="sendMessage()">Enviar</button>
-  </div>
-</div>
+      input.value = "";
 
-<script>
-  const GEMINI_API_KEY = " "; 
-  const SYSTEM_PROMPT = `Eres el Asistente Virtual empático, cálido y claro de Oasis Mental...`;
+      const bot = document.createElement("div");
+      bot.className = "chat-msg msg-bot";
+      bot.innerText = "Escribiendo...";
+      list.appendChild(bot);
 
-  function toggleChat() {
-    const chat = document.getElementById('chatWidget');
-    chat.style.display = (chat.style.display === 'flex') ? 'none' : 'flex';
-  }
-
-  function handleKey(e) {
-    if (e.key === 'Enter') sendMessage();
-  }
-
-  async function sendMessage() {
-    const input = document.getElementById('chatInput');
-    const msg = input.value.trim();
-    if (!msg) return;
-
-    const messagesContainer = document.getElementById('chatMessages');
-    const userDiv = document.createElement('div');
-    userDiv.className = 'chat-msg msg-user';
-    userDiv.innerText = msg;
-    messagesContainer.appendChild(userDiv);
-    input.value = '';
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-
-    const botDiv = document.createElement('div');
-    botDiv.className = 'chat-msg msg-bot';
-    botDiv.innerText = 'Escribiendo...';
-    messagesContainer.appendChild(botDiv);
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-
-    const payload = {
-      system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-      contents: [{ role: "user", parts: [{ text: msg }] }],
-      generationConfig: { temperature: 0.6, maxOutputTokens: 800 }
-    };
-
-    try {
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-      const data = await response.json();
-      if (data.candidates && data.candidates[0].content.parts[0].text) {
-        botDiv.innerText = data.candidates[0].content.parts[0].text;
-      } else {
-        botDiv.innerText = "Disculpa, no pude procesar la respuesta. Puedes escribirnos a WhatsApp.";
+      if (!GEMINI_API_KEY) {
+        bot.innerText = "El asistente está siendo configurado. Podés escribirle a Laura por WhatsApp al +54 3548 567106.";
+        return;
       }
-    } catch (err) {
-      botDiv.innerText = "Error de conexión.";
+
+      try {
+        const response = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_API_KEY}`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              system_instruction: { parts: [{ text: CHATBOT_PROMPT }] },
+              contents: [{ role: "user", parts: [{ text: message }] }],
+              generationConfig: { temperature: 0.6, maxOutputTokens: 800 }
+            })
+          }
+        );
+
+        const data = await response.json();
+
+        bot.innerText =
+          data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+          "No pude procesar la respuesta. Podés escribirle a Laura por WhatsApp.";
+      } catch {
+        bot.innerText = "Error de conexión. Podés escribirle a Laura por WhatsApp.";
+      }
+
+      list.scrollTop = list.scrollHeight;
     }
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-  }
-</script>
 
-<!-- FOOTER -->
-<footer style="text-align: center; padding: 30px 0; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 40px;">
-  <p>© 2026 Latitud Escalar. Todos los derechos reservados.</p>
-</footer>
+    const form = document.getElementById("oasis-brevo-form");
+    const birth = document.getElementById("FECHA_NACIMIENTO");
+    const minorMessage = document.getElementById("minor-message");
+    const submitButton = document.getElementById("btn-submit");
 
+    function getAge(value) {
+      const match = /^(\d{2})-(\d{2})-(\d{4})$/.exec(value);
+
+      if (!match) return null;
+
+      const date = new Date(+match[3], +match[2] - 1, +match[1]);
+
+      if (
+        date.getFullYear() !== +match[3] ||
+        date.getMonth() !== +match[2] - 1 ||
+        date.getDate() !== +match[1]
+      ) {
+        return null;
+      }
+
+      const today = new Date();
+      let age = today.getFullYear() - date.getFullYear();
+
+      const birthdayHasNotHappened =
+        today.getMonth() < date.getMonth() ||
+        (today.getMonth() === date.getMonth() && today.getDate() < date.getDate());
+
+      if (birthdayHasNotHappened) age--;
+
+      return age;
+    }
+
+    function validateAge() {
+      const age = getAge(birth.value);
+      const blocked = age !== null && age <= 16;
+
+      minorMessage.style.display = blocked ? "block" : "none";
+      submitButton.disabled = blocked;
+      submitButton.style.opacity = blocked ? ".55" : "1";
+
+      return !blocked;
+    }
+
+    birth.addEventListener("input", validateAge);
+    birth.addEventListener("change", validateAge);
+
+    form.addEventListener("submit", function(event) {
+      if (!validateAge()) {
+        event.preventDefault();
+        birth.focus();
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.textContent = "Enviando...";
+    });
+  </script>
 </body>
 </html>
