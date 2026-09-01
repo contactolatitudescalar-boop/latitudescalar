@@ -1,284 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Preguntas Frecuentes — Latitud Escalar</title>
-  <style>
-    :root {
-      --bg-color: #0b0f19;
-      --card-bg: rgba(22, 30, 49, 0.75);
-      --accent-color: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.35);
-      --purple-accent: #a855f7;
-      --text-color: #f1f5f9;
-      --text-muted: #94a3b8;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      background-image: 
-        radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
-      background-attachment: fixed;
-      color: var(--text-color);
-      line-height: 1.7;
-      padding: 20px 15px 60px 15px;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* MENÚ SUPERIOR EN UNA SOLA LÍNEA DESLIZABLE */
-    .top-nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      margin-bottom: 35px;
-      gap: 15px;
-    }
-
-    .brand-logo {
-      color: #ffffff;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 1.05rem;
-      letter-spacing: -0.3px;
-      white-space: nowrap;
-    }
-
-    .brand-logo:hover {
-      color: var(--accent-color);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      overflow-x: auto;
-      padding-bottom: 4px;
-      max-width: 100%;
-      scrollbar-width: none;
-    }
-
-    .nav-links::-webkit-scrollbar {
-      display: none;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 500;
-      background: rgba(255, 255, 255, 0.03);
-      padding: 6px 10px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-
-    .nav-links a:hover, .nav-links a.active {
-      color: var(--accent-color);
-      border-color: rgba(56, 189, 248, 0.3);
-      background: rgba(56, 189, 248, 0.05);
-    }
-
-    header.page-header {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #ffffff 0%, #38bdf8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 8px;
-    }
-
-    .subtitle {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-    }
-
-    /* ESTILO DE ACORDEÓN */
-    .faq-container {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 30px;
-    }
-
-    details {
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-      padding: 18px 22px;
-      transition: border-color 0.2s ease;
-    }
-
-    details[open] {
-      border-color: rgba(56, 189, 248, 0.4);
-    }
-
-    summary {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #ffffff;
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary::after {
-      content: "+";
-      font-size: 1.3rem;
-      color: var(--accent-color);
-      font-weight: 400;
-      transition: transform 0.2s;
-    }
-
-    details[open] summary::after {
-      transform: rotate(45deg);
-    }
-
-    .faq-content {
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      font-size: 0.95rem;
-      color: #cbd5e1;
-    }
-
-    .faq-content p {
-      margin-bottom: 10px;
-    }
-
-    .back-btn-container {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    .btn-back {
-      display: inline-block;
-      background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
-      color: #0f172a;
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 12px 24px;
-      border-radius: 10px;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
-    }
-
-    @media (max-width: 480px) {
-      h1 { font-size: 1.6rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preguntas frecuentes | Latitud Escalar</title>
+<style>
+:root{--bg:#090d18;--card:#131c2fcc;--text:#f4f8ff;--muted:#b6c2d3;--blue:#38bdf8;--blue2:#0284c7;--orange:#f97316;--line:#ffffff1c}*{box-sizing:border-box}body{margin:0;color:var(--text);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.7;background:radial-gradient(circle at 50% -10%,#38bdf82b,transparent 38rem),var(--bg)}.container{width:min(100% - 32px,860px);margin:auto}.top-nav-container{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0 16px;border-bottom:1px solid var(--line)}.brand-logo{color:#fff;font-weight:800;text-decoration:none;white-space:nowrap}.nav-links{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}.nav-links a{color:var(--muted);border:1px solid #ffffff12;border-radius:8px;background:#ffffff08;font-size:.8rem;font-weight:600;padding:6px 10px;text-decoration:none;white-space:nowrap}.nav-links a.active,.nav-links a:hover{color:var(--blue);border-color:#38bdf859}.intro{text-align:center;padding:70px 0 45px}.eyebrow{display:inline-block;padding:7px 13px;border:1px solid #38bdf852;border-radius:99px;color:var(--blue);font-size:.78rem;font-weight:800;letter-spacing:.09em}.eyebrow:before{content:"● ";}h1{margin:22px auto 14px;font-size:clamp(2.25rem,6vw,4rem);line-height:1.08;background:linear-gradient(135deg,#fff,var(--blue));-webkit-background-clip:text;color:transparent}.lead{max-width:650px;margin:auto;color:#d6e1ee;font-size:1.12rem}.faq{padding-bottom:35px}.faq-item{margin-bottom:16px;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}.faq-item summary{padding:21px 52px 21px 22px;color:#fff;font-size:1.08rem;font-weight:750;cursor:pointer;position:relative;list-style:none}.faq-item summary:after{content:"+";position:absolute;right:20px;color:var(--blue);font-size:1.5rem}.faq-item[open] summary:after{content:"−"}.answer{padding:0 22px 22px;color:#d7e1ee}.answer p{margin:0 0 14px}.answer p:last-child{margin:0}.notice{margin:18px 0 35px;padding:22px;border-left:4px solid var(--orange);border-radius:0 14px 14px 0;background:#f9731612;color:#ffe6d3}.back{text-align:center;padding:10px 0 35px}.btn-back{display:inline-block;padding:13px 22px;border-radius:13px;color:#07121d;background:linear-gradient(135deg,var(--blue),var(--blue2));font-weight:850;text-decoration:none}.floating-desktop-cta{position:fixed;z-index:9;top:20px;right:24px;padding:11px 18px;border-radius:14px;color:#07121d;background:linear-gradient(135deg,var(--blue),var(--blue2));font-weight:850;text-decoration:none}.floating-container{position:fixed;z-index:10;right:20px;bottom:20px;left:20px;display:flex;justify-content:space-between;pointer-events:none}.socials{display:flex;gap:10px;margin-left:auto;pointer-events:auto}.mobile-cta{padding:12px 16px;border-radius:99px;color:#07121d;background:linear-gradient(135deg,var(--blue),var(--blue2));font-weight:850;pointer-events:auto;text-decoration:none}.float-btn{display:grid;place-items:center;width:46px;height:46px;border:0;border-radius:50%;color:#fff;box-shadow:0 5px 16px #0006;text-decoration:none;cursor:pointer;font-size:21px}.wa{background:#25d366}.ig{background:linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7)}.chat{background:#4f46e5}.chat-widget{position:fixed;z-index:11;right:20px;bottom:78px;display:none;flex-direction:column;width:min(340px,calc(100vw - 32px));height:440px;border-radius:17px;overflow:hidden;background:#0f172a;box-shadow:0 18px 42px #0009}.chat-header{display:flex;justify-content:space-between;padding:12px 15px;background:#201d53}.chat-header h3{margin:0}.chat-close{border:0;background:transparent;color:#fff;font-size:20px}.messages{flex:1;padding:14px;overflow-y:auto}.msg{max-width:84%;margin-bottom:10px;padding:9px 12px;border-radius:12px;background:#1e293b}.user{margin-left:auto;background:#4f46e5}.chat-input{display:flex;gap:7px;padding:10px;background:#0b1020}.chat-input input{flex:1;min-width:0;padding:9px;border:0;border-radius:8px;color:#fff;background:#1e293b}.chat-input button{border:0;border-radius:8px;color:#fff;background:#4f46e5;padding:9px}footer{text-align:center;padding:30px 20px 104px;color:#9aaabe;font-size:.83rem}@media(min-width:768px){.mobile-cta{display:none}.floating-container{left:auto}}@media(max-width:760px){.top-nav-container{flex-direction:column;align-items:flex-start}.nav-links{width:100%}.intro{padding:52px 0 38px}.floating-desktop-cta{display:none}}@media(max-width:460px){.container{width:min(100% - 24px,860px)}.float-btn{width:42px;height:42px}}
+</style>
 </head>
 <body>
+<a class="floating-desktop-cta" href="./index.html#registro">⚡ Mis 7 días gratis</a>
+<div class="container">
+<header class="top-nav-container">
+<a href="./index.html" class="brand-logo">Latitud Escalar</a>
+<nav class="nav-links">
+<a href="./como-funciona.html">¿Cómo funciona?</a>
+<a href="./servicios.html">Servicios</a>
+<a href="./sobre-mi.html">La Operadora</a>
+<a href="./testimonios.html">Testimonios</a>
+<a href="./preguntas-frecuentes.html" class="active">Preguntas frecuentes</a>
+</nav>
+</header>
 
-  <div class="container">
-    <!-- MENÚ SUPERIOR UNIFICADO -->
-    <header class="top-nav-container">
-      <a href="./index.html" class="brand-logo">Latitud Escalar</a>
-      <nav class="nav-links">
-        <a href="./como-funciona.html">¿Cómo Funciona?</a>
-        <a href="./servicios.html">Servicios</a>
-        <a href="./sobre-mi.html">La Operadora</a>
-        <a href="./testimonios.html">Testimonios</a>
-        <a href="./preguntas-frecuentes.html" class="active">FAQ</a>
-      </nav>
-    </header>
+<main>
+<section class="intro">
+<div class="eyebrow">OASIS MENTAL</div>
+<h1>Preguntas frecuentes</h1>
+<p class="lead">Respuestas claras para que puedas decidir con tranquilidad si esta experiencia es para vos.</p>
+</section>
 
-    <header class="page-header">
-      <h1>Preguntas Frecuentes</h1>
-      <p class="subtitle">Respuestas directas para mentes escépticas y curiosas</p>
-    </header>
+<section class="faq">
+<details class="faq-item"><summary>¿Esto es una terapia alternativa, reiki o algo espiritual?</summary><div class="answer"><p>No. No es fe, no es meditación y no es espiritualidad. Es un campo energético que actúa de forma mecánica.</p><p>El equipo genera un movimiento para que tu sistema pueda abrir un proceso de reequilibrio.</p></div></details>
 
-    <!-- LISTA DE ACORDEONES FAQ -->
-    <div class="faq-container">
+<details class="faq-item"><summary>¿Qué pasa si mezclo con otras terapias o métodos durante los 7 días?</summary><div class="answer"><p>No pasa nada grave. Pero, si mezclás, no vas a saber qué te ayudó.</p><p>La sugerencia es mantener un espacio de enfoque durante siete días para evaluar con claridad si esto es para vos. Si no podés, activá la prueba en otro momento.</p></div></details>
 
-      <details>
-        <summary>¿Esto es una terapia alternativa, reiki o algo espiritual?</summary>
-        <div class="faq-content">
-          <p>No. No es fe, no es meditación, no es espiritualidad. Es energía física en estado neutro.</p>
-          <p>La máquina de Alta Frecuencia genera una perturbación física que obliga a tu propio sistema a buscar el equilibrio y ordenar el caos de manera mecánica.</p>
-        </div>
-      </details>
+<details class="faq-item"><summary>¿Puedo anotar a un familiar, a mi pareja o a un amigo?</summary><div class="answer"><p>No. El registro debe ser personal y voluntario.</p><p>No se puede anotar a menores de 16 años. Si querés consultar por un menor, escribile a Laura por WhatsApp y lo evalúan personalmente.</p></div></details>
 
-      <details>
-        <summary>¿Qué pasa si por error escucho un podcast de autoayuda o voy al psicólogo durante los 7 días?</summary>
-        <div class="faq-content">
-          <p>La regla de no mezclar no es por capricho, es por física. Si mezclas estímulos, no sabrás qué ordenó tu caos (si la máquina, el libro o la terapia) y la energía se dispersará.</p>
-          <p>Te pedimos solo 7 días de silencio. Si no podés cumplirlo, te sugerimos activar la prueba en otro momento.</p>
-        </div>
-      </details>
+<details class="faq-item"><summary>¿Voy a sentir alguna molestia física?</summary><div class="answer"><p>Es un proceso suave y no invasivo. Algunas personas reportan mejor descanso, menos tensión o una sensación de alivio; cada experiencia es individual.</p></div></details>
 
-      <details>
-        <summary>¿Puedo anotar a un familiar, a mi pareja o a un amigo?</summary>
-        <div class="faq-content">
-          <p>La energía escalar trabaja de forma óptima bajo la ley del libre albedrío y la aceptación. Para la prueba de 7 días gratuitos, el registro debe ser personal, ya que la persona debe comprometerse conscientemente a cumplir la regla del "silencio energético" para que el mecanismo no tenga interferencias.</p>
-        </div>
-      </details>
+<details class="faq-item"><summary>¿Esto reemplaza mi tratamiento médico o psicológico?</summary><div class="answer"><p>No. Absolutamente no. Oasis Mental es una práctica complementaria de bienestar y no reemplaza a tu médico, psicólogo, evaluación, diagnóstico ni tratamiento profesional.</p></div></details>
 
-      <details>
-        <summary>¿Voy a sentir alguna molestia física?</summary>
-        <div class="faq-content">
-          <p>La energía escalar es una energía sutil y fría. La gran mayoría de las personas no siente ninguna molestia física; al contrario, suelen reportar un alivio inmediato en el insomnio o una sensación de "peso menos" en el pecho.</p>
-        </div>
-      </details>
+<details class="faq-item"><summary>¿Qué pasa cuando terminan los 7 días?</summary><div class="answer"><p>El flujo gratuito se detiene. Si querés profundizar, recibís una invitación por correo para extender a 21 días por 50 USD, o $44.000 ARS si residís en Argentina.</p><p>Si no querés continuar, no pasa nada: no hay llamadas ni presión.</p></div></details>
 
-      <details>
-        <summary>¿Esto reemplaza mi tratamiento médico?</summary>
-        <div class="faq-content">
-          <p>Absolutamente no. Latitud Escalar es un soporte de ordenamiento energético, no una cura ni un reemplazo para la medicina convencional o el tratamiento psicológico. Si estás bajo tratamiento, este mecanismo actúa como un sostén energético complementario para tu cuerpo.</p>
-        </div>
-      </details>
+<details class="faq-item"><summary>¿Tengo que hacer algo durante la sesión?</summary><div class="answer"><p>Absolutamente nada. Las sesiones son remotas y pasivas. Podés estar trabajando, durmiendo, comiendo o haciendo ejercicio.</p></div></details>
 
-      <details>
-        <summary>¿Qué pasa cuando terminan los 7 días de prueba?</summary>
-        <div class="faq-content">
-          <p>Al finalizar el séptimo día, el flujo gratuito se detiene. Si sentís que tu caos se empezó a ordenar y querés profundizar el proceso, vas a recibir una invitación en tu correo para extender el ordenamiento a 21 días.</p>
-          <p>Si decidís no continuar, no pasa nada. No hay llamadas de ventas ni presiones. La puerta queda abierta.</p>
-        </div>
-      </details>
+<details class="faq-item"><summary>¿Para qué se piden mis datos?</summary><div class="answer"><p>Se solicitan para personalizar y orientar las sesiones remotas, y el correo se utiliza para enviarte las comunicaciones del proceso.</p><p>Laura no te llamará por teléfono. Tus datos se tratan con respeto y solo para esta experiencia.</p></div></details>
+</section>
 
-      <details>
-        <summary>¿Tengo que hacer algo durante la sesión?</summary>
-        <div class="faq-content">
-          <p>Absolutamente nada. Las sesiones son completamente pasivas:</p>
-          <p>• Continúa con tus actividades normales.<br>• Puedes estar trabajando, durmiendo, comiendo o haciendo ejercicio.<br>• Tu ubicación es irrelevante.<br>• No necesitas estar consciente ni enfocado.</p>
-        </div>
-      </details>
+<div class="notice"><strong>¿Todavía tenés dudas?</strong> Podés escribirle directamente a Laura por WhatsApp. Te responderá de forma personal.</div>
+<div class="back"><a href="./index.html" class="btn-back">← Volver al inicio</a></div>
+</main>
+</div>
 
-    </div>
+<div class="floating-container">
+<a href="./index.html#registro" class="mobile-cta">⚡ Mis 7 días gratis</a>
+<div class="socials">
+<a href="https://wa.me/5493548567106?text=Hola%20tengo%20una%20consulta%20sobre%20Oasis%20Mental." target="_blank" class="float-btn wa">◉</a>
+<a href="https://instagram.com/latitudescalar" target="_blank" class="float-btn ig">◎</a>
+<button class="float-btn chat" onclick="toggleChat()">✦</button>
+</div>
+</div>
 
-    <!-- BOTÓN INFERIOR -->
-    <div class="back-btn-container">
-      <a href="./index.html" class="btn-back">← Volver al inicio</a>
-    </div>
-  </div>
+<aside class="chat-widget" id="chatWidget">
+<div class="chat-header"><div><h3>✨ Asistente Oasis</h3><small>Preguntas sobre energía escalar</small></div><button class="chat-close" onclick="toggleChat()">×</button></div>
+<div class="messages" id="chatMessages"><div class="msg">Hola, soy el Asistente Oasis. Estoy aquí para resolver tus dudas sobre cómo ordenar tu caos con energía escalar. ¿Qué te gustaría saber?</div></div>
+<div class="chat-input"><input id="chatInput" placeholder="Escribí tu consulta..." onkeydown="if(event.key==='Enter')sendMessage()"><button onclick="sendMessage()">Enviar</button></div>
+</aside>
 
+<footer>© 2026 Latitud Escalar. Todos los derechos reservados.</footer>
+
+<script>
+const CHATBOT_ENDPOINT="https://oasis-chat.contacto-latitudescalar.workers.dev";
+function toggleChat(){const c=document.getElementById("chatWidget");c.style.display=c.style.display==="flex"?"none":"flex"}
+async function sendMessage(){
+const input=document.getElementById("chatInput"),message=input.value.trim();if(!message)return;
+const box=document.getElementById("chatMessages"),u=document.createElement("div"),b=document.createElement("div");
+u.className="msg user";u.innerText=message;box.appendChild(u);input.value="";b.className="msg";b.innerText="Escribiendo...";box.appendChild(b);
+try{const r=await fetch(CHATBOT_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message})});const d=await r.json();b.innerText=d.answer||"No pude procesar la respuesta. Podés escribirle a Laura por WhatsApp."}catch{b.innerText="Error de conexión. Podés escribirle a Laura por WhatsApp."}
+box.scrollTop=box.scrollHeight;
+}
+</script>
 </body>
 </html>
