@@ -795,6 +795,7 @@
             id="oasis-brevo-form"
             action="https://f19835dd.sibforms.com/serve/MUIFAI0VyoUeA5Vpb62nVPoqyF_dYsSIdZsz6xcFSu0hZQbk8ZSaYdq45fjZnHwMm9jrOK1-ZQ_8Xi2kOElLXAUOzEodO9RqbpxYEF-Q2lS2ctdaga9Sx8g6QFuO4pMA4TiijvQzoLbAEQH2GKz8vcrZOiQcpzUopJ0qYC9J63wnqC2J0R0nLsntgDRRWJ2V-um-WrUF-OSNc99FWQ=="
             method="POST"
+            target="brevo-hidden-frame"
             data-type="subscription"
           >
             <div>
@@ -864,6 +865,23 @@
             </button>
           </form>
 
+          <iframe
+  id="brevo-hidden-frame"
+  name="brevo-hidden-frame"
+  style="display:none"
+></iframe>
+
+<div
+  id="success-msg"
+  style="display:none; margin-top:24px; padding:24px; background:#ecfdf5; border:2px solid #34d399; border-radius:12px; color:#064e3b; text-align:center;"
+>
+  <strong style="font-size:1.15rem;">¡Registro realizado! ✨</strong>
+  <p style="margin:10px 0 0; color:#065f46;">
+    Tus datos fueron recibidos. Revisa tu correo para confirmar el inicio de tus 7 días gratuitos.
+  </p>
+</div>
+
+          
           <p class="privacy">
             <strong>Importante:</strong> no te llamaré por teléfono en ningún momento. El número solo forma parte de tu firma de conexión energética y no se utiliza para llamadas ni mensajes. Toda la comunicación se realiza exclusivamente por correo electrónico.
           </p>
@@ -1195,16 +1213,29 @@ Termina cada respuesta con:
     birth.addEventListener("input", validateAge);
     birth.addEventListener("change", validateAge);
 
-    form.addEventListener("submit", function(event) {
-      if (!validateAge()) {
-        event.preventDefault();
-        birth.focus();
-        return;
-      }
+    let formWasSubmitted = false;
 
-      submitButton.disabled = true;
-      submitButton.textContent = "Enviando...";
-    });
+form.addEventListener("submit", function(event) {
+  if (!validateAge()) {
+    event.preventDefault();
+    birth.focus();
+    return;
+  }
+
+  formWasSubmitted = true;
+  submitButton.disabled = true;
+  submitButton.textContent = "Enviando...";
+});
+
+document
+  .getElementById("brevo-hidden-frame")
+  .addEventListener("load", function() {
+    if (!formWasSubmitted) return;
+
+    form.style.display = "none";
+    document.getElementById("success-msg").style.display = "block";
+  });
+
   </script>
 </body>
 </html>
