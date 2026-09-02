@@ -4,157 +4,440 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Servicios | Latitud Escalar</title>
-<style>
-:root{--bg:#090d18;--card:#131c2fcc;--text:#f4f8ff;--muted:#b6c2d3;--blue:#38bdf8;--blue2:#0284c7;--orange:#f97316;--line:#ffffff1c}*{box-sizing:border-box}body{margin:0;color:var(--text);font-family:"Segoe UI",system-ui,sans-serif;line-height:1.7;background:radial-gradient(circle at 50% -10%,#38bdf82b,transparent 38rem),var(--bg)}.container{width:min(100% - 32px,920px);margin:auto}.top-nav-container{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:20px 0 16px;border-bottom:1px solid var(--line)}.brand-logo{color:#fff;font-weight:800;text-decoration:none;white-space:nowrap}.nav-links{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}.nav-links a{color:var(--muted);border:1px solid #ffffff12;border-radius:8px;background:#ffffff08;font-size:.8rem;font-weight:600;padding:6px 10px;text-decoration:none;white-space:nowrap}.nav-links a.active,.nav-links a:hover{color:var(--blue);border-color:#38bdf859}.intro{text-align:center;padding:70px 0 45px}.eyebrow{display:inline-block;padding:7px 13px;border:1px solid #38bdf852;border-radius:99px;color:var(--blue);font-size:.78rem;font-weight:800;letter-spacing:.09em}.eyebrow:before{content:"● ";}h1{margin:22px auto 14px;font-size:clamp(2.25rem,6vw,4rem);line-height:1.20;background:linear-gradient(135deg,#fff,var(--blue));-webkit-background-clip:text;color:transparent}.lead{max-width:650px;margin:auto;color:#d6e1ee;font-size:1.12rem}.card{margin:0 0 28px;padding:clamp(25px,5vw,42px);background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:0 16px 46px #0003}.card h2{margin:0 0 22px;padding-bottom:14px;border-bottom:1px solid #38bdf82e;color:var(--blue);font-size:1.55rem}.card p{color:#d7e1ee}.service-table{width:100%;border-collapse:collapse}.service-table th,.service-table td{padding:15px;text-align:left;vertical-align:top;border-bottom:1px solid #ffffff12}.service-table th{color:#fff;background:#38bdf80d;font-size:.85rem}.service-name{color:#fff;font-weight:700}.service-price{color:#fdba74;font-weight:800;white-space:nowrap}.note,.argentina{margin-top:20px;padding:18px 20px;border-left:4px solid var(--blue);border-radius:0 12px 12px 0;background:#38bdf812;color:#d7e1ee}.argentina{border-color:var(--orange);background:#f9731612}.program{padding:25px 0;border-bottom:1px solid #ffffff12}.program:last-child{border:0}.program-title{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.program h3{margin:0;color:#fff;font-size:1.15rem}.program ul{color:#d7e1ee;padding-left:22px}.cta,.btn-back{display:inline-block;margin-top:15px;padding:13px 22px;border-radius:13px;color:#07121d;background:linear-gradient(135deg,var(--blue),var(--blue2));font-weight:850;text-decoration:none}.back{text-align:center;padding:10px 0 35px}.floating-desktop-cta{position:fixed;z-index:9;top:20px;right:24px;padding:11px 18px;border-radius:14px;color:#07121d;background:linear-gradient(135deg,var(--blue),var(--blue2));font-weight:850;text-decoration:none}.floating-container{position:fixed;z-index:10;right:20px;bottom:20px;left:20px;display:flex;justify-content:space-between;pointer-events:none}.socials{display:flex;gap:10px;margin-left:auto;pointer-events:auto}.mobile-cta{padding:12px 16px;border-radius:99px;color:#07121d;background:linear-gradient(135deg,var(--blue),var(--blue2));font-weight:850;text-decoration:none;pointer-events:auto}.float-btn{display:grid;place-items:center;width:46px;height:46px;border:0;border-radius:50%;color:#fff;box-shadow:0 5px 16px #0006;text-decoration:none;cursor:pointer;font-size:21px}.wa{background:#25d366}.ig{background:linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7)}.chat{background:#4f46e5}.chat-widget{position:fixed;z-index:11;right:20px;bottom:78px;display:none;flex-direction:column;width:min(340px,calc(100vw - 32px));height:440px;border-radius:17px;overflow:hidden;background:#0f172a;box-shadow:0 18px 42px #0009}.chat-header{display:flex;justify-content:space-between;padding:12px 15px;background:#201d53}.chat-header h3{margin:0}.chat-close{border:0;background:transparent;color:#fff;font-size:20px}.messages{flex:1;padding:14px;overflow-y:auto}.msg{max-width:84%;margin-bottom:10px;padding:9px 12px;border-radius:12px;background:#1e293b}.user{margin-left:auto;background:#4f46e5}.chat-input{display:flex;gap:7px;padding:10px;background:#0b1020}.chat-input input{flex:1;min-width:0;padding:9px;border:0;border-radius:8px;color:#fff;background:#1e293b}.chat-input button{border:0;border-radius:8px;color:#fff;background:#4f46e5;padding:9px}footer{text-align:center;padding:30px 20px 104px;color:#9aaabe;font-size:.83rem}
 
- @media (min-width:768px) and (max-width:1500px){
-  .floating-desktop-cta{
-    top:112px;
-    right:24px;
-    padding:9px 15px;
-    font-size:.82rem;
-    border-radius:12px;
+<link rel="stylesheet" href="./chatbot.css">
+<script src="./chatbot.js" defer></script>
+
+<style>
+:root {
+  --bg: #090d18;
+  --card: #131c2fcc;
+  --text: #f4f8ff;
+  --muted: #b6c2d3;
+  --blue: #38bdf8;
+  --blue2: #0284c7;
+  --orange: #f97316;
+  --line: #ffffff1c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.7;
+  background:
+    radial-gradient(circle at 50% -10%, #38bdf82b, transparent 38rem),
+    var(--bg);
+}
+
+.container {
+  width: min(100% - 32px, 920px);
+  margin: auto;
+}
+
+.top-nav-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 20px 0 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-logo {
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  border: 1px solid #ffffff12;
+  border-radius: 8px;
+  background: #ffffff08;
+  font-size: .8rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: var(--blue);
+  border-color: #38bdf859;
+}
+
+.intro {
+  text-align: center;
+  padding: 70px 0 45px;
+}
+
+h1 {
+  margin: 22px auto 14px;
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  line-height: 1.2;
+  background: linear-gradient(135deg, #fff, var(--blue));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.lead {
+  max-width: 650px;
+  margin: auto;
+  color: #d6e1ee;
+  font-size: 1.12rem;
+}
+
+.card {
+  margin: 0 0 28px;
+  padding: clamp(25px, 5vw, 42px);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: 0 16px 46px #0003;
+}
+
+.card h2 {
+  margin: 0 0 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #38bdf82e;
+  color: var(--blue);
+  font-size: 1.55rem;
+}
+
+.card p {
+  color: #d7e1ee;
+}
+
+.service-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.service-table th,
+.service-table td {
+  padding: 15px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.service-table th {
+  color: #fff;
+  background: #38bdf80d;
+  font-size: .85rem;
+}
+
+.service-name {
+  color: #fff;
+  font-weight: 700;
+}
+
+.service-price {
+  color: #fdba74;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.note,
+.argentina {
+  margin-top: 20px;
+  padding: 18px 20px;
+  border-left: 4px solid var(--blue);
+  border-radius: 0 12px 12px 0;
+  background: #38bdf812;
+  color: #d7e1ee;
+}
+
+.argentina {
+  border-color: var(--orange);
+  background: #f9731612;
+}
+
+.program {
+  padding: 25px 0;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.program:last-child {
+  border: 0;
+}
+
+.program-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.program h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.15rem;
+}
+
+.program ul {
+  color: #d7e1ee;
+  padding-left: 22px;
+}
+
+.cta,
+.btn-back {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 13px 22px;
+  border-radius: 13px;
+  color: #07121d;
+  background: linear-gradient(135deg, var(--blue), var(--blue2));
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.back {
+  text-align: center;
+  padding: 10px 0 35px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 20px 104px;
+  color: #9aaabe;
+  font-size: .83rem;
+}
+
+@media (max-width: 760px) {
+  .top-nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    width: 100%;
+  }
+
+  .service-table th,
+  .service-table td {
+    padding: 10px 7px;
+    font-size: .85rem;
   }
 }
- 
- @media(min-width:768px){.mobile-cta{display:none}.floating-container{left:auto}}@media(max-width:760px){.top-nav-container{flex-direction:column;align-items:flex-start}.nav-links{width:100%}.floating-desktop-cta{display:none}.service-table th,.service-table td{padding:10px 7px;font-size:.85rem}}@media(max-width:460px){.container{width:min(100% - 24px,920px)}.card{padding:22px 16px}.float-btn{width:42px;height:42px}}
+
+@media (max-width: 460px) {
+  .container {
+    width: min(100% - 24px, 920px);
+  }
+
+  .card {
+    padding: 22px 16px;
+  }
+}
 </style>
 </head>
-<body>
-<a class="floating-desktop-cta" href="./index.html#registro">⚡ Mis 7 días gratis</a>
 
+<body>
 <div class="container">
+
 <header class="top-nav-container">
-<a href="./index.html" class="brand-logo">Latitud Escalar</a>
-<nav class="nav-links">
-<a href="./como-funciona.html">¿Cómo funciona?</a>
-<a href="./servicios.html" class="active">Servicios</a>
-<a href="./sobre-mi.html">La Operadora</a>
-<a href="./testimonios.html">Testimonios</a>
-<a href="./preguntas-frecuentes.html">Preguntas frecuentes</a>
-</nav>
+  <a href="./index.html" class="brand-logo">Latitud Escalar</a>
+
+  <nav class="nav-links">
+    <a href="./como-funciona.html">¿Cómo funciona?</a>
+    <a href="./servicios.html" class="active">Servicios</a>
+    <a href="./sobre-mi.html">La Operadora</a>
+    <a href="./testimonios.html">Testimonios</a>
+    <a href="./preguntas-frecuentes.html">Preguntas frecuentes</a>
+  </nav>
 </header>
 
 <main>
 <section class="intro">
-<h1>Servicios y opciones</h1>
-<p class="lead">Distintas formas de acompañar tu proceso, según lo que hoy necesitás.</p>
+  <h1>Servicios y opciones</h1>
+  <p class="lead">Distintas formas de acompañar tu proceso, según lo que hoy necesitás.</p>
 </section>
 
 <section class="card">
-<h2>1. El camino de entrada</h2>
-<table class="service-table">
-<thead><tr><th>Servicio</th><th>Precio</th><th>Incluye</th></tr></thead>
-<tbody>
-<tr><td class="service-name">7 días gratuitos</td><td class="service-price">$0</td><td>7 sesiones diarias de energía escalar + 3 emails de acompañamiento.</td></tr>
-<tr><td class="service-name">21 días de energía escalar</td><td class="service-price">50 USD</td><td>Sesiones diarias durante 21 días + 4 audios por email.</td></tr>
-</tbody>
-</table>
-<div class="argentina"><strong>Para residentes en Argentina:</strong> los 21 días tienen un precio especial de <strong>$44.000 ARS</strong>, solo por transferencia bancaria.</div>
+  <h2>1. El camino de entrada</h2>
+
+  <table class="service-table">
+    <thead>
+      <tr>
+        <th>Servicio</th>
+        <th>Precio</th>
+        <th>Incluye</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td class="service-name">7 días gratuitos</td>
+        <td class="service-price">$0</td>
+        <td>7 sesiones diarias de energía escalar + 3 emails de acompañamiento.</td>
+      </tr>
+
+      <tr>
+        <td class="service-name">21 días de energía escalar</td>
+        <td class="service-price">50 USD</td>
+        <td>Sesiones diarias durante 21 días + 4 audios por email.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="argentina">
+    <strong>Para residentes en Argentina:</strong>
+    los 21 días tienen un precio especial de
+    <strong>$44.000 ARS</strong>, solo por transferencia bancaria.
+  </div>
 </section>
 
 <section class="card">
-<h2>2. Sesiones individuales</h2>
-<table class="service-table">
-<thead><tr><th>Servicio</th><th>Precio</th><th>Incluye</th></tr></thead>
-<tbody>
-<tr><td class="service-name">Sesión de energía escalar personalizada</td><td class="service-price">50 USD</td><td>1 sesión a distancia + devolución de 30 min por videollamada. Elegís el tema.</td></tr>
-<tr><td class="service-name">Limpieza energética personal</td><td class="service-price">50 USD</td><td>1 sesión a distancia + devolución de 30 min para explicar lo encontrado.</td></tr>
-<tr><td class="service-name">Limpieza energética de espacio físico</td><td class="service-price">50 USD</td><td>Sesión a distancia para armonizar casa, auto o departamento + devolución de 30 min.</td></tr>
-<tr><td class="service-name">21 días + sesión personal</td><td class="service-price">90 USD</td><td>21 días de energía escalar sobre un tema a elección + sesión personal de 30 min.</td></tr>
-</tbody>
-</table>
-<div class="note">💡 <strong>¿Querés potenciar los resultados?</strong> Podés combinar energía escalar con limpieza energética en un mismo proceso. Consultame sin compromiso.</div>
+  <h2>2. Sesiones individuales</h2>
+
+  <table class="service-table">
+    <thead>
+      <tr>
+        <th>Servicio</th>
+        <th>Precio</th>
+        <th>Incluye</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td class="service-name">Sesión de energía escalar personalizada</td>
+        <td class="service-price">50 USD</td>
+        <td>1 sesión a distancia + devolución de 30 min por videollamada. Elegís el tema.</td>
+      </tr>
+
+      <tr>
+        <td class="service-name">Limpieza energética personal</td>
+        <td class="service-price">50 USD</td>
+        <td>1 sesión a distancia + devolución de 30 min para explicar lo encontrado.</td>
+      </tr>
+
+      <tr>
+        <td class="service-name">Limpieza energética de espacio físico</td>
+        <td class="service-price">50 USD</td>
+        <td>Sesión a distancia para armonizar casa, auto o departamento + devolución de 30 min.</td>
+      </tr>
+
+      <tr>
+        <td class="service-name">21 días + sesión personal</td>
+        <td class="service-price">90 USD</td>
+        <td>21 días de energía escalar sobre un tema a elección + sesión personal de 30 min.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    💡 <strong>¿Querés potenciar los resultados?</strong>
+    Podés combinar energía escalar con limpieza energética en un mismo proceso.
+    Consultame sin compromiso.
+  </div>
 </section>
 
 <section class="card">
-<h2>3. Programas completos</h2>
-<p style="color:#38bdf8;font-size:.9rem;font-weight:800;letter-spacing:.05em">ENERGÍA ESCALAR + REPROGRAMACIÓN MENTAL + TRABAJO CON EL YO SUPERIOR</p>
+  <h2>3. Programas completos</h2>
 
-<div class="program">
-<div class="program-title"><h3>Programa 6 semanas “Reinicio sistémico”</h3><span class="service-price">980 USD</span></div>
-<p>6 sesiones personalizadas online (1 hora cada una) con devoluciones y seguimiento. Incluye protocolos de reprogramación mental y trabajo con el yo superior, más 42 días de energía escalar durante todo el proceso.</p>
-<p>Para resolver eso que te está frenando y en lo que ya invertiste tiempo, dinero y energía sin encontrar resultados.</p>
+  <p style="color:#38bdf8;font-size:.9rem;font-weight:800;letter-spacing:.05em">
+    ENERGÍA ESCALAR + REPROGRAMACIÓN MENTAL + TRABAJO CON EL YO SUPERIOR
+  </p>
+
+  <div class="program">
+    <div class="program-title">
+      <h3>Programa 6 semanas “Reinicio sistémico”</h3>
+      <span class="service-price">980 USD</span>
+    </div>
+
+    <p>
+      6 sesiones personalizadas online (1 hora cada una) con devoluciones y seguimiento.
+      Incluye protocolos de reprogramación mental y trabajo con el yo superior,
+      más 42 días de energía escalar durante todo el proceso.
+    </p>
+
+    <p>
+      Para resolver eso que te está frenando y en lo que ya invertiste tiempo,
+      dinero y energía sin encontrar resultados.
+    </p>
+  </div>
+
+  <div class="program">
+    <div class="program-title">
+      <h3>Programa 6 semanas IKIGAI</h3>
+      <span class="service-price">980 USD</span>
+    </div>
+
+    <p>
+      6 sesiones personalizadas online (1 hora cada una), con devoluciones,
+      seguimiento, reprogramación mental, trabajo con el yo superior y
+      42 días de energía escalar.
+    </p>
+
+    <p>Para decisiones vocacionales, cambios de carrera, profesión o negocio.</p>
+
+    <ul>
+      <li>Reconocer talentos y habilidades.</li>
+      <li>Identificar lo que realmente importa.</li>
+      <li>Diseñar un camino posible, con pasos concretos.</li>
+      <li>Trabajar miedos como inseguridad, falta de constancia o presión económica.</li>
+    </ul>
+  </div>
+
+  <div class="program">
+    <div class="program-title">
+      <h3>Frecuencia de Éxito — 6 semanas</h3>
+      <span class="service-price">980 USD</span>
+    </div>
+
+    <p>
+      6 sesiones personalizadas online (1 hora cada una) con enfoque en negocios y marca personal.
+    </p>
+
+    <p>
+      Incluye protocolos de reprogramación mental para disolver bloqueos de éxito,
+      visibilidad y prosperidad, más 42 días de energía escalar para sostener el proceso.
+    </p>
+
+    <p>
+      Para emprendedores y empresarios que quieren escalar su negocio sin romperse en el intento.
+    </p>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Precios en Argentina</h2>
+
+  <p>Todos los servicios están expresados en dólares estadounidenses.</p>
+
+  <p>
+    Si residís en Argentina, podés abonar en pesos argentinos al tipo de cambio oficial
+    del día de la transacción.
+  </p>
+
+  <ul>
+    <li>El programa de 21 días tiene un precio fijo de <strong>$44.000 ARS</strong>.</li>
+    <li>Para el resto de los servicios, el valor se calcula al tipo de cambio oficial del día.</li>
+  </ul>
+</section>
+
+<div class="back">
+  <a href="./index.html" class="btn-back">← Volver al inicio</a>
 </div>
-
-<div class="program">
-<div class="program-title"><h3>Programa 6 semanas IKIGAI</h3><span class="service-price">980 USD</span></div>
-<p>6 sesiones personalizadas online (1 hora cada una), con devoluciones, seguimiento, reprogramación mental, trabajo con el yo superior y 42 días de energía escalar.</p>
-<p>Para decisiones vocacionales, cambios de carrera, profesión o negocio.</p>
-<ul>
-<li>Reconocer talentos y habilidades.</li>
-<li>Identificar lo que realmente importa.</li>
-<li>Diseñar un camino posible, con pasos concretos.</li>
-<li>Trabajar miedos como inseguridad, falta de constancia o presión económica.</li>
-</ul>
-</div>
-
-<div class="program">
-<div class="program-title"><h3>Frecuencia de Éxito — 6 semanas</h3><span class="service-price">980 USD</span></div>
-<p>6 sesiones personalizadas online (1 hora cada una) con enfoque en negocios y marca personal.</p>
-<p>Incluye protocolos de reprogramación mental para disolver bloqueos de éxito, visibilidad y prosperidad, más 42 días de energía escalar para sostener el proceso.</p>
-<p>Para emprendedores y empresarios que quieren escalar su negocio sin romperse en el intento.</p>
-</div>
-</section>
-
-<section class="card">
-<h2>Precios en Argentina</h2>
-<p>Todos los servicios están expresados en dólares estadounidenses.</p>
-<p>Si residís en Argentina, podés abonar en pesos argentinos al tipo de cambio oficial del día de la transacción.</p>
-<ul>
-<li>El programa de 21 días tiene un precio fijo de <strong>$44.000 ARS</strong>.</li>
-<li>Para el resto de los servicios, el valor se calcula al tipo de cambio oficial del día.</li>
-</ul>
-</section>
-
-<div class="back"><a href="./index.html" class="btn-back">← Volver al inicio</a></div>
 </main>
 </div>
 
-<div class="floating-container">
-<a href="./index.html#registro" class="mobile-cta">⚡ Mis 7 días gratis</a>
- 
-<div class="socials">
-  <a href="https://wa.me/5493548567106?text=Hola%20tengo%20una%20consulta%20sobre%20Oasis%20Mental." target="_blank" class="float-btn wa" title="Escribir por WhatsApp">
-    <svg viewBox="0 0 32 32" style="width:23px;height:23px;fill:currentColor;">
-      <path d="M16 2a13.9 13.9 0 0 0-12 21L2 30l7.2-1.9A13.9 13.9 0 1 0 16 2zm0 25.5a11.6 11.6 0 0 1-5.9-1.6l-.4-.3-4.4 1.1 1.2-4.3-.3-.4a11.6 11.6 0 1 1 9.8 5.5zm6.4-8.7c-.4-.2-2.1-1-2.4-1.2s-.6-.2-.8.2-.9 1.2-1.1 1.4-.4.2-.7 0a9.2 9.2 0 0 1-2.7-1.7 10.2 10.2 0 0 1-1.9-2.3c-.2-.4 0-.6.2-.8l.5-.6.4-.5c.1-.2.1-.4 0-.5s-.8-2-1.1-2.7c-.3-.7-.6-.6-.8-.6h-.7a1.4 1.4 0 0 0-1 .5 4.3 4.3 0 0 0-1.3 3.2 7.5 7.5 0 0 0 1.6 4 17.2 17.2 0 0 0 6.6 5.8c2.4 1 2.9.8 3.4.8a3 3 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.7-.4z"/>
-    </svg>
-  </a>
-
-  <a href="https://instagram.com/latitudescalar" target="_blank" class="float-btn ig" title="Seguir en Instagram">
-    <svg viewBox="0 0 24 24" style="width:23px;height:23px;fill:currentColor;">
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4z"/>
-    </svg>
-  </a>
-
-  <button type="button" class="float-btn chat" onclick="toggleChat()" title="Preguntar al asistente">
-    <svg viewBox="0 0 24 24" style="width:23px;height:23px;fill:currentColor;">
-      <path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z"/>
-    </svg>
-  </button>
-</div>
- 
-</div>
-
-<aside class="chat-widget" id="chatWidget">
-<div class="chat-header"><div><h3>✨ Asistente Oasis</h3><small>Preguntas sobre energía escalar</small></div><button class="chat-close" onclick="toggleChat()">×</button></div>
-<div class="messages" id="chatMessages"><div class="msg">Hola, soy el Asistente Oasis. Estoy aquí para resolver tus dudas sobre cómo ordenar tu caos con energía escalar. ¿Qué te gustaría saber?</div></div>
-<div class="chat-input"><input id="chatInput" placeholder="Escribí tu consulta..." onkeydown="if(event.key==='Enter')sendMessage()"><button onclick="sendMessage()">Enviar</button></div>
-</aside>
-
 <footer>© 2026 Latitud Escalar. Todos los derechos reservados.</footer>
-
-<script>
-const CHATBOT_ENDPOINT="https://oasis-chat.contacto-latitudescalar.workers.dev";
-function toggleChat(){const c=document.getElementById("chatWidget");c.style.display=c.style.display==="flex"?"none":"flex"}
-async function sendMessage(){
- const input=document.getElementById("chatInput"),message=input.value.trim();if(!message)return;
- const box=document.getElementById("chatMessages"),user=document.createElement("div"),bot=document.createElement("div");
- user.className="msg user";user.innerText=message;box.appendChild(user);input.value="";
- bot.className="msg";bot.innerText="Escribiendo...";box.appendChild(bot);
- try{const r=await fetch(CHATBOT_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message})});const d=await r.json();bot.innerText=d.answer||"No pude procesar la respuesta. Podés escribirle a Laura por WhatsApp."}catch{bot.innerText="Error de conexión. Podés escribirle a Laura por WhatsApp."}
- box.scrollTop=box.scrollHeight;
-}
-</script>
 </body>
 </html>
