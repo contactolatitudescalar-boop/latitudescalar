@@ -5,8 +5,20 @@ const WHATSAPP_URL =
   "https://wa.me/5493548567106?text=Hola%20tengo%20una%20consulta%20sobre%20Oasis%20Mental.";
 
 function crearChatbot() {
-  if (document.getElementById("chatWidget")) return;
+  const chatbotAntiguo = document.getElementById("chatWidget");
+  const botonesAntiguos = document.querySelectorAll(
+  ".floating-container, .floating-desktop-cta"
+);
 
+if (chatbotAntiguo) {
+  chatbotAntiguo.remove();
+}
+
+botonesAntiguos.forEach((elemento) => {
+  elemento.remove();
+});
+
+  
   document.body.insertAdjacentHTML(
     "beforeend",
     `
