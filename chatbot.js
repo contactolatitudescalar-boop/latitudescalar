@@ -97,27 +97,28 @@ botonesAntiguos.forEach((elemento) => {
       </div>
 
       <div class="chat-messages" id="chatMessages">
-  <div class="chat-msg msg-bot">
-    Hola, soy el asistente de Oasis Mental. ¿En qué puedo ayudarte?
-  </div>
-</div>
+        <div class="chat-msg msg-bot" style="text-align:left !important;">
+          Hola, soy el asistente de Oasis Mental. ¿En qué puedo ayudarte?
+        </div>
+      </div>
 
-<div class="chat-input-area">
-  <input
-    id="chatInput"
-    type="text"
-    placeholder="Escribí tu consulta aquí..."
-    autocomplete="off"
-  >
-  <button
-    type="button"
-    id="chatSendButton"
-  >
-    Enviar
-  </button>
-</div>
-</div>
-
+      <div class="chat-input-area">
+        <input
+          id="chatInput"
+          type="text"
+          placeholder="Escribí tu consulta aquí..."
+          autocomplete="off"
+        >
+        <button
+          type="button"
+          id="chatSendButton"
+        >
+          Enviar
+        </button>
+      </div>
+    </div>
+    </div>
+    `
   );
 
   document
