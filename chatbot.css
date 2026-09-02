@@ -167,6 +167,7 @@
   overflow-wrap: anywhere;
   word-break: break-word;
   border-radius: 12px;
+  text-align: left;
 }
 
 .chat-msg a {
