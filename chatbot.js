@@ -12,7 +12,7 @@ function crearChatbot() {
     `
     <a
       class="floating-desktop-cta"
-      href="#registro"
+      href="./index.html#registro"
     >
       ⚡ Mis 7 días gratis
     </a>
@@ -20,7 +20,7 @@ function crearChatbot() {
     <div class="floating-container">
       <a
         class="floating-mobile-cta"
-        href="#registro"
+        href="./index.html#registro"
       >
         ⚡ Mis 7 días gratis
       </a>
