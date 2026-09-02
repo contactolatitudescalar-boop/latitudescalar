@@ -86,7 +86,7 @@ function crearChatbot() {
 
       <div class="chat-messages" id="chatMessages">
         <div class="chat-msg msg-bot">
-          Hola, soy el Asistente Oasis. ¿En qué puedo ayudarte?
+          Hola, soy el asistente de Oasis Mental. ¿En qué puedo ayudarte?
         </div>
       </div>
 
