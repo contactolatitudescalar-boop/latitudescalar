@@ -94,6 +94,12 @@
   box-shadow: 0 18px 42px #0009;
 }
 
+/* Mantiene Flexbox incluso si JavaScript abre el widget con display:block */
+.chat-widget[style*="display: block"],
+.chat-widget[style*="display:block"] {
+  display: flex !important;
+}
+
 .chat-header {
   display: flex;
   flex: 0 0 auto;
@@ -123,14 +129,13 @@
 }
 
 .chat-messages {
-  display: flex !important;
-  flex: 1 1 auto !important;
-  flex-direction: column !important;
-  order: 1 !important;
-  min-height: 0 !important;
-  overflow-y: auto !important;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
   gap: 10px;
   padding: 14px;
+  overflow-y: auto;
   background: #eff6ff !important;
 }
 
@@ -148,13 +153,13 @@
 }
 
 .msg-bot {
-  align-self: flex-start !important;
+  align-self: flex-start;
   color: #172554 !important;
   background: #bfdbfe !important;
 }
 
 .msg-user {
-  align-self: flex-end !important;
+  align-self: flex-end;
   color: #fff !important;
   background: #5146e5 !important;
 }
@@ -170,10 +175,10 @@
 }
 
 .chat-input-area {
-  display: flex !important;
-  flex: 0 0 auto !important;
-  order: 2 !important;
+  display: flex;
+  flex: 0 0 auto;
   gap: 7px;
+  margin-top: auto;
   padding: 10px;
   border-top: 1px solid #91a9c8;
   background: #dbeafe !important;
