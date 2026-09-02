@@ -288,3 +288,7 @@
   }
   
 }
+
+.chat-widget .chat-msg {
+  text-align: left !important;
+}
