@@ -98,7 +98,7 @@ botonesAntiguos.forEach((elemento) => {
 
       <div class="chat-messages" id="chatMessages">
       
-      <div class="chat-msg msg-bot">Hola, soy el asistente de Oasis Mental. ¿En qué puedo ayudarte?</div>
+      <div class="chat-msg msg-bot" style="text-align:left !important;">Hola, soy el asistente de Oasis Mental. ¿En qué puedo ayudarte?</div>
 
       <div class="chat-input-area">
         <input
