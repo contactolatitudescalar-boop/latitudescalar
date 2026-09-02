@@ -1138,6 +1138,29 @@ Termina cada respuesta con:
       if (event.key === "Enter") sendMessage();
     }
 
+
+    function convertirLinksEnClickeables(elemento, texto) {
+  const patronUrl = /(https?:\/\/[^\s]+)/g;
+
+  elemento.replaceChildren();
+
+  String(texto).split(patronUrl).forEach((parte) => {
+    if (parte.startsWith("https://") || parte.startsWith("http://")) {
+      const link = document.createElement("a");
+      link.href = parte;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = parte;
+      link.style.color = "#7dd3fc";
+      link.style.textDecoration = "underline";
+      link.style.fontWeight = "700";
+      elemento.appendChild(link);
+    } else {
+      elemento.appendChild(document.createTextNode(parte));
+    }
+  });
+}
+    
     async function sendMessage() {
       const input = document.getElementById("chatInput");
       const message = input.value.trim();
@@ -1168,19 +1191,23 @@ Termina cada respuesta con:
   body: JSON.stringify({ message })
 });
 
+const data = await response.json();
 
-        const data = await response.json();
+convertirLinksEnClickeables(
+  bot,
+  data.answer ||
+    "No pude procesar la respuesta. Podés escribirle a Laura por WhatsApp: https://wa.me/5493548567106"
+);
+} catch {
+  convertirLinksEnClickeables(
+    bot,
+    "Error de conexión. Podés escribirle a Laura por WhatsApp: https://wa.me/5493548567106"
+  );
+}
 
-        bot.innerText =
-          data.answer ||
-          "No pude procesar la respuesta. Podés escribirle a Laura por WhatsApp.";
-      } catch {
-        bot.innerText = "Error de conexión. Podés escribirle a Laura por WhatsApp.";
-      }
-
-      list.scrollTop = list.scrollHeight;
-    }
-
+list.scrollTop = list.scrollHeight;
+}
+              
     const form = document.getElementById("oasis-brevo-form");
     const birth = document.getElementById("FECHA_NACIMIENTO");
     const minorMessage = document.getElementById("minor-message");
