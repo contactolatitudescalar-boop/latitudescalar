@@ -289,3 +289,9 @@
     max-width: 88%;
   }
 }
+
+.chat-msg {
+  text-align: left !important;
+  margin-left: 0;
+  margin-right: 0;
+}
