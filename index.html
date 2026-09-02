@@ -1139,6 +1139,7 @@ Termina cada respuesta con:
     }
 
 
+
     function convertirLinksEnClickeables(elemento, texto) {
   const patronUrl = /(https?:\/\/[^\s]+)/g;
 
@@ -1147,13 +1148,20 @@ Termina cada respuesta con:
   String(texto).split(patronUrl).forEach((parte) => {
     if (parte.startsWith("https://") || parte.startsWith("http://")) {
       const link = document.createElement("a");
+
       link.href = parte;
       link.target = "_blank";
       link.rel = "noopener noreferrer";
-      link.textContent = parte;
+
+      link.textContent = parte.includes("#registro")
+        ? "Abrir formulario de inscripción"
+        : "Abrir WhatsApp de Laura";
+
       link.style.color = "#7dd3fc";
       link.style.textDecoration = "underline";
       link.style.fontWeight = "700";
+      link.style.cursor = "pointer";
+
       elemento.appendChild(link);
     } else {
       elemento.appendChild(document.createTextNode(parte));
