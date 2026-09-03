@@ -831,18 +831,26 @@
               >
             </div>
 
-            <div>
-  <label for="WHATSAPP">Número de WhatsApp con código de país *</label>
-  <input
-    id="WHATSAPP"
-    name="WHATSAPP"
-    type="tel"
-    required
-    pattern="^\+[1-9]\d{7,14}$"
-    placeholder="Ej: +5493548567106"
-    title="Usá +, código de país y número, sin espacios."
-  >
-</div>
+
+         <div>
+                <label for="WHATSAPP">Número de WhatsApp con código de país *</label>
+
+            <div
+                class="sib-sms-input"
+                data-placeholder="WHATSAPP"
+                data-required="1"
+                data-country-code="AR"
+                data-value=""
+            >
+              <input
+                  type="tel"
+                  id="WHATSAPP"
+                  name="WHATSAPP"
+                  required
+                  placeholder="Ej: +5493548567106"
+            >
+            </div>
+        </div>
 
             <div>
               <label for="RESIDENCIA">Lugar de residencia (Ciudad, País) *</label>
