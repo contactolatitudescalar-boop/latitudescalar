@@ -818,18 +818,44 @@
               <input id="NOMBRE" name="NOMBRE" required placeholder="Tu nombre" autocomplete="name">
             </div>
 
+
             <div>
-              <label for="FECHA_NACIMIENTO">Fecha de nacimiento (DD-MM-AAAA) *</label>
-              <input
-                id="FECHA_NACIMIENTO"
-                name="FECHA_NACIMIENTO"
-                required
-                pattern="^([0-2][0-9]|(3)[0-1])-((0)[0-9]|(1)[0-2])-\d{4}$"
-                placeholder="DD-MM-AAAA"
-                title="Formato requerido: DD-MM-AAAA"
-                inputmode="numeric"
-              >
-            </div>
+  <label>Fecha de nacimiento *</label>
+
+  <div style="display:grid; grid-template-columns:1fr 1.5fr 1.2fr; gap:8px;">
+    
+    <select id="DIA_NACIMIENTO" required>
+      <option value="">Día</option>
+    </select>
+
+    <select id="MES_NACIMIENTO" required>
+      <option value="">Mes</option>
+      <option value="01">Enero</option>
+      <option value="02">Febrero</option>
+      <option value="03">Marzo</option>
+      <option value="04">Abril</option>
+      <option value="05">Mayo</option>
+      <option value="06">Junio</option>
+      <option value="07">Julio</option>
+      <option value="08">Agosto</option>
+      <option value="09">Septiembre</option>
+      <option value="10">Octubre</option>
+      <option value="11">Noviembre</option>
+      <option value="12">Diciembre</option>
+    </select>
+
+    <select id="ANIO_NACIMIENTO" required>
+      <option value="">Año</option>
+    </select>
+
+  </div>
+
+  <input
+    type="hidden"
+    id="FECHA_NACIMIENTO"
+    name="FECHA_NACIMIENTO"
+  >
+</div>
 
 
          <div>
@@ -965,10 +991,51 @@
 
   <script>
                
+
     const form = document.getElementById("oasis-brevo-form");
-    const birth = document.getElementById("FECHA_NACIMIENTO");
-    const minorMessage = document.getElementById("minor-message");
-    const submitButton = document.getElementById("btn-submit");
+const birth = document.getElementById("FECHA_NACIMIENTO");
+const birthDay = document.getElementById("DIA_NACIMIENTO");
+const birthMonth = document.getElementById("MES_NACIMIENTO");
+const birthYear = document.getElementById("ANIO_NACIMIENTO");
+const minorMessage = document.getElementById("minor-message");
+const submitButton = document.getElementById("btn-submit");
+
+/* Crear los días */
+for (let i = 1; i <= 31; i++) {
+  const option = document.createElement("option");
+  option.value = String(i).padStart(2, "0");
+  option.textContent = i;
+  birthDay.appendChild(option);
+}
+
+/* Crear los años */
+const currentYear = new Date().getFullYear();
+
+for (let year = currentYear; year >= 1920; year--) {
+  const option = document.createElement("option");
+  option.value = year;
+  option.textContent = year;
+  birthYear.appendChild(option);
+}
+
+/* Construir la fecha que recibirá Brevo */
+function updateBirthDate() {
+  if (birthDay.value && birthMonth.value && birthYear.value) {
+    birth.value =
+      birthDay.value + "-" +
+      birthMonth.value + "-" +
+      birthYear.value;
+  } else {
+    birth.value = "";
+  }
+
+  validateAge();
+}
+
+birthDay.addEventListener("change", updateBirthDate);
+birthMonth.addEventListener("change", updateBirthDate);
+birthYear.addEventListener("change", updateBirthDate);
+    
 
     function getAge(value) {
       const match = /^(\d{2})-(\d{2})-(\d{4})$/.exec(value);
@@ -1007,9 +1074,6 @@
 
       return !blocked;
     }
-
-    birth.addEventListener("input", validateAge);
-    birth.addEventListener("change", validateAge);
 
     let formWasSubmitted = false;
 
