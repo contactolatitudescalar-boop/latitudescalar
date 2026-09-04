@@ -806,13 +806,10 @@
             </a>
           </div>
 
-          <form
-            id="oasis-brevo-form"
-            action="https://f19835dd.sibforms.com/serve/MUIFAI0VyoUeA5Vpb62nVPoqyF_dYsSIdZsz6xcFSu0hZQbk8ZSaYdq45fjZnHwMm9jrOK1-ZQ_8Xi2kOElLXAUOzEodO9RqbpxYEF-Q2lS2ctdaga9Sx8g6QFuO4pMA4TiijvQzoLbAEQH2GKz8vcrZOiQcpzUopJ0qYC9J63wnqC2J0R0nLsntgDRRWJ2V-um-WrUF-OSNc99FWQ=="
-            method="POST"
-            target="brevo-hidden-frame"
-            data-type="subscription"
-          >
+
+          <form id="oasis-brevo-form">
+
+          
             <div>
               <label for="NOMBRE">Nombre completo *</label>
               <input id="NOMBRE" name="NOMBRE" required placeholder="Tu nombre" autocomplete="name">
@@ -1075,28 +1072,64 @@ birthYear.addEventListener("change", updateBirthDate);
       return !blocked;
     }
 
-    let formWasSubmitted = false;
+    form.addEventListener("submit", async function(event) {
+  event.preventDefault();
 
-form.addEventListener("submit", function(event) {
   if (!validateAge()) {
-    event.preventDefault();
-    birth.focus();
     return;
   }
 
-  formWasSubmitted = true;
+  const nombre = document.getElementById("NOMBRE").value.trim();
+  const whatsapp = document.getElementById("WHATSAPP").value.trim();
+  const residencia = document.getElementById("RESIDENCIA").value.trim();
+  const email = document.getElementById("EMAIL").value.trim();
+  const caos = document.getElementById("CAOS").value;
+
+  const fechaNacimiento =
+    birthYear.value + "-" +
+    birthMonth.value + "-" +
+    birthDay.value;
+
   submitButton.disabled = true;
   submitButton.textContent = "Enviando...";
-});
 
-document
-  .getElementById("brevo-hidden-frame")
-  .addEventListener("load", function() {
-    if (!formWasSubmitted) return;
+  try {
+    const response = await fetch(
+      "https://oasis-form.contacto-latitudescalar.workers.dev/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          nombre,
+          fechaNacimiento,
+          whatsapp,
+          residencia,
+          email,
+          caos
+        })
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok || !result.ok) {
+      throw new Error(result.message || "No se pudo completar el registro");
+    }
 
     form.style.display = "none";
     document.getElementById("success-msg").style.display = "block";
-  });
+
+  } catch (error) {
+    alert(
+      "No pudimos completar tu inscripción. Por favor, intenta nuevamente en unos minutos."
+    );
+
+    submitButton.disabled = false;
+    submitButton.textContent = "Activar mis 7 días gratis ⚡";
+  }
+});
 
   </script>
 </body>
