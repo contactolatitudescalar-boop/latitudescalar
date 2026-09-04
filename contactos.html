@@ -1,1 +1,247 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oasis Mental — Contactos</title>
 
+  <style>
+    :root {
+      --azul: #143d4a;
+      --verde: #5e9c78;
+      --crema: #f7f4ed;
+      --texto: #203238;
+      --borde: #d9dfd9;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: Arial, sans-serif;
+      color: var(--texto);
+      background: var(--crema);
+    }
+
+    .panel {
+      width: min(100%, 620px);
+      padding: 36px;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 14px 40px rgba(20, 61, 74, .12);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--azul);
+      font-size: 30px;
+    }
+
+    .subtitulo {
+      margin: 10px 0 28px;
+      line-height: 1.5;
+      color: #637176;
+    }
+
+    label {
+      display: block;
+      margin: 18px 0 7px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid var(--borde);
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .fechas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .atajos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0;
+    }
+
+    button {
+      appearance: none;
+      cursor: pointer;
+      padding: 12px 16px;
+      border: 0;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .boton-secundario {
+      color: var(--azul);
+      background: #e8f0ea;
+    }
+
+    .boton-principal {
+      width: 100%;
+      margin-top: 24px;
+      color: white;
+      background: var(--verde);
+    }
+
+    .boton-principal:disabled {
+      cursor: not-allowed;
+      opacity: .6;
+    }
+
+    .resultado {
+      display: none;
+      margin-top: 26px;
+      padding: 18px;
+      border-radius: 12px;
+      text-align: center;
+      background: #eef7f0;
+    }
+
+    .resultado strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 24px;
+      color: var(--azul);
+    }
+
+    .mensaje-error {
+      display: none;
+      margin-top: 18px;
+      color: #a02525;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 520px) {
+      .panel { padding: 25px; }
+      .fechas { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="panel">
+    <h1>Oasis Mental — Contactos</h1>
+    <p class="subtitulo">
+      Elige el período y descarga los contactos inscritos directamente en Excel.
+    </p>
+
+    <div class="fechas">
+      <div>
+        <label for="desde">Desde</label>
+        <input id="desde" type="date">
+      </div>
+
+      <div>
+        <label for="hasta">Hasta</label>
+        <input id="hasta" type="date">
+      </div>
+    </div>
+
+    <div class="atajos">
+      <button class="boton-secundario" type="button" onclick="usarHoy()">Hoy</button>
+      <button class="boton-secundario" type="button" onclick="usarAyer()">Ayer</button>
+      <button class="boton-secundario" type="button" onclick="usarUltimos7Dias()">Últimos 7 días</button>
+    </div>
+
+    <button id="descargar" class="boton-principal" type="button">
+      Buscar y descargar Excel
+    </button>
+
+    <div id="resultado" class="resultado">
+      <strong id="cantidad">0 contactos encontrados</strong>
+      <span>La descarga comenzará automáticamente.</span>
+    </div>
+
+    <p id="error" class="mensaje-error"></p>
+  </main>
+
+  <script>
+    const desde = document.getElementById("desde");
+    const hasta = document.getElementById("hasta");
+    const boton = document.getElementById("descargar");
+    const resultado = document.getElementById("resultado");
+    const cantidad = document.getElementById("cantidad");
+    const error = document.getElementById("error");
+
+    function fechaArgentina(fecha = new Date()) {
+      return new Intl.DateTimeFormat("en-CA", {
+        timeZone: "America/Argentina/Buenos_Aires",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).format(fecha);
+    }
+
+    function usarHoy() {
+      const hoy = fechaArgentina();
+      desde.value = hoy;
+      hasta.value = hoy;
+    }
+
+    function usarAyer() {
+      const ayer = new Date();
+      ayer.setDate(ayer.getDate() - 1);
+      const fecha = fechaArgentina(ayer);
+      desde.value = fecha;
+      hasta.value = fecha;
+    }
+
+    function usarUltimos7Dias() {
+      const inicio = new Date();
+      inicio.setDate(inicio.getDate() - 6);
+      desde.value = fechaArgentina(inicio);
+      hasta.value = fechaArgentina();
+    }
+
+    usarHoy();
+
+    boton.addEventListener("click", async () => {
+      error.style.display = "none";
+      resultado.style.display = "none";
+
+      if (!desde.value || !hasta.value) {
+        error.textContent = "Por favor, elige una fecha de inicio y una fecha de término.";
+        error.style.display = "block";
+        return;
+      }
+
+      if (desde.value > hasta.value) {
+        error.textContent = "La fecha «Desde» no puede ser posterior a la fecha «Hasta».";
+        error.style.display = "block";
+        return;
+      }
+
+      boton.disabled = true;
+      boton.textContent = "Preparando descarga...";
+
+      try {
+        /*
+          En el siguiente paso conectaremos aquí el Worker seguro de Cloudflare.
+          La clave de Brevo nunca estará en este archivo.
+        */
+        throw new Error("Aún falta conectar el sistema seguro de descarga.");
+
+      } catch (err) {
+        error.textContent = err.message;
+        error.style.display = "block";
+      } finally {
+        boton.disabled = false;
+        boton.textContent = "Buscar y descargar Excel";
+      }
+    });
+  </script>
+</body>
+</html>
