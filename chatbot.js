@@ -2,7 +2,7 @@ const CHATBOT_ENDPOINT =
   "https://oasis-chat.contacto-latitudescalar.workers.dev";
 
 const WHATSAPP_URL =
-  "https://wa.me/5493548567106?text=Hola%20tengo%20una%20consulta%20sobre%20Oasis%20Mental.";
+  "https://wa.me/5493548543838?text=Hola%20tengo%20una%20consulta%20sobre%20Oasis%20Mental.";
 
 function crearChatbot() {
   const chatbotAntiguo = document.getElementById("chatWidget");
@@ -245,12 +245,12 @@ async function sendMessage() {
     convertirLinksEnClickeables(
       bot,
       data.answer ||
-        "No pude procesar la respuesta. Podés hablar con Laura por WhatsApp: https://wa.me/5493548567106"
+        "No pude procesar la respuesta. Podés hablar con Laura por WhatsApp: https://wa.me/5493548543838"
     );
   } catch {
     convertirLinksEnClickeables(
       bot,
-      "El asistente está tardando demasiado en responder. Podés hablar con Laura por WhatsApp: https://wa.me/5493548567106"
+      "El asistente está tardando demasiado en responder. Podés hablar con Laura por WhatsApp: https://wa.me/5493548543838"
     );
   } finally {
     clearTimeout(timeout);
